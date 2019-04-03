@@ -4,6 +4,7 @@ import {
   Container, Row, Col
 } from 'reactstrap';
 import MinArticle from './components/minArticle';
+import Footer from './components/footer'
 
 
 class App extends Component {
@@ -17,17 +18,7 @@ class App extends Component {
       <div className="App">
 
         <Container className="containerFuid">
-          <Row>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-          </Row>
+          <Footer />
         </Container>
       </div>
     );
