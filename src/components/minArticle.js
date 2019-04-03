@@ -27,6 +27,7 @@ class MinArticle extends Component {
         return `${string.slice(0, i)}...`;
       }
     }
+    return `${string.slice(0, 150)}...`;
   };
 
 
