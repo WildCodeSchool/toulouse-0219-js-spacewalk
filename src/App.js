@@ -16,6 +16,8 @@ class App extends Component {
     return (
       <div className="App">
 
+
+        {/* Miniature d'article */}
         <Container className="containerFuid">
           <Row>
             <Col lg={4}>
@@ -29,6 +31,7 @@ class App extends Component {
             </Col>
           </Row>
         </Container>
+
       </div>
     );
   }
