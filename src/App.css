@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* pour mettre en page le container fluid */
+.containerFuid {
+  min-width: 100%
+}

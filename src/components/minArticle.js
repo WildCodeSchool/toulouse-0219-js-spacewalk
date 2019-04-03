@@ -33,23 +33,23 @@ class MinArticle extends Component {
   render() {
     return (
       <div>
-        <Col lg={4}>
-          <Card>
-            <CardImg
-              className="minArticleImage"
-              src={this.image}
-              alt="Card image cap"
-            />
-            <CardBody className="cardBody">
-              <CardTitle><h2>{this.title}</h2></CardTitle>
-              <CardSubtitle className="dateName">On {this.date} by {this.copyright}</CardSubtitle>
-              <CardText>
-                {this.excerpt(this.explanation)}
-                <a href="#"> Continue reading</a>
-              </CardText>
-            </CardBody>
-          </Card>
-        </Col>
+
+        <Card>
+          <CardImg
+            className="minArticleImage"
+            src={this.image}
+            alt="Card image cap"
+          />
+          <CardBody className="cardBody">
+            <CardTitle><h2>{this.title}</h2></CardTitle>
+            <CardSubtitle className="dateName">On {this.date} by {this.copyright}</CardSubtitle>
+            <CardText>
+              {this.excerpt(this.explanation)}
+              <a href="#"> Continue reading</a>
+            </CardText>
+          </CardBody>
+        </Card>
+
       </div>
     );
   }
