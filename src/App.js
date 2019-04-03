@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import {
-  Container, Row, Col
+  Container,
+  // Row, Col
 } from 'reactstrap';
-import MinArticle from './components/minArticle';
-import Footer from './components/footer'
+// import MinArticle from './components/minArticle';
+import Footer from './components/footer';
 
 
 class App extends Component {
