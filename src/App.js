@@ -31,6 +31,7 @@ class App extends Component {
             </Col>
           </Row>
         </Container>
+        {/* Miniature d'article fin */}
 
       </div>
     );
