@@ -8,6 +8,9 @@ import {
 import Footer from './components/footer';
 
 
+import './components/navMenu.css';
+import NavMenu from './components/NavMenu';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavMenu />
 
         {/* footer start */}
         <Container className="containerFuid">
