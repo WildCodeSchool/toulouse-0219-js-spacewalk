@@ -11,10 +11,6 @@ import {
   Button
 } from 'reactstrap';
 
-const searchStyle = {
-  color: 'var(--primary-color)'
-};
-
 class NavMenu extends Component {
   constructor(props) {
     super(props);
@@ -36,26 +32,26 @@ class NavMenu extends Component {
     const { isOpen } = this.state;
     return (
       <div>
-        <Navbar expand="md" className="navContainer">
+        <Navbar expand="lg" className="navContainer sticky-top">
           <NavbarBrand href="/">SpaceApp</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} className="navToggler" />
-          <Collapse className="navCollapse" isOpen={isOpen} navbar>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="nav" navbar>
-              <NavItem className="navItem flex-grow-1">
-                <NavLink className="text-center mr-4" href="/">Home</NavLink>
+              <NavItem>
+                <NavLink className="text-center mr-4 active" href="/">Home</NavLink>
               </NavItem>
-              <NavItem className="navItem flex-grow-1">
+              <NavItem>
                 <NavLink className="text-center mr-4" href="/articles">Articles</NavLink>
               </NavItem>
-              <NavItem className="navItem flex-grow-1">
+              <NavItem>
                 <NavLink className="text-center mr-4" href="/read">To read later</NavLink>
               </NavItem>
-              <NavItem className="navItem">
-                <Input className="input" style={searchStyle} type="text" placeholder="Search" />
-              </NavItem>
-              <NavItem className="navItem">
-                <Button block className="btn" variant="outline-success">Search</Button>
-              </NavItem>
+              <div className="nav-input mr-lg-2">
+                <Input type="search" placeholder="Search" />
+              </div>
+              <div className="nav-btn">
+                <Button block type="Submit">Search</Button>
+              </div>
             </Nav>
           </Collapse>
         </Navbar>

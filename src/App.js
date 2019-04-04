@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import './App.css';
+
+import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
 
 class App extends Component {
