@@ -11,6 +11,7 @@
 }
 
 
-.containerFluid {
-  min-width: 100%;
+/* pour mettre en page le container fluid */
+.containerFuid {
+  min-width: 100%
 }
