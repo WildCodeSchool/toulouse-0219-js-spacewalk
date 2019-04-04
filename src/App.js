@@ -22,11 +22,17 @@ class App extends Component {
       <div className="App">
         <NavMenu />
 
+
+
+        {/* Miniature d'article start */}
+        {/* Miniature d'article fin */}
+
         {/* footer start */}
         <Container className="containerFuid">
           <Footer />
         </Container>
         {/* footer end */}
+
 
       </div>
     );
