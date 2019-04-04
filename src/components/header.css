@@ -1,0 +1,26 @@
+.containerOverlay {
+  position: relative;
+}
+
+.imageHeader {
+  height: 22vh;
+  width: auto;
+}
+
+.overlayHeader {
+  position: absolute;
+  top: 2vh;
+  bottom: 0;
+  left: 2vh;
+  right: 0;
+  height: 18vh;
+  width: auto;
+}
+
+.titreOverlay {
+  position: absolute;
+  top: 2vh;
+  bottom: 0;
+  left: 25vh;
+  height: 18vh;
+}

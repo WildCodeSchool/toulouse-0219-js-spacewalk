@@ -9,3 +9,8 @@
   --trans: all 600ms;
   --shadowBox: rgba(67, 162, 208, 0.3) 0px 0px 0px 3px;
 }
+
+
+.containerFluid {
+  min-width: 100%;
+}
