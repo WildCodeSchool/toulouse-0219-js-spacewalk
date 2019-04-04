@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Col
+  CardTitle, CardSubtitle
 } from 'reactstrap';
 import ApiTest from '../tableTest_article';
 import './minArticle.css';

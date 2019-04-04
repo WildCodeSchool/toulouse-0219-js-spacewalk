@@ -17,7 +17,7 @@ class App extends Component {
       <div className="App">
 
 
-        {/* Miniature d'article */}
+        {/* Miniature d'article start */}
         <Container className="containerFuid">
           <Row>
             <Col lg={4}>
