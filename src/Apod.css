@@ -1,0 +1,29 @@
+.containerOverlay {
+  position: relative;
+  width: 100%;
+}
+
+.imageOverlay {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 65%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25%;
+  width: 100%;
+  opacity: 0.7;
+  background-color: #202a3f;
+}
+
+.textOverlay {
+  color: #f9fcfd;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  text-align: left;
+}
