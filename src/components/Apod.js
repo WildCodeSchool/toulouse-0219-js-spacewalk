@@ -33,7 +33,7 @@ class Apod extends Component {
       <div className="containerOverlay">
         <Col lg={8}>
           <Card>
-            <CardImg top width="100%" src={image.url} />
+            <CardImg top width="100%" src={image.url} alt={image.title} />
             <CardBody className="overlay">
               <CardTitle className="textOverlay">
                 <h3 className="font-weight-bold">Picture of the day</h3>
