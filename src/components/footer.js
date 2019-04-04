@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './footer.css';
-import logoAgences from './logoAgences';
+import nasa from './images/logoNasa.png';
+import esa from './images/logoEsa.png';
+import iss from './images/logoIss.png';
+
 
 class Footer extends Component {
   constructor(props) {
@@ -11,18 +14,27 @@ class Footer extends Component {
   render() {
     return (
       <footer id="footer">
-        <logoAgences
-          logo="https://seeklogo.com/images/N/NASA-logo-9411797223-seeklogo.com.png"
-          alt="nasa logo"
-        />
-        <logoAgences
-          logo="https://www.slush.org/wp-content/uploads/2016/11/ESA-logo-500x318.png"
-          alt="esa logo"
-        />
-        <img
-          src="https://www.issworld.com/-/media/issworld/www/Images/Media%20Library/Logo/Print%20and%20web/ISS-logo%20at%20white%20background.gif"
-          alt="iss logo"
-        />
+        <a href="https://www.nasa.gov/">
+          <img
+            className="logoFooter"
+            src={nasa}
+            alt="nasa logo"
+          />
+        </a>
+        <a href="http://www.esa.int/fre/ESA_in_your_country/France">
+          <img
+            className="logoFooter"
+            src={esa}
+            alt="esa logo"
+          />
+        </a>
+        <a href="https://wheretheiss.at">
+          <img
+            className="logoFooter"
+            src={iss}
+            alt="iss logo"
+          />
+        </a>
       </footer>
     );
   }

@@ -18,9 +18,12 @@ class App extends Component {
     return (
       <div className="App">
 
+        {/* footer start */}
         <Container className="containerFuid">
           <Footer />
         </Container>
+        {/* footer end */}
+
       </div>
     );
   }
