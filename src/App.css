@@ -1,3 +1,16 @@
+/*
+* CSS Variables
+*/
+:root {
+  --primary-color: #293347;
+  --secondary-color: #43a2d0;
+  --dark-color: #202a3f;
+  --light-color: #f9fcfd;
+  --trans: all 600ms;
+  --shadowBox: rgba(67, 162, 208, 0.3) 0px 0px 0px 3px;
+}
+
+
 .containerFluid {
   min-width: 100%;
 }

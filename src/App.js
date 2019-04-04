@@ -3,8 +3,8 @@ import { Container, Row } from 'reactstrap';
 import Header from './components/Header';
 import './App.css';
 import Apod from './components/Apod';
-
-
+import './components/navMenu.css';
+import NavMenu from './components/NavMenu';
 
 class App extends Component {
   constructor(props) {
@@ -14,8 +14,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
+
+        {/* header */}
         <Header />
+        {/* Abarre de navigation */}
+        <NavMenu />
 
         {/* Affichage de l'image du jour */}
         <Container>
