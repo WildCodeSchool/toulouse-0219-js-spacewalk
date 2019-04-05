@@ -5,6 +5,7 @@ import MinArticle from './components/minArticle';
 import Footer from './components/footer';
 import Header from './components/Header';
 import Apod from './components/Apod';
+import ShowApodNews from './components/showApodNews';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
 
@@ -24,29 +25,10 @@ class App extends Component {
         <NavMenu />
 
         {/* Affichage de l'image du jour */}
-        <Container>
-          <Row>
-            <Apod />
-          </Row>
-        </Container>
+
+        <ShowApodNews />
         {/* fin de l'affichage de l'image du jour */}
 
-        {/* Miniature d'article start */}
-        <Container className="containerFuid">
-          <Row>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-          </Row>
-        </Container>
-
-        {/* Miniature d'article fin */}
         {/* footer start */}
         <Container className="containerFuid">
           <Footer />

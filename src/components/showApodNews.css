@@ -1,0 +1,12 @@
+.showApodNews {
+  display: flex;
+  justify-content: space-around;
+}
+
+.apod {
+  width: 60%;
+}
+
+.showApodNews article {
+  width: 30%;
+}

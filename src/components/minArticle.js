@@ -22,12 +22,12 @@ class MinArticle extends Component {
 
   // fonction pour couper la description dans la card.
   excerpt = (string) => {
-    for (let i = 150; i < string.length; i++) {
+    for (let i = 100; i < string.length; i++) {
       if (string[i] === ' ') {
         return `${string.slice(0, i)}...`;
       }
     }
-    return `${string.slice(0, 150)}...`;
+    return `${string.slice(0, 100)}...`;
   };
 
 

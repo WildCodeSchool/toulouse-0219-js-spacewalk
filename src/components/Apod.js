@@ -31,18 +31,16 @@ class Apod extends Component {
     return (
       // début de la card
       <div className="containerOverlay">
-        <Col lg={8}>
-          <Card>
-            <CardImg top width="100%" src={image.url} alt={image.title} />
-            <CardBody className="overlay">
-              <CardTitle className="textOverlay">
-                <h3 className="font-weight-bold">Picture of the day</h3>
-                <h3>{image.title}</h3>
-                <p>{image.date}</p>
-              </CardTitle>
-            </CardBody>
-          </Card>
-        </Col>
+        <Card>
+          <CardImg top width="100%" src={image.url} alt={image.title} />
+          <CardBody className="overlay">
+            <CardTitle className="textOverlay">
+              <h3 className="font-weight-bold">Picture of the day</h3>
+              <h3>{image.title}</h3>
+              <p>{image.date}</p>
+            </CardTitle>
+          </CardBody>
+        </Card>
       </div>
     );
   }
