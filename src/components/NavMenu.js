@@ -31,8 +31,8 @@ class NavMenu extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <div>
-        <Navbar expand="lg" className="navContainer sticky-top">
+      <div className="sticky-top">
+        <Navbar expand="lg" className="navContainer">
           <NavbarBrand href="/">SpaceApp</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
