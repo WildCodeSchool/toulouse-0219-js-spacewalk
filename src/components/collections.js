@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './collections.css';
+
 
 class Collections extends Component {
   constructor(props) {
@@ -8,33 +10,23 @@ class Collections extends Component {
 
   render() {
     return (
+      <div id="collections">
+        {/* Collection start */}
 
-      {/* Collection start */ }
-      < Container >
-      <Row>
-        <Col lg={3}>
-          <div>
-            <img
-              src="https://apod.nasa.gov/apod/image/1904/potw1913aM2_1024.jpg"
-              alt="Collection 1"
-            />
-          </div>
-        </Col>
-        <Col lg={3}>
-
-        </Col>
-        <Col lg={3}>
-
-        </Col>
-        <Col lg={3}>
-
-        </Col>
-
-      </Row>
-      </Container >
-      {/* Collection end */ }
-
-
+        <div className="collection1 collectionsText allCollections">
+          Mars
+        </div>
+        <div className="collection2 collectionsText allCollections">
+          The moon
+        </div>
+        <div className="collection3 collectionsText allCollections">
+          Exoplanets
+        </div>
+        <div className="collection4 collectionsText allCollections">
+          The sun
+        </div>
+        {/* Collection end */}
+      </div>
     );
   }
 }
