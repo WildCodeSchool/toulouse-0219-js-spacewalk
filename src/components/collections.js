@@ -11,7 +11,6 @@ class Collections extends Component {
   render() {
     return (
       <div id="collections">
-        {/* Collection start */}
 
         <div className="collection1 collectionsText allCollections">
           Mars
@@ -25,7 +24,6 @@ class Collections extends Component {
         <div className="collection4 collectionsText allCollections">
           The sun
         </div>
-        {/* Collection end */}
       </div>
     );
   }
