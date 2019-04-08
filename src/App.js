@@ -5,7 +5,8 @@ import MinArticle from './components/minArticle';
 import Footer from './components/footer';
 import Header from './components/Header';
 import Apod from './components/Apod';
-import ShowApodNews from './components/showApodNews';
+import ArticleHome from './components/articleHome';
+
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
 
@@ -26,8 +27,9 @@ class App extends Component {
 
         {/* Affichage de l'image du jour */}
 
-        <ShowApodNews />
         {/* fin de l'affichage de l'image du jour */}
+
+        <ArticleHome />
 
         {/* footer start */}
         <Container className="containerFuid">
