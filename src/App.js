@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Apod from './components/Apod';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
+import Hubble from "./components/Hubble";
 
 class App extends Component {
   constructor(props) {
@@ -45,6 +46,8 @@ class App extends Component {
             </Col>
           </Row>
         </Container>
+
+        <Hubble />
 
         {/* Miniature d'article fin */}
         {/* footer start */}
