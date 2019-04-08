@@ -59,7 +59,7 @@ class Hubble extends Component {
 
                 <div id="articleHome">
                   <img
-                    src={singleArt.image_square_large}
+                    src={singleArt.image}
                     alt={singleArt.title}
                   />
                   <div>
