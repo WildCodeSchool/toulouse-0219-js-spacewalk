@@ -1,5 +1,28 @@
 #articleHome img {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
+  float: left;
+}
+
+#articleHome {
+  width: 1000px;
+  height: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
+}
+
+#articleHome div {
+  overflow: auto;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+#articleHome .date{
+  padding-top: 5px;
+  color: grey;
 }

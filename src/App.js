@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import MinArticle from './components/minArticle';
 import Footer from './components/footer';
 import Header from './components/Header';
@@ -29,6 +29,7 @@ class App extends Component {
 
         {/* fin de l'affichage de l'image du jour */}
 
+        <ArticleHome />
         <ArticleHome />
 
         {/* footer start */}
