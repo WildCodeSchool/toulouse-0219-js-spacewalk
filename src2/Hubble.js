@@ -25,20 +25,18 @@ class Hubble extends Component {
   }
   handleTag = tag => this.setState({ tagName: tag });
 
-  // const stylesButton = [ "btn btn-primary","btn btn-secondary","btn btn-success"];
-  // let rand = stylesButton[Math.floor(Math.random() * stylesButton.length)];
-
   render() {
+    const tabTags = [
+      "Science Release",
+      "Photo Release",
+      "Hubble",
+      "TRAPPIST",
+      "exoplanet"
+    ];
     return (
       <section>
         <div className="container-fluid mx-auto">
-          {[
-            "Science Release",
-            "Photo Release",
-            "Hubble",
-            "TRAPPIST",
-            "exoplanet"
-          ].map((tag, index) => (
+          {tabTags.map((tag, index) => (
             <button
               onClick={() => this.handleTag(tag)}
               className="btn btn-info mr-1"
@@ -62,7 +60,11 @@ class Hubble extends Component {
                   />
                   <div className="card-body">
                     <h5 className="card-title">{singleArt.title}</h5>
-                    <p className="badge badge-success">{this.state.tagName}</p>
+                    {tabTags
+                      .filter(tag => singleArt.title.includes(tag))
+                      .map(tag => (
+                        <p className="badge badge-success mr-1">{tag}</p>
+                      ))}
                     <p>{singleArt.pub_date}</p>
                     <p className="card-text"> {singleArt.description}</p>
                     <p>
@@ -72,18 +74,6 @@ class Hubble extends Component {
                     </p>
                   </div>
                 </div>
-
-                /* <div className="card cardStyle">
-                <img src={singleArt.thumbnail} className="card-img-top" />
-                <div className="card-body">
-                  <h4>{singleArt.title}</h4>
-                  <p>{singleArt.pub_date}</p>
-                  <p className="card-text">{singleArt.description}</p>
-                  <a href={singleArt.link} target="_blank">
-                    Continue reading
-                  </a>
-                </div>
-              </div> */
               ))}
           </div>
         </div>
