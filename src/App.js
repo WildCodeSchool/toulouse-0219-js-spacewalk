@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Container, Row, Col } from 'reactstrap';
+import Collection from './components/collections';
+import './App.css';
 import MinArticle from './components/minArticle';
 import Footer from './components/footer';
 import Header from './components/Header';
 import Apod from './components/Apod';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
+import Title from './components/title';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +24,8 @@ class App extends Component {
         <Header />
         {/* Barre de navigation */}
         <NavMenu />
+
+        <Title title="this is a title !" />
 
         {/* Affichage de l'image du jour */}
         <Container>
@@ -47,6 +51,9 @@ class App extends Component {
         </Container>
 
         {/* Miniature d'article fin */}
+
+        <Collection />
+
         {/* footer start */}
         <Container className="containerFuid">
           <Footer />
