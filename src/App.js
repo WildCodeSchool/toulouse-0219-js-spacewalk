@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Apod from './components/Apod';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
+import ImageComponent from './components/imageComponent';
 
 class App extends Component {
   constructor(props) {
@@ -22,26 +23,41 @@ class App extends Component {
         <Header />
         {/* Barre de navigation */}
         <NavMenu />
+        <Apod />
+        <ImageComponent />
 
-        {/* Affichage de l'image du jour */}
-        <Container>
+        {/* <Container className="containerFuid">
           <Row>
-            <Apod />
+            <Col lg={6}>
+              <Apod />
+            </Col>
+            <Col lg={3}>
+              <ImageComponent />
+            </Col>
+            <Col lg={3}>
+              <ImageComponent />
+            </Col>
+            <Col lg={3}>
+              <ImageComponent />
+            </Col>
           </Row>
-        </Container>
-        {/* fin de l'affichage de l'image du jour */}
+        </Container> */}
+
 
         {/* Miniature d'article start */}
         <Container className="containerFuid">
           <Row>
-            <Col lg={4}>
-              <MinArticle />
+            <Col lg={3}>
+              <ImageComponent />
             </Col>
-            <Col lg={4}>
-              <MinArticle />
+            <Col lg={3}>
+              <ImageComponent />
             </Col>
-            <Col lg={4}>
-              <MinArticle />
+            <Col lg={3}>
+              <ImageComponent />
+            </Col>
+            <Col lg={3}>
+              <ImageComponent />
             </Col>
           </Row>
         </Container>
