@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Apod from './components/Apod';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
+import Title from './components/title';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,8 @@ class App extends Component {
         <Header />
         {/* Barre de navigation */}
         <NavMenu />
+
+        <Title title="this is a title !" />
 
         {/* Affichage de l'image du jour */}
         <Container>
