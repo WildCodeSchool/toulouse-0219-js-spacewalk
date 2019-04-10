@@ -32,54 +32,56 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="search">
-        <form onSubmit={this.handleOnSubmit} role="search">
-          <div className="search__query-and-submit">
-            <input
-              id="query"
-              aria-label="Search for images and audio from NASA"
-              className="search__query"
-              name="query"
-              onChange={this.handleOnChange}
-              placeholder="Moon"
-              type="search"
-            />
-            <input className=" " type="submit" value="Search" />
-          </div>
-          <div className="search__options">
-            <label className="search__option" htmlFor="images">
-              Images
+      <aside>
+        <div className="search">
+          <form onSubmit={this.handleOnSubmit} role="search">
+            <div className="search__query-and-submit">
               <input
-                id="images"
-                checked={this.state.images}
-                name="images"
+                id="query"
+                aria-label="Search for images and audio from NASA"
+                className="search__query"
+                name="query"
                 onChange={this.handleOnChange}
-                type="checkbox"
+                placeholder="Moon"
+                type="search"
               />
-            </label>
-            <label className="search__option" htmlFor="audio">
-              Audio
+              <input className=" " type="submit" value="Search" />
+            </div>
+            <div className="search__options">
+              <label className="search__option" htmlFor="images">
+                Images
               <input
-                id="audio"
-                checked={this.state.audio}
-                name="audio"
-                onChange={this.handleOnChange}
-                type="checkbox"
-              />
-            </label>
-            <label className="search__option" htmlFor="video">
-              Video
+                  id="images"
+                  checked={this.state.images}
+                  name="images"
+                  onChange={this.handleOnChange}
+                  type="checkbox"
+                />
+              </label>
+              <label className="search__option" htmlFor="audio">
+                Audio
               <input
-                id="video"
-                checked={this.state.video}
-                name="video"
-                onChange={this.handleOnChange}
-                type="checkbox"
-              />
-            </label>
-          </div>
-        </form>
-      </div>
+                  id="audio"
+                  checked={this.state.audio}
+                  name="audio"
+                  onChange={this.handleOnChange}
+                  type="checkbox"
+                />
+              </label>
+              <label className="search__option" htmlFor="video">
+                Video
+              <input
+                  id="video"
+                  checked={this.state.video}
+                  name="video"
+                  onChange={this.handleOnChange}
+                  type="checkbox"
+                />
+              </label>
+            </div>
+          </form>
+        </div>
+      </aside>
     );
   }
 }

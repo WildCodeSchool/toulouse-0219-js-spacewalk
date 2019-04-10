@@ -13,11 +13,11 @@ const Image = item => (
       <div className="card-body">
         {/* Type du média affiché dans un badge */}
         <div className="badge badge-pill badge-warning">{item.type}</div>
-
         {/* Lien sur le titre */}
         <Link to={`/asset/${item.id}`}>
           <h5 className="card-text">{item.title}</h5>
         </Link>
+        {/* Date de publication */}
         <p>{item.date}</p>
         <div>
           {/* Affichage de chaque mot-clé dans un badge */}
