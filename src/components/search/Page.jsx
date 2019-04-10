@@ -9,7 +9,8 @@ class Page extends Component {
     super(props);
 
     this.state = {
-      results: []
+      results: [],
+      error: ''
     };
 
     this.search = this.search.bind(this);
@@ -17,7 +18,8 @@ class Page extends Component {
 
   search(params) {
     APIClient.search(params).then(results => {
-      this.setState({ results });
+      this.setState({ results })
+
     });
   }
 
@@ -30,8 +32,10 @@ class Page extends Component {
         {/* Affichage des résultats */}
         <div className="row mx-auto bg-dark p-5">
           {this.state.results.length > 0
-            && <Results results={this.state.results} />
+            ? <Results results={this.state.results} />
+            : <div> Erreur </div>
           }
+
         </div>
       </div>
     );

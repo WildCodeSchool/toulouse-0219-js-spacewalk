@@ -21,7 +21,7 @@ const Image = item => (
         <p>{item.date}</p>
         <div>
           {/* Affichage de chaque mot-clé dans un badge */}
-          {item.keywords[0].map(keyword => (
+          {item.keywords[0] && item.keywords[0].map(keyword => (
             <div className="badge badge-primary mr-1">{keyword}</div>
           ))}
         </div>
