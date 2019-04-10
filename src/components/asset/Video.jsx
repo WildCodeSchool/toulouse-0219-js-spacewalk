@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Player } from 'video-react';
 import Title from '../title';
-
-const Video = ({ description, href, title, id }) => (
+// Affichage de la page de la vidéo avec les détails et le player
+const Video = ({ description, title, id }) => (
   <div className="container">
     <div className="asset-video">
       <Title title={title} />
@@ -18,7 +18,6 @@ const Video = ({ description, href, title, id }) => (
 
 Video.propTypes = {
   description: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 };
 

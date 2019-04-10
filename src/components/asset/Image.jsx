@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Title from '../title';
-
+// Affichage de la page de l'image avec les détails
 const Image = ({ description, href, title, date }) => (
   <div clasName="container">
     <div className="text-center row mx-auto">
