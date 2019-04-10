@@ -1,7 +1,6 @@
-@font-face 
-{
-    font-family: 'azonix';
-    src: url('./font/Azonix/Azonix.otf') format("OpenType");
+@font-face {
+  font-family: 'azonix';
+  src: url('./font/Azonix/Azonix.otf') format("OpenType");
 }
 
 #title {
@@ -11,8 +10,16 @@
   text-align: center;
 }
 
+/* Titre secondaire */
+
+#titleSecond {
+  font-family: "azonix";
+  padding-top: 50px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
 #title h1 {
   margin-bottom: 50px;
   font-size: 3em;
 }
-

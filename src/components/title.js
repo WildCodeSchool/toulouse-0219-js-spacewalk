@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './title.css';
 
 const Title = ({ title }) => (
@@ -7,4 +8,9 @@ const Title = ({ title }) => (
   </div>
 );
 
+
+Title.propTypes = {
+  title: PropTypes.string.isRequired,
+
+};
 export default Title;
