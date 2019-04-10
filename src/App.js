@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Container, Row, Col } from 'reactstrap';
-import MinArticle from './components/minArticle';
+import Collection from './components/collections';
+import './App.css';
 import Footer from './components/footer';
 import Header from './components/Header';
-import Apod from './components/Apod';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
+<<<<<<< HEAD
 import HubbleArticles from "./components/HubbleArticles";
+=======
+import Title from './components/title';
+import Asset from "./components/asset/Page";
+import Search from "./components/search/Page";
+import Home from './components/Home';
+>>>>>>> dev
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +24,7 @@ class App extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div className="App">
 
         {/* header */}
@@ -57,6 +65,25 @@ class App extends Component {
         {/* footer end */}
 
       </div>
+=======
+      <Router>
+        <div className="App">
+          {/* header */}
+          <Header />
+          {/* Barre de navigation */}
+          <NavMenu />
+          <Route path="/" exact component={Home} />
+          <Route path="/search" component={Search} />
+          <Route path="/asset/:id" component={Asset} />
+          {/* footer start */}
+          <Container className="containerFuid">
+            <Footer />
+          </Container>
+          {/* footer end */}
+
+        </div>
+      </Router>
+>>>>>>> dev
     );
   }
 }
