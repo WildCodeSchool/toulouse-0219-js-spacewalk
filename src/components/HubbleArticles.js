@@ -38,7 +38,6 @@ class Hubble extends Component {
             "Science Release",
             "Photo Release",
             "Hubble",
-            "TRAPPIST",
             "exoplanet"
           ].map((tag, index) => (
             <button

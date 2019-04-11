@@ -1,18 +1,31 @@
 /* .collectionDiv {
   
 } */
+
+
+#collection .tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
 #collections{
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: auto;
   text-align: center;
   width: 80%;
+
 /* margin haut et bas de collection */
   margin-top: 50px;
   margin-bottom: 50px;
-
-
+  
+  text-align: center;
 }
 
 .allCollections {
@@ -26,28 +39,12 @@
 }
 
 
-.collection1 {
-  background-image: url('https://www.jpl.nasa.gov/images/mars/20160421/PIA00407-16.jpg');
-}
-
-.collection2 {
-  background-image: url('https://media.begeek.fr/2017/12/super-Lune-660x424.jpg');
-}
-
-.collection3 {
-  background-image: url('https://exoplanets.nasa.gov/internal_resources/771/');
-}
-
-.collection4 {
-  background-image: url('https://fr.cdn.v5.futura-sciences.com/buildsv6/images/largeoriginal/3/9/e/39e4171faa_52591_soleil-nasa-goddard-photo-video-flickr-cc-20.jpg');
-}
-
-
 .collectionsText {
   margin: auto;
   text-align: center;
-  color: #f9fcfd;
+  color: red;
   font-size: 3em;
   padding: 200px 0;
 }
 
+/* #f9fcfd */

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Apod from './Apod';
 import MinArticle from './minArticle'
+import HubbleArticles from "./HubbleArticles";
+import CollectionAndResult from "./CollectionAndResult";
 import {
   Col, Row, Container
 } from 'reactstrap';
@@ -21,24 +23,13 @@ class Home extends Component {
         </Container>
         {/* fin de l'affichage de l'image du jour */}
 
-        {/* Miniature d'article start */}
-        <Container className="containerFuid">
-          <Row>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-          </Row>
-        </Container>
+        <CollectionAndResult />
 
-        {/* Miniature d'article fin */}
+        {/* <Collection />
+        <HubbleArticles /> */}
 
-        <Collection />
+
+
       </div>
     );
   }
