@@ -8,13 +8,14 @@ import {
 } from 'react-leaflet';
 import L from 'leaflet';
 import config from '../config';
-import keys from '../keys'
+import keys from '../keys';
 import sat from '../satellites';
+import 'leaflet/dist/leaflet.css';
 
 
 // Style to display the map
 const lfContStyle = {
-  height: '600px',
+  height: '500px',
   width: '900px',
   margin: 'auto'
 };
@@ -57,7 +58,7 @@ class TrackSat extends Component {
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
-    }, 30000);
+    }, 3000);
   }
 
   // Stopping the time interval
@@ -130,7 +131,7 @@ class TrackSat extends Component {
 
     // Setting up marker
     const issMarker = L.icon({
-      iconUrl: require('.images/iss.png'),
+      iconUrl: require('./images/iss.png'),
       iconSize: [50, 50],
     });
 
@@ -147,7 +148,7 @@ class TrackSat extends Component {
     const satList = jsonSatList.map((item, key) => <option key={item.id} value={item.name}>{item.name}</option>);
 
     return (
-      <div>
+      <div className="container-fluid text-center">
         <h1>Space &amp; Earth science satellites tracking</h1>
         <div style={containerStyle}>
           <div>
