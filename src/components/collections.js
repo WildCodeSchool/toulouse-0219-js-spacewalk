@@ -8,8 +8,10 @@ const Collections = ({ url, name }) => {
       <div className="allCollections" style={{ backgroundImage: { url } }}>
         <p className="tag collectionsText" >{name}</p>
       </div>
+    </div>
 
-      );
-    }
-    
-    export default Collections;
+  );
+}
+
+export default Collections;
+
