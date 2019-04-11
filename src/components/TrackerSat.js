@@ -8,6 +8,7 @@ import {
 } from 'react-leaflet';
 import L from 'leaflet';
 import config from '../config';
+import keys from '../keys'
 import sat from '../satellites';
 
 
@@ -67,7 +68,7 @@ class TrackSat extends Component {
   // Getting data from the API with axios
   getData() {
     const id = this.state.satId;
-    const url = `${config.N2YO_POS_URL}${id}/43.604/1.444/0/1/&apiKey=${config.N2YO_API_KEY}`;
+    const url = `${config.N2YO_POS_URL}${id}/43.604/1.444/0/1/&apiKey=${keys.N2YO_API_KEY}`;
 
     axios.get(url)
       .then(resp => this.setState({
@@ -189,13 +190,28 @@ class TrackSat extends Component {
                 <div>
                   <h3>Satellite infos :</h3>
                   <div>
-                    <p>Latitude : {position[0]} °</p>
-                    <p>Longitude : {position[1]} °</p>
+                    <p>
+                      Latitude :
+                      {position[0]}
+                      °
+                    </p>
+                    <p>
+                      Longitude :
+                      {position[1]}
+                      °
+                    </p>
                     {
                       satDescrip && satLaunchDate && (
                         <div>
-                          <p>Altitude: {hits.positions[0].sataltitude} km</p>
-                          <p>Launch date : {satLaunchDate}</p>
+                          <p>
+                            Altitude:
+                            {hits.positions[0].sataltitude}
+                            km
+                          </p>
+                          <p>
+                            Launch date :
+                            {satLaunchDate}
+                          </p>
                         </div>
                       )}
                   </div>
