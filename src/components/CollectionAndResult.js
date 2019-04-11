@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Collections from './collections';
 import { Badge, Button } from 'reactstrap';
+import './collections.css';
+import Title from './title';
 
 // import des img des collections
 import science from './images/scienceCollection.jpeg';
@@ -54,12 +56,22 @@ class CollectionAndResult extends Component {
   render() {
     return (
       <section>
+        <Title title="Collections" />
         <div className="container-fluid mx-auto">
-          {this.state.tag.map((tag) => (
-            <div>
-              <Collections url={tag.url} name={tag.name} />
-            </div>
-          ))}
+          <div id="collections">
+            {this.state.tag.map((tag) => (
+              <div>
+
+                <Collections
+                  url={tag.url}
+                  name={tag.name}
+                  handleTag={this.handleTag}
+
+                />
+              </div>
+
+            ))}
+          </div>
           <div className="row mx-auto">
             {this.state.article
               .filter(
@@ -75,7 +87,7 @@ class CollectionAndResult extends Component {
                     alt={singleArt.title}
                   />
                   <div>
-                    <Badge color="success">Tags</Badge>
+                    <Badge color="success">tags</Badge>
                     <p className="date">
                       {singleArt.pub_date}
                     </p>
@@ -93,7 +105,7 @@ class CollectionAndResult extends Component {
               ))}
           </div>
         </div>
-      </section>
+      </section >
     );
   }
 }

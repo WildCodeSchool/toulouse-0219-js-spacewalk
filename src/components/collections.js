@@ -2,13 +2,19 @@ import React from 'react';
 import './collections.css';
 
 
-const Collections = ({ url, name }) => {
+const Collections = ({ url, name, handleTag }) => {
   return (
-    <div id="collections">
-      <div className="allCollections" style={{ backgroundImage: { url } }}>
-        <p className="tag collectionsText" >{name}</p>
-      </div>
-    </div>
+    <div
+      className="allCollections"
+      style={{
+        backgroundImage: "url(" + url + ")",
+        cursor: 'pointer'
+      }}
+      onClick={() => handleTag(name)}
+
+    >
+      <p>{name}</p>
+    </div >
 
   );
 }
