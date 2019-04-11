@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import '../../../styles/style-search.css';
 // Affichage de la card image dans les résultats
 const Image = item => (
-  <div className="col col-md-3">
+  <div className="col col-md-3 d-flex align-items-stretch">
     {/* Début de la card */}
-    <div className="card cardStyle m-1">
+    <div className="card cardStyle m-1 ">
       {/* Lien sur l'image */}
       <Link to={`/asset/${item.id}`}>
         <img className="mr-3 card-img-top display-search" alt={item.title} src={item.thumb} />
@@ -19,12 +19,7 @@ const Image = item => (
         </Link>
         {/* Date de publication */}
         <p>{item.date}</p>
-        <div>
-          {/* Affichage de chaque mot-clé dans un badge */}
-          {item.keywords[0] && item.keywords[0].map(keyword => (
-            <div className="badge badge-primary mr-1">{keyword}</div>
-          ))}
-        </div>
+
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
+import { Input } from 'reactstrap';
+
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -32,54 +34,58 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="search">
-        <form onSubmit={this.handleOnSubmit} role="search">
-          <div className="search__query-and-submit">
-            <input
-              id="query"
-              aria-label="Search for images and audio from NASA"
-              className="search__query"
-              name="query"
-              onChange={this.handleOnChange}
-              placeholder="Moon"
-              type="search"
-            />
-            <input className=" " type="submit" value="Search" />
-          </div>
-          <div className="search__options">
-            <label className="search__option" htmlFor="images">
-              Images
-              <input
-                id="images"
-                checked={this.state.images}
-                name="images"
+      <div className="container">
+        <div className="search">
+          <form onSubmit={this.handleOnSubmit} role="search">
+            <div className="nav-input mr-lg-2">
+              <Input
+                id="query"
+                aria-label="Search for images and audio from NASA"
+                name="query"
                 onChange={this.handleOnChange}
-                type="checkbox"
+                placeholder="Moon"
+                type="search"
               />
-            </label>
+            </div>
+            <input className="btn btn-primary" type="submit" value="Search" />
+            <div className="search__options">
+              <label className="mr-2" htmlFor="images">
+                Images
+           <input
+                  id="images"
+                  checked={this.state.images}
+                  name="images"
+                  onChange={this.handleOnChange}
+                  type="checkbox"
+                  className="ml-1"
+                />
+              </label>
 
-            <label className="search__option" htmlFor="audio">
-              Audio
+              <label className="mr-2" htmlFor="audio">
+                Audio
               <input
-                id="audio"
-                checked={this.state.audio}
-                name="audio"
-                onChange={this.handleOnChange}
-                type="checkbox"
-              />
-            </label>
-            <label className="search__option" htmlFor="video">
-              Video
+                  id="audio"
+                  checked={this.state.audio}
+                  name="audio"
+                  onChange={this.handleOnChange}
+                  type="checkbox"
+                  className="ml-1"
+                />
+              </label>
+              <label className="search__option" htmlFor="video">
+                Video
               <input
-                id="video"
-                checked={this.state.video}
-                name="video"
-                onChange={this.handleOnChange}
-                type="checkbox"
-              />
-            </label>
-          </div>
-        </form>
+                  id="video"
+                  checked={this.state.video}
+                  name="video"
+                  onChange={this.handleOnChange}
+                  type="checkbox"
+                  className="ml-1"
+                />
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

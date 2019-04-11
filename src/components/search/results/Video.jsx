@@ -3,7 +3,7 @@ import 'video-react/dist/video-react.css';
 import { Link } from 'react-router-dom';
 // Affichage de la card video dans les résultats
 const Video = item => (
-  <div className="col col-md-3">
+  <div className="col col-md-3 d-flex align-items-stretch">
     {/* Début de la card */}
     <div className="card cardStyle m-1">
       {/* Lien sur l'image */}
@@ -18,12 +18,6 @@ const Video = item => (
         </Link>
         {/* Date de publication */}
         <p>{item.date}</p>
-        <div>
-          {/* Affichage de chaque mot-clé dans un badge */}
-          {item.keywords[0] && item.keywords[0].map(keyword => (
-            <div className="badge badge-primary mr-1">{keyword}</div>
-          ))}
-        </div>
       </div>
     </div>
     {/* Fin de la card */}
