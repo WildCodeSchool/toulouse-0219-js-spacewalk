@@ -129,7 +129,7 @@ class TrackSat extends Component {
 
     // Setting up marker
     const issMarker = L.icon({
-      iconUrl: require('../icons/iss.png'),
+      iconUrl: require('.images/iss.png'),
       iconSize: [50, 50],
     });
 
