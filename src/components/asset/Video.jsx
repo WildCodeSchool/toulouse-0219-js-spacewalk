@@ -29,7 +29,7 @@ const Video = ({ description, title, id, keywords, date, href }) => (
     </Link>
     <div className="row text-center mx-auto mb-5">
       <div className="col">
-        <Title title={title} IdStyle="titleSecond" />
+        <Title title={title} idStyle="titleSecond" />
         <div>
           <p>{date}</p>
 

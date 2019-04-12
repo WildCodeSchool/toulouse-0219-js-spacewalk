@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './title.css';
 
-const Title = ({ title, IdStyle }) => (
-  <div className={IdStyle}>
+const Title = ({ title, idStyle }) => (
+  <div className={idStyle}>
     <h1>{title}</h1>
   </div>
 );
@@ -11,7 +11,7 @@ const Title = ({ title, IdStyle }) => (
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
-  IdStyle: PropTypes.string.isRequired,
+  idStyle: PropTypes.string.isRequired,
 
 };
 export default Title;

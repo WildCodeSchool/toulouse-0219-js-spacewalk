@@ -37,7 +37,7 @@ class Page extends Component {
       <div className="container-fluid mx-auto m-5">
         <div className="row mx-auto text-center p-5">
           <div className="col">
-            <Title title="Exploring NASA archives" IdStyle="titleSecond" />
+            <Title title="Exploring NASA archives" idStyle="titleSecond" />
             {/* Champ de recherche */}
             <Search search={this.search} />
           </div>

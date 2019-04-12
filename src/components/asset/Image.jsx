@@ -32,7 +32,7 @@ const Image = ({ description, href, title, date, keywords }) => (
       <div className="col">
 
 
-        <Title title={title} IdStyle="titleSecond" />
+        <Title title={title} idStyle="titleSecond" />
         <p>{date}</p>
         <div>
           {/* Affichage de chaque mot-clé dans un badge */}
