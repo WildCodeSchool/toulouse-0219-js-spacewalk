@@ -1,32 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './collections.css';
+import PropTypes from 'prop-types';
 
+const Collections = ({ url, name, handleTag, i }) => (
+  <div
+    role="button"
+    tabIndex={i}
+    className="allCollections"
+    style={{
+      backgroundImage: `url(${url})`,
+      cursor: 'pointer'
+    }}
+    onClick={() => handleTag(name)}
+    onKeyPress={() => handleTag(name)}
+  >
+    <p>{name}</p>
+  </div>
+);
 
-class Collections extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div id="collections">
-
-        <div className="collection1 collectionsText allCollections">
-          Mars
-        </div>
-        <div className="collection2 collectionsText allCollections">
-          The moon
-        </div>
-        <div className="collection3 collectionsText allCollections">
-          Exoplanets
-        </div>
-        <div className="collection4 collectionsText allCollections">
-          The sun
-        </div>
-      </div>
-    );
-  }
-}
+Collections.propTypes = {
+  url: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  handleTag: PropTypes.func.isRequired,
+  i: PropTypes.number.isRequired
+};
 
 export default Collections;
