@@ -1,4 +1,4 @@
-import config from "./config";
+import config from './config';
 
 const toQueryString = object =>
   Object.keys(object)
@@ -18,13 +18,15 @@ const transformItem = item => {
     date: data.date_created
   };
 
-  if (newItem.type === "image") {
+  if (newItem.type === 'image') {
     newItem.thumb = item.links[0].href;
   }
   return newItem;
 };
 
-function search({ audio, video, id, image, query }) {
+function search({
+  audio, video, id, image, query
+}) {
   const queryObject = {};
 
   if (query) {
@@ -32,16 +34,14 @@ function search({ audio, video, id, image, query }) {
   }
 
   if (audio) {
-    queryObject.media_type = "audio";
+    queryObject.media_type = 'audio';
   }
   if (video) {
-    queryObject.media_type = "video";
+    queryObject.media_type = 'video';
   }
 
   if (image) {
-    queryObject.media_type = "image";
-    // ? `${queryObject.media_type},image`
-    // : "image";
+    queryObject.media_type = 'image';
   }
 
   if (id) {

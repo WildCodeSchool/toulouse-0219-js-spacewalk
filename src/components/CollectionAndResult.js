@@ -59,19 +59,20 @@ class CollectionAndResult extends Component {
   render() {
     return (
       <section>
-        <Title title="Collections" />
+        <Title title="Collections" idStyle="title" />
         <div className="container-fluid mx-auto">
           <div id="collections">
             {this.state.tag.map((tag, index) => (
-              <div>
 
-                <Collections
-                  url={tag.url}
-                  name={tag.name}
-                  handleTag={this.handleTag}
-                  i={this.index}
-                />
-              </div>
+
+              <Collections
+                key={index}
+                url={tag.url}
+                name={tag.name}
+                handleTag={this.handleTag}
+                i={index}
+              />
+
 
             ))}
           </div>
@@ -82,9 +83,9 @@ class CollectionAndResult extends Component {
                   this.state.tagName === "" ||
                   singleArt.title.includes(this.state.tagName)
               )
-              .map(singleArt => (
+              .map((singleArt, index) => (
 
-                <div className="articleHome">
+                <div key={index} className="articleHome">
                   <img
                     src={singleArt.image}
                     alt={singleArt.title}

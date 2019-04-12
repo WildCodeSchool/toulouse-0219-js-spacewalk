@@ -3,7 +3,7 @@
   src: url('./font/Azonix/Azonix.otf') format("OpenType");
 }
 
-#title {
+.title {
   font-family: "azonix";
   padding-top: 100px;
   padding-bottom: 50px;
@@ -12,7 +12,7 @@
 
 /* Titre secondaire */
 
-#titleSecond {
+.titleSecond {
   font-family: "azonix";
   padding-top: 50px;
   padding-bottom: 20px;
