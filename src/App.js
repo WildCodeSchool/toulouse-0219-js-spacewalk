@@ -11,6 +11,7 @@ import Title from './components/title';
 import Asset from './components/asset/Page';
 import Search from './components/search/Page';
 import Home from './components/Home';
+import TrackerSat from './components/TrackerSat';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/search" component={Search} />
           <Route path="/asset/:id" component={Asset} />
+          <Route path="/tracker" component={TrackerSat} />
           {/* footer start */}
           <Container className="containerFuid">
             <Footer />
