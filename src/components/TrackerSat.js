@@ -58,7 +58,7 @@ class TrackSat extends Component {
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
-    }, 3000);
+    }, 2000);
   }
 
   // Stopping the time interval
@@ -80,7 +80,6 @@ class TrackSat extends Component {
       }))
       .catch(error => this.setState({ error, isLoading: false }));
   }
-
 
   // Handling change of select input
   handleChange(event) {
