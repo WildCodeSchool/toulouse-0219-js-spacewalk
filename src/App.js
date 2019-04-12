@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
-import Collection from './components/collections';
 import './App.css';
 import Footer from './components/footer';
 import Header from './components/Header';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
-import Title from './components/title';
-import Asset from "./components/asset/Page";
-import Search from "./components/search/Page";
+import Asset from './components/asset/Page';
+import Search from './components/search/Page';
 import Home from './components/Home';
+import CuriosityGallery from './components/CuriosityGallery';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +28,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/search" component={Search} />
           <Route path="/asset/:id" component={Asset} />
+          <Route path="/curiosity-gallery" component={CuriosityGallery} />
           {/* footer start */}
           <Container className="containerFuid">
             <Footer />

@@ -53,7 +53,7 @@ class Page extends Component {
               </div>
             </div>
           )
-          : <div> Erreur </div>
+          : <div className="text-white"> Erreur </div>
         }
 
       </div>
