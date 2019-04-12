@@ -1,0 +1,122 @@
+[
+  {
+    "id": 25544,
+    "name": "ISS",
+    "launch": "November 20, 1998",
+    "description": "The International Space Station (ISS) is a joint project of five space agencies: the National Aeronautics and Space Administration (United States), the Russian Federal Space Agency (Russian Federation), the Japan Aerospace Exploration Agency (Japan), the Canadian Space Agency (Canada) and the European Space Agency (Europe). It is serviced primarily by the Soyuz, Progress spacecraft units and possible private missions in near future. Last Space Shuttle mission that serviced the Space Station ended in July 2011 (Atlantis, STS-135). The ISS is expected to remain in operation until at least 2020, and potentially to 2028."
+  },
+  {
+    "id": 43677,
+    "name": "TEN-KOH",
+    "launch": "October 29, 2018",
+    "description": "TEN-KOH is a satellite from the Kyushu Institute of Technology in Japan. TEN-KOH will collect data on the environment of low Earth orbit, and chart the degradation of advanced spacecraft materials during its mission. The satellite will measure radiation, magnetic flux density and electron density for a mission lasting at least six months "
+  },
+  {
+    "id": 43613,
+    "name": "ICESAT-2",
+    "launch": "September 15, 2018",
+    "description": "ICESAT-2 is a satellite part of NASA's Earth Observing System with the goal to continue measuring and monitoring the impacts of the changing environment. The ICESAT-2 observatory contains a single instrument, an improved laser altimeter called ATLAS (Advanced Topographic Laser Altimeter System). ATLAS is designed to measure ice-sheet topography, sea ice freeboard as well as cloud and atmospheric properties and global vegetation. The requirements call for a 5-year operational mission with a goal of 7 years."
+  },
+  {
+    "id": 43600,
+    "name": "AEOLUS",
+    "launch": "August 22, 2018",
+    "description": "AEOLUS is a European satellite hosting a spaceborne laser crafted to measure winds in Earth's atmosphere. AEOLUS will gather the first comprehensive worldwide measurements of wind speed—over oceans and land masses—from Earth's surface to an altitude of nearly 100,000 feet (30 kilometers). Data collected by the AEOLUS satellite will be fed into numerical weather prediction models, replacing simulated 'boundary conditions' in the computers models with near real-time measurements from space. AEOLUS was not conceived by ESA as an operational weather satellite, but forecasters will be some of the prime beneficiaries of the mission. The mission is named for a figure in Greek mythology who was appointed by the gods as 'keeper of the winds'."
+  },
+  {
+    "id": 43547,
+    "name": "TEMPEST-D",
+    "launch": "November 20, 1998",
+    "description": "TEMPEST-D (Temporal Experiment for Storms and Tropical Systems - Demonstrator) is a 6U CubeSat mission to provide risk mitigation for the six-satellite TEMPEST mission that will provide the first temporal observations of cloud and precipitation processes on a global scale. These observations are important to understand the linkages in and between Earth’s water and energy balance, as well as to improve our understanding of cloud model microphysical processes that are vital to climate change prediction. TEMPEST-D consists of one of the proposed TEMPEST 6U CubeSats, to raise the technology readiness level of the system to TRL 9 and to demonstrate its measurement capabilities."
+  },
+  {
+    "id": 42901,
+    "name": "VENUS",
+    "launch": "August 2, 2017",
+    "description": "VENUS (Vegetation and Environment monitoring on a New Micro-Satellite) is a near polar sun-synchronous orbit microsatellite being jointly built by the Israeli Space Agency and CNES. The satellite has a scientific and a technological mission. The satellite has a 2-day revisit orbit which allows constant viewing angles at constant sun lighting angles. The unique combination is hoped to allow the development of new image processing methods. A set of at least 50 points of interest around the world were chosen to be scanned throughout the scientific mission. The points will be rescanned every 2 days for the entire duration of the mission where it will collect sensory and imagery data."
+  },
+  {
+    "id": 43437,
+    "name": "SENTINEL 3B",
+    "launch": "April 25, 2018",
+    "description": "SENTINEL-3B is a spacecraft dedicated to the study of Earth’s oceans and vegetation. SENTINEL-3B is part of the Copernicus programme, a partnership between the European Space Agency (ESA), EUMETSAT and the European Commission to perform Earth science and environmental research from orbit. The launch of SENTINEL-3B completes the first-generation satellite constellation for Copernicus."
+  },
+  {
+    "id": 43477,
+    "name": "GRACE-FO 2",
+    "launch": "May 22, 2018",
+    "description": "GRACE-FO 2 and GRACE-FO 1 are two identical Earth science satellites with primary research objective focused on gravity measurements and Earth's water cycle. Built by Airbus Defense and Space, the identical GRACE-Follow On satellites carry microwave ranging instruments to measure the separation between the craft as they fly around 137 miles (220 kilometers) apart in orbit. The ranging sensors require exacting precision, with the capability of measuring distance changes between the formation-flying satellites as small as a few microns—about the width of a blood cell. Changes in the range between the two GRACE-Follow On satellite will be caused by tiny variations in the pull of gravity from Earth below, telling scientists about the mass of water, rock and ice around the world."
+  },
+  {
+    "id": 43194,
+    "name": "ZHANGHENG-1",
+    "launch": "February 2, 2018",
+    "description": "ZHANGHENG-1 (ZH-1) – also known as China Seismo-Electromagnetic Satellite (CSES) – was developed by the Chinese Academy of Space Technology (CAST). ZHANGHENG-1 carries six instruments to measure the electromagnetic effects of earthquakes above 6 magnitude in China and quakes above magnitude seven all over the world."
+  },
+  {
+    "id": 42920,
+    "name": "FORMOSAT-5",
+    "launch": "August 24, 2017",
+    "description": "FORMOSAT-5 is an Earth remote sensing satellite which was built and operated by the National Space Organization of the Republic of China (Taiwan). Equipped with the Remote Sensing Imager (RSI) payload, providing multispectral and panchromatic imaging capabilities, FORMOSAT-5 will replace the FORMOSAT-2 satellite which was retired last August. FORMOSAT-5 also carries the Advanced Ionospheric Probe, or AIP, package, which will study the behavior of plasma within Earth’s ionosphere."
+  },
+  {
+    "id": 42758,
+    "name": "HXMT (HUIYAN)",
+    "launch": "June 15, 2017",
+    "description": "HXMT (HUIYAN, Hard X-ray Modulation Telescope) is China's first X-ray astronomy satellite, designed to survey the Milky Way galaxy for black holes and pulsars, and detect gamma-ray bursts, the most violent explosions in the universe. The 5,500-pound (2,500-kilogram) spacecraft is designed for a four-year mission. Its three X-ray instruments, sorted to observe low, medium and high-energy X-rays, are sensitive to 1,000 to 250,000 electron volts, an energy range that encompasses the energy of a medical X-ray. Unlike X-ray telescopes launched by NASA and the European Space Agency, China's Huiyan mission does not use grazing mirrors, which must be extremely flat to reflect high-frequency X-ray waves. The observing method, called demodulation, would reconstruct the image of X-ray sources by using data from relatively simple non-imaging detectors, such as a telescope with ‘collimators' that collects and records X-ray photons parallel to a specified direction."
+  },
+  {
+    "id": 41240,
+    "name": "JASON 3",
+    "launch": "January 17, 2016",
+    "description": "JASON 3 satellite is designed to precisely measure ocean waves, maritime winds, ocean currents and sea level rise for a consortium of scientific institutions in the United States and Europe. Jason 3 follows three previous satellites dedicated to measuring the roughness of the ocean surface, beginning with the launch of a spacecraft named TOPEX/Poseidon in 1992."
+  },
+  {
+    "id": 43476,
+    "name": "GRACE-FO 1",
+    "launch": "May 22, 2018",
+    "description": "GRACE-FO 1 and GRACE-FO 2 are two identical Earth science satellites with primary research objective focused on gravity measurements and Earth's water cycle. Built by Airbus Defense and Space, the identical GRACE-Follow On satellites carry microwave ranging instruments to measure the separation between the craft as they fly around 137 miles (220 kilometers) apart in orbit. The ranging sensors require exacting precision, with the capability of measuring distance changes between the formation-flying satellites as small as a few microns—about the width of a blood cell. Changes in the range between the two GRACE-Follow On satellite will be caused by tiny variations in the pull of gravity from Earth below, telling scientists about the mass of water, rock and ice around the world."
+  },
+  {
+    "id": 25994,
+    "name": "TERRA",
+    "launch": "December 18, 1999",
+    "description": "TERRA (EOS AM-1) is a multi-national NASA scientific research satellite in a Sun-synchronous orbit around the Earth. It is the flagship of the Earth Observing System (EOS). The name TERRA comes from the Latin word for Earth. The satellite was placed into a near-polar, sun-synchronous orbit at an altitude of 705 km, with a 10:30am descending node. TERRA carries a payload of five remote sensors designed to monitor the state of Earth's environment and ongoing changes in its climate system: ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer); CERES (Clouds and the Earth's Radiant Energy System); MISR (Multi-angle Imaging SpectroRadiometer); MODIS (Moderate-resolution Imaging Spectroradiometer); MOPITT (Measurements of Pollution in the Troposphere). Data from the satellite helps scientists better understand the spread of pollution around the globe. Studies have used instruments on TERRA to examine trends in global carbon monoxide and aerosol pollution. The data collected by TERRA will ultimately become a new, 15-year global data set."
+  },
+  {
+    "id": 41888,
+    "name": "CYGFM08",
+    "launch": "December 15, 2016",
+    "description": "CYGFM08 is one of the eight research satellites launched by a winged Orbital ATK Pegasus XL rocket to fly around the tropics and return measurements of winds at the cores of hurricanes. The wind data should help scientists better understand the formation, growth and dissipation of tropical cyclones, and lessons from the $157 million Cyclone Global Navigation Satellite System may improve hurricane forecasting, particularly the strength of storms at landfall. Researchers compare the way CYGNSS works to the human eye's perception of a full moon reflected in a body of water. Calm winds will make for a perfectly resolved reflection of the moon, while windy conditions will scatter the moon's image in a glistening effect."
+  },
+  {
+    "id": 39265,
+    "name": "CASSIOPE",
+    "launch": "September 29, 2013",
+    "description": "CASSIOPE is a space weather research satellite which will sample the Earth's ionosphere, dipping through layers of the outermost layers of the atmosphere to gauge how it responds to solar activity. Research using Cassiope could help scientists understand how solar storms can impact everyday life by disrupting communications or knocking out electrical grids."
+  },
+  {
+    "id": 39197,
+    "name": "IRIS",
+    "launch": "June 28, 2013",
+    "description": "IRIS is a solar imaging satellite fitted with a 20-centimeter ultraviolet telescope and a multi-channel imaging spectrograph. IRIS will scan across the sun to construct data over a range of heights, temperatures and densities in the solar atmosphere."
+  },
+  {
+    "id": 41849,
+    "name": "RAVAN",
+    "launch": "November 11, 2016",
+    "description": "RAVAN stands for Radiometer Assessment using Vertically Aligned Nanotubes and is a 3-Unit CubeSat mission funded by the NASA Earth Science Technology Office and operated by the Applied Physics Laboratory at Johns Hopkins University. The mission aims to demonstrate the technology needed for the measurement of the absolute imbalance of Earth's radiation budget – a valuable parameter for climate research."
+  },
+  {
+    "id": 37389,
+    "name": "XSAT",
+    "launch": "April 20, 2011",
+    "description": "X-SAT, Singapore's first national satellite, has a multi-spectral camera and will demonstrate space-based remote sensing and image processing technologies."
+  },
+  {
+    "id": 5,
+    "name": "VANGUARD 1",
+    "launch": "March 17, 1958",
+    "description": "Vanguard 1 was a small earth-orbiting satellite designed to test the launch capabilities of a three-stage launch vehicle and the effects of the environment on a satellite and its systems in Earth orbit. It also was used to obtain geodetic measurements through orbit analysis."
+  }
+]

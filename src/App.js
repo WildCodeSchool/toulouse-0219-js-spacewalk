@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Container, Row, Col } from 'reactstrap';
+import Collection from './components/collections';
 import './App.css';
+import Footer from './components/footer';
+import Header from './components/Header';
+import './components/navMenu.css';
+import NavMenu from './components/NavMenu';
+import Title from './components/title';
+import Asset from './components/asset/Page';
+import Search from './components/search/Page';
+import Home from './components/Home';
+import TrackerSat from './components/TrackerSat';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          {/* header */}
+          <Header />
+          {/* Barre de navigation */}
+          <NavMenu />
+          <Route path="/" exact component={Home} />
+          <Route path="/search" component={Search} />
+          <Route path="/asset/:id" component={Asset} />
+          <Route path="/tracker" component={TrackerSat} />
+          {/* footer start */}
+          <Container className="containerFuid">
+            <Footer />
+          </Container>
+          {/* footer end */}
+
+        </div>
+      </Router>
     );
   }
 }
