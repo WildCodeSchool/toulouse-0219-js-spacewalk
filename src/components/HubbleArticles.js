@@ -56,7 +56,7 @@ class Hubble extends Component {
               )
               .map(singleArt => (
 
-                <div id="articleHome">
+                <div className="articleHome">
                   <img
                     src={singleArt.image}
                     alt={singleArt.title}

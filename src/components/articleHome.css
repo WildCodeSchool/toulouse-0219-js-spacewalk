@@ -1,11 +1,11 @@
-#articleHome img {
+.articleHome img {
   width: 250px;
   height: 100%;
   object-fit: cover;
   float: left;
 }
 
-#articleHome {
+.articleHome {
   width: 850px;
   min-height: 200px;
   max-height: 250px;
@@ -16,18 +16,18 @@
   
 }
 
-#articleHome div {
+.articleHome div {
   overflow: auto;
   padding-left: 50px;
   padding-top: 10px;
   padding-bottom: 30px;
 }
 
-#articleHome .date{
+.articleHome .date{
   padding-top: 10px;
   color: grey;
 }
 
-#articleHome Button {
+.articleHome Button {
   margin-top: 0px;
 }

@@ -3,12 +3,15 @@ import Collections from './collections';
 import { Badge, Button } from 'reactstrap';
 import './collections.css';
 import Title from './title';
+import './articleHome.css';
+
 
 // import des img des collections
 import science from './images/scienceCollection.jpeg';
 import photo from './images/photoCollection.jpeg';
 import hubble from './images/hubbleCollection.png';
 import exoplanet from './images/exoplanetCollection.jpeg';
+import excerptDate from '../functions/excerptDate';
 
 class CollectionAndResult extends Component {
   constructor(props) {
@@ -81,7 +84,7 @@ class CollectionAndResult extends Component {
               )
               .map(singleArt => (
 
-                <div id="articleHome">
+                <div className="articleHome">
                   <img
                     src={singleArt.image}
                     alt={singleArt.title}
@@ -89,7 +92,7 @@ class CollectionAndResult extends Component {
                   <div>
                     <Badge color="success">tags</Badge>
                     <p className="date">
-                      {singleArt.pub_date}
+                      {excerptDate(singleArt.pub_date)}
                     </p>
                     <h2>{singleArt.title}</h2>
                     {/* <p>
