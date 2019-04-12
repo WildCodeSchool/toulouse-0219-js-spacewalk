@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import Apod from './Apod';
-import MinArticle from './minArticle'
 import {
-  Col, Row, Container
+  Row, Container
 } from 'reactstrap';
-import Collection from "./collections"
-
-
+import Apod from './Apod';
+import MinArticle from './minArticle';
+import CollectionAndResult from './CollectionAndResult';
 
 class Home extends Component {
-  state = {}
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <div>
@@ -21,24 +23,11 @@ class Home extends Component {
         </Container>
         {/* fin de l'affichage de l'image du jour */}
 
-        {/* Miniature d'article start */}
-        <Container className="containerFuid">
-          <Row>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-            <Col lg={4}>
-              <MinArticle />
-            </Col>
-          </Row>
-        </Container>
+        <CollectionAndResult />
 
-        {/* Miniature d'article fin */}
+        {/* <Collection />
+        <HubbleArticles /> */}
 
-        <Collection />
       </div>
     );
   }
