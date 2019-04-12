@@ -1,7 +1,3 @@
-const excerpt = (string) => {
-  // eslint-disable-next-line no-plusplus
-  return `${string.slice(0, 10)}`;
-
-};
+const excerpt = (string) => `${string.slice(0, 10)}`;
 
 export default excerpt;

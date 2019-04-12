@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Apod from './Apod';
-import MinArticle from './minArticle'
-import HubbleArticles from "./HubbleArticles";
-import CollectionAndResult from "./CollectionAndResult";
 import {
-  Col, Row, Container
+  Row, Container
 } from 'reactstrap';
-import Collection from "./collections"
-
-
+import Apod from './Apod';
+import MinArticle from './minArticle';
+import CollectionAndResult from './CollectionAndResult';
 
 class Home extends Component {
-  state = {}
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <div>
@@ -27,8 +27,6 @@ class Home extends Component {
 
         {/* <Collection />
         <HubbleArticles /> */}
-
-
 
       </div>
     );

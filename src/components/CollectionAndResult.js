@@ -59,14 +59,14 @@ class CollectionAndResult extends Component {
         <Title title="Collections" />
         <div className="container-fluid mx-auto">
           <div id="collections">
-            {this.state.tag.map((tag) => (
+            {this.state.tag.map((tag, index) => (
               <div>
 
                 <Collections
                   url={tag.url}
                   name={tag.name}
                   handleTag={this.handleTag}
-
+                  i={this.index}
                 />
               </div>
 

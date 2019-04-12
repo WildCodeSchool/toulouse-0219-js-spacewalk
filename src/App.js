@@ -7,7 +7,6 @@ import Footer from './components/footer';
 import Header from './components/Header';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
-import HubbleArticles from "./components/HubbleArticles";
 import Title from './components/title';
 import Asset from "./components/asset/Page";
 import Search from "./components/search/Page";
