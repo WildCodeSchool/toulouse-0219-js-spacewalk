@@ -40,7 +40,7 @@ class TrackSat extends Component {
       jsonSatList: sat,
       lat: 43.604,
       lng: 1.444,
-      zoom: 4,
+      zoom: 3,
       isLoading: false,
       error: null,
       value: sat[0].name,
@@ -166,7 +166,7 @@ class TrackSat extends Component {
                 icon={issMarker}
               >
                 <Popup>
-                  Hello world
+                  {value}
                 </Popup>
               </Marker>
             </Map>
