@@ -9,6 +9,24 @@ class HomePagination extends Component {
     };
   }
 
+  setPage(page) {
+    // Destructuring
+    const { articles, pageSize, onChangePage } = this.props;
+    const { pager } = this.state;
+
+    // Getting new pager object
+    const newPager = this.getPager(articles.length, page, pageSize);
+
+    // Getting new page of articles from articles array
+    const newPageOfArticles = articles.slice(pager.startIndex, pager.endIndex + 1);
+
+    // Updating state
+    this.setState({ pager: newPager });
+
+    // Calling onChangePage method in parent component
+    onChangePage(newPageOfArticles);
+  }
+
   render() {
     return (
       <div>
@@ -27,5 +45,6 @@ const defaultProps = {
 
 const propTypes = {
   initialPage: PropTypes.number,
-  pageSize: PropTypes.number
+  pageSize: PropTypes.number,
+  onChangePage: PropTypes.func.isRequired
 };

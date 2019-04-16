@@ -85,8 +85,10 @@ class CollectionAndResult extends Component {
 
             ))}
           </div>
-          <div className="row mx-auto">
+          <div>
             <HomePagination articles={this.state.article} onChangePage={this.onChangePage} />
+          </div>
+          <div className="row mx-auto">
             {this.state.article
               .filter(
                 singleArt =>
