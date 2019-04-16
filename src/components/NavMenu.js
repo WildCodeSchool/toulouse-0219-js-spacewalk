@@ -6,9 +6,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  Input,
-  Button
+  NavLink
 } from 'reactstrap';
 
 class NavMenu extends Component {
@@ -33,25 +31,19 @@ class NavMenu extends Component {
     return (
       <div className="sticky-top">
         <Navbar expand="lg" className="navContainer">
-          <NavbarBrand href="/">SpaceApp</NavbarBrand>
+          <NavbarBrand href="/" className="active">Home</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="nav" navbar>
               <NavItem>
-                <NavLink className="text-center mr-4 active" href="/">Home</NavLink>
+                <NavLink className="text-center mr-4" href="/">Articles</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-4" href="/articles">Articles</NavLink>
+                <NavLink className="text-center mr-4" href="/articles">To read later</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-4" href="/read">To read later</NavLink>
+                <NavLink className="text-center mr-4" href="/read">Satellites tracker</NavLink>
               </NavItem>
-              <div className="nav-input mr-lg-2">
-                <Input type="search" placeholder="Search" />
-              </div>
-              <div className="nav-btn">
-                <Button block type="Submit">Search</Button>
-              </div>
             </Nav>
           </Collapse>
         </Navbar>

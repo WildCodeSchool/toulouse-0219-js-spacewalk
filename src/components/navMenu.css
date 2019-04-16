@@ -41,7 +41,7 @@ a.nav-link:hover,  a.navbar-brand:hover{
   color: var(--secondary-color);
   transition: var(--trans);
 }
-a.nav-link.active {
+a.nav-link.active, a.navbar-brand.active {
   color: var(--secondary-color); 
 }
 /* Search button styling */
