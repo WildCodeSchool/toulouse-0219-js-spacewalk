@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Collections from './collections';
 import { Badge, Button } from 'reactstrap';
+import HomePagination from './HomePagination';
 import './collections.css';
 import Title from './title';
 import './articleHome.css';
@@ -36,8 +37,12 @@ class CollectionAndResult extends Component {
           name: "exoplanet",
           url: exoplanet,
         }
-      ]
+      ],
+      pageOfArticles: []
     };
+
+    // Binding method
+    this.onChangePage = this.onChangePage.bind(this);
   }
 
   componentDidMount() {
@@ -55,6 +60,10 @@ class CollectionAndResult extends Component {
   }
   handleTag = tag => this.setState({ tagName: tag });
 
+  onChangePage(newSetOfArticles) {
+    // Updating page with new page of articles
+    this.setState({ pageOfArticles: newSetOfArticles });
+  }
 
   render() {
     return (
@@ -77,6 +86,7 @@ class CollectionAndResult extends Component {
             ))}
           </div>
           <div className="row mx-auto">
+            <HomePagination articles={this.state.article} onChangePage={this.onChangePage} />
             {this.state.article
               .filter(
                 singleArt =>
@@ -108,6 +118,7 @@ class CollectionAndResult extends Component {
                 </div>
               ))}
           </div>
+
         </div>
       </section >
     );
