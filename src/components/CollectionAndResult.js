@@ -91,7 +91,15 @@ class CollectionAndResult extends Component {
                     alt={singleArt.title}
                   />
                   <div>
-                    <Badge color="success">tags</Badge>
+                    {this.state.tag
+                      .filter(SingleTag => singleArt.title.includes(SingleTag.name))
+                      .map(SingleTag => (
+                        <p
+                          type="button"
+                          className="badge badge-info mr-1"
+                          onClick={() => this.handleTag(SingleTag.name)}
+                        >{SingleTag.name}</p>
+                      ))}
                     <p className="date">
                       {excerptDate(singleArt.pub_date)}
                     </p>
