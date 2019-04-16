@@ -16,14 +16,14 @@ footer {
 }
 
 .twitter {
-  width: 800px;
-  text-align: center;
   margin: auto;
-}
-
-.centerContent {
-  
   display: flex;
   justify-content: space-around;
- 
+  flex-wrap: wrap;
+}
+
+.singleTwitter {
+  width: 300px;
+  margin: 10px 10px;
+
 }

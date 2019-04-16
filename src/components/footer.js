@@ -38,7 +38,7 @@ class Footer extends Component {
             />
           </a>
         </div>
-        <div className="twitter">
+        <div>
           <TwitterTimeline />
         </div>
 

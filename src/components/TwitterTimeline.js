@@ -12,8 +12,8 @@ class TwitterTimeline extends Component {
 
   render() {
     return (
-      <div className="centerContent">
-        <div className="selfCenter standardWidth">
+      <div className="centerContent twitter">
+        <div className="selfCenter standardWidth singleTwitter">
           <TwitterTimelineEmbed
             sourceType="profile"
             screenName="NASA"
@@ -21,10 +21,26 @@ class TwitterTimeline extends Component {
             theme="dark"
           />
         </div>
-        <div className="selfCenter standardWidth">
+        <div className="selfCenter standardWidth singleTwitter">
           <TwitterTimelineEmbed
             sourceType="profile"
             screenName="esa"
+            options={{ height: 400 }}
+            theme="dark"
+          />
+        </div>
+        <div className="selfCenter standardWidth singleTwitter">
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="nasagoddard"
+            options={{ height: 400 }}
+            theme="dark"
+          />
+        </div>
+        <div className="selfCenter standardWidth singleTwitter">
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="HubbleTelescope"
             options={{ height: 400 }}
             theme="dark"
           />
