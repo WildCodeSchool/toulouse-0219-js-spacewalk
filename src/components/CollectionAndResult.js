@@ -4,6 +4,7 @@ import { Badge, Button } from 'reactstrap';
 import './collections.css';
 import Title from './title';
 import './articleHome.css';
+import colorTag from '../functions/colorTag';
 
 
 // import des img des collections
@@ -95,8 +96,9 @@ class CollectionAndResult extends Component {
                       .filter(SingleTag => singleArt.title.includes(SingleTag.name))
                       .map(SingleTag => (
                         <p
+                          style={{ backgroundColor: colorTag(SingleTag.name) }}
                           type="button"
-                          className="badge badge-info mr-1"
+                          className="badge mr-1"
                           onClick={() => this.handleTag(SingleTag.name)}
                         >{SingleTag.name}</p>
                       ))}
