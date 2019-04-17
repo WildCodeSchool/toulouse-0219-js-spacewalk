@@ -5,6 +5,7 @@ import HomePagination from './HomePagination';
 import './collections.css';
 import Title from './title';
 import './articleHome.css';
+import colorTag from '../functions/colorTag';
 
 
 // import des img des collections
@@ -110,7 +111,19 @@ class CollectionAndResult extends Component {
                     alt={singleArt.title}
                   />
                   <div>
-                    <Badge color="success">tags</Badge>
+                    {this.state.tag
+                      .filter(SingleTag => singleArt.title.includes(SingleTag.name))
+                      .map(SingleTag => (
+                        <p
+                          style={{
+                            backgroundColor: colorTag(SingleTag.name),
+                            color: "#ffffff"
+                          }}
+                          type="button"
+                          className="badge mr-1"
+                          onClick={() => this.handleTag(SingleTag.name)}
+                        >{SingleTag.name}</p>
+                      ))}
                     <p className="date">
                       {excerptDate(singleArt.pub_date)}
                     </p>
@@ -119,7 +132,10 @@ class CollectionAndResult extends Component {
                       {excerpt(singleArt.description, 10)}
                     </p> */}
                     <a href={singleArt.link}>
-                      <Button color="dark" outline>
+                      <Button
+                        color="dark"
+                        className="btn-sm"
+                        outline>
                         Read more ⇢
                       </Button>
                     </a>

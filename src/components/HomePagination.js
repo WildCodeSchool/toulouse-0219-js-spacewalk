@@ -24,6 +24,7 @@ class HomePagination extends Component {
   render() {
     // Destructuring
     const { articleList } = this.props;
+    console.log(articleList)
     const { currentPage, articlesPerPage } = this.state;
 
     // Logic for displaying articles
