@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Video = item => (
   <div className="col col-md-3 d-flex align-items-stretch">
     {/* Début de la card */}
-    <div className="card cardStyle m-1">
+    <div className="card cardStyle m-1 flex-fill">
       {/* Lien sur l'image */}
       <Link to={`/asset/${item.id}`}>
         <img className="mr-3 card-img-top" alt={item.title} src={item.imgVideo} />

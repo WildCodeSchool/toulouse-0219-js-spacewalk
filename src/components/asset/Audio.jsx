@@ -16,14 +16,13 @@ import {
 } from 'react-share';
 
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
+import ReactAudioPlayer from 'react-audio-player';
 import React from 'react';
 import Title from '../title';
 
 
 // Affichage de la page de l'image avec les détails
-const Image = ({ description, href, title, date, keywords }) => (
+const Audio = ({ description, href, title, date, id, keywords }) => (
   <div className="container">
 
     <div className="text-center row mx-auto">
@@ -39,8 +38,13 @@ const Image = ({ description, href, title, date, keywords }) => (
           ))}
         </div>
         <div>
+          <ReactAudioPlayer
+            controls
+            src={`http://images-assets.nasa.gov/audio/${id}/${id}~128k.mp3`}
+            className="m-4"
+          />
           <p>{description}</p>
-          <img className="shadow p-3 mb-3 bg-white rounded img-fluid" alt={title} src={href} />
+
         </div>
         <div className="row text-center mx-auto d-flex justify-content-center mb-5">
           <div>
@@ -91,4 +95,4 @@ Image.propTypes = {
   date: PropTypes.string.isRequired
 };
 
-export default Image;
+export default Audio;
