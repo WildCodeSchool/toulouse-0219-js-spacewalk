@@ -1,33 +1,39 @@
 .articleHome img {
-  width: 250px;
+  width: 30%;
   height: 100%;
   object-fit: cover;
   float: left;
 }
 
 .articleHome {
-  width: 850px;
-  min-height: 200px;
-  max-height: 250px;
+  width: 45%;
+  min-height: 150px;
+  max-height: 200px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   margin: auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   
 }
 
 .articleHome div {
   overflow: auto;
-  padding-left: 50px;
-  padding-top: 10px;
-  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .articleHome .date{
-  padding-top: 10px;
+  padding-top: 0px;
   color: grey;
+  margin-top: -5px;
+  margin-bottom: -5px
 }
 
 .articleHome Button {
   margin-top: 0px;
+}
+
+.articleHome h2 {
+  font-size: 1.2em;
 }
