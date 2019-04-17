@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import icon from '../../images/icon-podcast.svg';
 // Affichage de la card video dans les résultats
 const Audio = item => (
   <div className="col col-md-3 d-flex align-items-stretch">
     {/* Début de la card */}
-    <div className="card cardStyle m-1">
+    <div className="card cardStyle m-1 flex-fill">
       {/* Lien sur l'image */}
       <Link to={`/asset/${item.id}`}>
-        <img className="mr-3 card-img-top" alt={item.title} src={item.thumb} />
+        <img src={icon} alt="icon audio" />
       </Link>
       <div className="card-body">
         <div className="badge badge-pill badge-success mr-1">{item.type}</div>
