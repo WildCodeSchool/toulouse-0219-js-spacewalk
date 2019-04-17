@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Collections from './collections';
-import { Badge, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import './collections.css';
 import Title from './title';
 import './articleHome.css';
@@ -42,7 +42,7 @@ class CollectionAndResult extends Component {
   }
 
   componentDidMount() {
-    fetch("https://hubblesite.wild31.com/api/v3/external_feed/esa_feed", {
+    fetch("https://hubblesite.wild31.com/api/v3/external_feed/esa_feed?page=all", {
       crossDomain: true
     })
       .then(response => response.json())
@@ -96,7 +96,10 @@ class CollectionAndResult extends Component {
                       .filter(SingleTag => singleArt.title.includes(SingleTag.name))
                       .map(SingleTag => (
                         <p
-                          style={{ backgroundColor: colorTag(SingleTag.name) }}
+                          style={{
+                            backgroundColor: colorTag(SingleTag.name),
+                            color: "#ffffff"
+                          }}
                           type="button"
                           className="badge mr-1"
                           onClick={() => this.handleTag(SingleTag.name)}
@@ -110,7 +113,10 @@ class CollectionAndResult extends Component {
                       {excerpt(singleArt.description, 10)}
                     </p> */}
                     <a href={singleArt.link}>
-                      <Button color="dark" outline>
+                      <Button
+                        color="dark"
+                        className="btn-sm"
+                        outline>
                         Read more ⇢
                       </Button>
                     </a>
