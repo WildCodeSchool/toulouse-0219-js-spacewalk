@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Audio from "./Audio";
-import Image from "./Image";
-import Video from "./Video";
+import Audio from './Audio';
+import Image from './Image';
+import Video from './Video';
 
 const typeToComponent = {
   audio: Audio,
