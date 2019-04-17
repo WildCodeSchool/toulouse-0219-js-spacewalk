@@ -5,7 +5,7 @@ import '../../../styles/style-search.css';
 const Image = item => (
   <div className="col col-md-3 d-flex align-items-stretch">
     {/* Début de la card */}
-    <div className="card cardStyle m-1 ">
+    <div className="card cardStyle m-1 flex-fill">
       {/* Lien sur l'image */}
       <Link to={`/asset/${item.id}`}>
         <img className="mr-3 card-img-top display-search" alt={item.title} src={item.thumb} />

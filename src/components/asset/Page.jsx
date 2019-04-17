@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import APIClient from '../../APIClient';
 import Image from './Image';
 import Video from './Video';
+import Audio from './Audio';
 
 const typeToComponent = {
   image: Image,
-  video: Video
+  video: Video,
+  audio: Audio
 };
 
 class Page extends Component {
@@ -41,7 +43,13 @@ class Page extends Component {
     const { item } = this.state;
     const Asset = typeToComponent[item.type];
 
-    return <Asset {...item} />;
+    return (
+      <div>
+        <button onClick={this.props.history.goBack} type="button">&larr; Back to results </button>
+
+        <Asset {...item} />
+      </div>
+    );
   }
 }
 

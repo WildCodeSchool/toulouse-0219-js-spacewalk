@@ -9,7 +9,7 @@ class Search extends Component {
     this.state = {
       audio: false,
       video: false,
-      images: false,
+      image: false,
       query: ""
     };
 
@@ -19,7 +19,7 @@ class Search extends Component {
 
   handleOnChange(event) {
     const { target } = event;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
 
     this.setState({
@@ -40,7 +40,7 @@ class Search extends Component {
             <div className="nav-input mr-lg-2">
               <Input
                 id="query"
-                aria-label="Search for images and audio from NASA"
+                aria-label="Search for images, videos and audio from NASA"
                 name="query"
                 onChange={this.handleOnChange}
                 placeholder="Moon"
@@ -48,13 +48,13 @@ class Search extends Component {
               />
             </div>
             <input className="btn btn-primary" type="submit" value="Search" />
-            <div className="search__options">
+            <div>
               <label className="mr-2" htmlFor="images">
                 Images
-           <input
-                  id="images"
-                  checked={this.state.images}
-                  name="images"
+              <input
+                  id="image"
+                  checked={this.state.image}
+                  name="image"
                   onChange={this.handleOnChange}
                   type="checkbox"
                   className="ml-1"
@@ -72,7 +72,7 @@ class Search extends Component {
                   className="ml-1"
                 />
               </label>
-              <label className="search__option" htmlFor="video">
+              <label className="mr-2" htmlFor="video">
                 Video
               <input
                   id="video"
