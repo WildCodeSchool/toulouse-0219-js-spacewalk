@@ -46,7 +46,7 @@ class CollectionAndResult extends Component {
   }
 
   componentDidMount() {
-    fetch("https://hubblesite.wild31.com/api/v3/external_feed/esa_feed", {
+    fetch("https://hubblesite.wild31.com/api/v3/external_feed/esa_feed?page=all", {
       crossDomain: true
     })
       .then(response => response.json())
@@ -66,6 +66,13 @@ class CollectionAndResult extends Component {
   }
 
   render() {
+    const filteredArticleList = this.state.article
+      .filter(
+        singleArt =>
+          this.state.tagName === "" ||
+          singleArt.title.includes(this.state.tagName)
+      );
+
     return (
       <section>
         <Title title="Collections" idStyle="title" />
@@ -86,7 +93,7 @@ class CollectionAndResult extends Component {
             ))}
           </div>
           <div>
-            <HomePagination articles={this.state.article} onChangePage={this.onChangePage} />
+            <HomePagination articleList={filteredArticleList} onChangePage={this.onChangePage} />
           </div>
           <div className="row mx-auto">
             {this.state.article
