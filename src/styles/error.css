@@ -1,0 +1,16 @@
+.bg-gradient {
+  background-image: linear-gradient(to right top, #202a3f, #222c40, #232d42, #252f43, #273145, #2c3a50, #31435c, #364c68, #3d6082, #42759c, #448bb6, #43a2d0);
+  width: 100vw;
+  height: 80vh;
+}
+
+@font-face {
+  font-family: 'azonix';
+  src: url('../components/font/Azonix/Azonix.otf') format("OpenType");
+}
+
+.error-text {
+  font-family: "azonix";
+  color: ghostwhite;
+  font-size: 2rem;
+}
