@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Footer from './components/footer';
 import Header from './components/Header';
@@ -19,8 +19,7 @@ class App extends Component {
 
   render() {
     return (
-
-      <BrowserRouter>
+      <div>
         {/* header */}
         <Header />
         {/* Barre de navigation */}
@@ -35,8 +34,7 @@ class App extends Component {
         </Switch>
         {/* footer */}
         <Footer />
-      </BrowserRouter>
-
+      </div>
     );
   }
 }
