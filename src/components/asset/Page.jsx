@@ -42,7 +42,10 @@ class Page extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    const { loading, item } = this.state;
+    const { history } = this.props;
+
+    if (loading) {
       return (
         <div className="container">
           <div className="row">
@@ -52,7 +55,7 @@ class Page extends Component {
                 sizeUnit={"px"}
                 size={25}
                 color={'#43a2d0'}
-                loading={this.state.loading}
+                loading={loading}
               />
             </div>
           </div>
@@ -60,12 +63,11 @@ class Page extends Component {
       );
     }
 
-    const { item } = this.state;
     const Asset = typeToComponent[item.type];
 
     return (
       <div>
-        <button onClick={this.props.history.goBack} type="button">&larr; Back to results </button>
+        <button onClick={history.goBack} type="button">&larr; Back to results </button>
 
         <Asset {...item} />
       </div>

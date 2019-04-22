@@ -16,17 +16,17 @@ import {
 } from 'react-share';
 
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import Title from '../title';
 
 
 // Affichage de la page de l'image avec les détails
-const Image = ({
-  description, href, title, date, keywords
-}) => (
+const Image = (
+  {
+    description, href, title, date, keywords
+  }
+) => (
     <div className="container">
-
       <div className="text-center row mx-auto">
         <div className="col">
           <Title title={title} idStyle="titleSecond" />

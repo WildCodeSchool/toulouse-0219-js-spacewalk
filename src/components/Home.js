@@ -3,7 +3,6 @@ import {
   Row, Container
 } from 'reactstrap';
 import Apod from './Apod';
-import MinArticle from './minArticle';
 import CollectionAndResult from './CollectionAndResult';
 
 class Home extends Component {

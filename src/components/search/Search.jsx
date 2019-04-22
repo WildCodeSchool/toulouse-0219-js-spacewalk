@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import { Input } from 'reactstrap';
 
@@ -10,7 +10,7 @@ class Search extends Component {
       audio: false,
       video: false,
       image: false,
-      query: ""
+      query: ''
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -33,6 +33,7 @@ class Search extends Component {
   }
 
   render() {
+    const { image, audio, video } = this.state;
     return (
       <div className="container">
         <div className="search">
@@ -51,9 +52,9 @@ class Search extends Component {
             <div>
               <label className="mr-2" htmlFor="images">
                 Images
-              <input
+                <input
                   id="image"
-                  checked={this.state.image}
+                  checked={image}
                   name="image"
                   onChange={this.handleOnChange}
                   type="checkbox"
@@ -63,9 +64,9 @@ class Search extends Component {
 
               <label className="mr-2" htmlFor="audio">
                 Audio
-              <input
+                <input
                   id="audio"
-                  checked={this.state.audio}
+                  checked={audio}
                   name="audio"
                   onChange={this.handleOnChange}
                   type="checkbox"
@@ -74,9 +75,9 @@ class Search extends Component {
               </label>
               <label className="mr-2" htmlFor="video">
                 Video
-              <input
+                <input
                   id="video"
-                  checked={this.state.video}
+                  checked={video}
                   name="video"
                   onChange={this.handleOnChange}
                   type="checkbox"
