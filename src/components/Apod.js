@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import {
-  Card, CardImg, CardBody, CardTitle, Col,
-} from 'reactstrap';
 import ReactPlayer from 'react-player';
-import '../Apod.css';
+import Title from './title';
+import '../styles/Apod.css';
 
 class Apod extends Component {
   constructor() {
@@ -30,37 +28,26 @@ class Apod extends Component {
     // Décomposition des props (this.state)
     const { image } = this.state;
     // Si type vidéo, afficher le player
-    if (image.media_type === 'video') {
-      return (
-        <div className="container">
+    return (
+      <div className="container-fluid bg-gradient">
+        <div className="bg-clair mx-auto">
+          <div className="row">
+            <Title title="Picture of the Day" idStyle="titleSecond" />
+          </div>
           <div className="row">
             <div className="col">
-              <ReactPlayer url={image.url} />
+              {image.media_type === 'video' ? <ReactPlayer url={image.url} /> : <img src={image.url} alt={image.title} />}
+            </div>
+            <div className="col">
+              <h3>{image.title}</h3>
+              <p>{image.date}</p>
+              <p>{image.explanation}</p>
             </div>
           </div>
         </div>
-      );
-    }
-    return (
-      // si media-type = image
-      // début de la card
-      <div className="containerOverlay">
-        <Col lg={8}>
-          <Card>
-            <CardImg top width="100%" src={image.url} alt={image.title} />
-            <CardBody className="overlay">
-              <CardTitle className="textOverlay">
-                <h3 className="font-weight-bold">Picture of the day</h3>
-                <h3>{image.title}</h3>
-                <p>{image.date}</p>
-              </CardTitle>
-            </CardBody>
-          </Card>
-        </Col>
       </div>
     );
   }
 }
-
 
 export default Apod;

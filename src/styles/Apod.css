@@ -27,3 +27,12 @@
   left: 5%;
   text-align: left;
 }
+
+.bg-clair {
+  width: 85vw;
+  padding: 20px;
+}
+
+.bg-gradient {
+  background-image: linear-gradient(to bottom, #202a3f, #2b3e59, #345374, #3b698f, #4081ab, #5293bb, #64a6ca, #77b9da, #98cae2, #b9dbea, #d9ecf3, #f9fcfd);
+}
