@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.10",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "leaflet": "^1.4.0",
@@ -14,6 +15,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "react-share": "^2.4.0",
+    "react-spinners": "^0.5.4",
     "react-twitter-embed": "^2.0.7",
     "reactstrap": "^7.1.0",
     "video-react": "^0.13.6"
