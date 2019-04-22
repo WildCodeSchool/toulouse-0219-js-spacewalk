@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Card, CardImg, CardBody, CardTitle, Col,
 } from 'reactstrap';
+import ReactPlayer from 'react-player';
 import '../Apod.css';
 
 class Apod extends Component {
@@ -28,7 +29,20 @@ class Apod extends Component {
   render() {
     // Décomposition des props (this.state)
     const { image } = this.state;
+    // Si type vidéo, afficher le player
+    if (image.media_type === 'video') {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <ReactPlayer url={image.url} />
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
+      // si media-type = image
       // début de la card
       <div className="containerOverlay">
         <Col lg={8}>
@@ -47,5 +61,6 @@ class Apod extends Component {
     );
   }
 }
+
 
 export default Apod;
