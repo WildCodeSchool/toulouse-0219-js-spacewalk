@@ -8,22 +8,29 @@ import Video from './Video';
 const typeToComponent = {
   audio: Audio,
   image: Image,
-  video: Video
+  video: Video,
+
 };
 
-const Results = ({ results }) => {
-  const items = results.map(item => {
+class Results extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { loading: true }
+  }
+  items = this.props.results.map(item => {
     const ResultComponent = typeToComponent[item.type];
     return <ResultComponent key={item.id} {...item} />;
   });
 
-  return (
-    <div className="container-fluid mx-auto">
-      <div className="row no-gutters">
-        {items}
+  render() {
+    return (
+      <div className="container-fluid mx-auto">
+        <div className="row no-gutters">
+          {this.items}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 Results.propTypes = {
