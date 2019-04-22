@@ -27,11 +27,8 @@ const Image = (
   }
 ) => (
     <div className="container">
-
       <div className="text-center row mx-auto">
         <div className="col">
-
-
           <Title title={title} idStyle="titleSecond" />
           <p>{date}</p>
           <div>

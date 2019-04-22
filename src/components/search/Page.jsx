@@ -11,7 +11,7 @@ class Page extends Component {
 
     this.state = {
       results: [],
-      error: ''
+      // error: ''
     };
 
     this.search = this.search.bind(this);
@@ -33,6 +33,7 @@ class Page extends Component {
   }
 
   render() {
+    const { results } = this.state;
     return (
       <div className="container-fluid mx-auto m-5">
         <div className="row mx-auto text-center p-5">
@@ -45,11 +46,11 @@ class Page extends Component {
 
 
         {/* Affichage des résultats */}
-        {this.state.results.length > 0
+        {results.length > 0
           ? (
             <div className="row mx-auto bg-dark p-5">
               <div className="col d-flex align-items-stretch">
-                <Results results={this.state.results} />
+                <Results results={results} />
               </div>
             </div>
           )

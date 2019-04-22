@@ -63,8 +63,7 @@ function search({
     .then(({ collection: { items } }) => items)
     .then(items => items
       // .filter(item => item.links)
-      .map(transformItem)
-    )
+      .map(transformItem));
 }
 
 function getAssetImageById(id) {

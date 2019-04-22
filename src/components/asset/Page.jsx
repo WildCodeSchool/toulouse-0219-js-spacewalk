@@ -36,16 +36,17 @@ class Page extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    const { loading, item } = this.state;
+    const { history } = this.props;
+    if (loading) {
       return <div>Loading . . .</div>;
     }
 
-    const { item } = this.state;
     const Asset = typeToComponent[item.type];
 
     return (
       <div>
-        <button onClick={this.props.history.goBack} type="button">&larr; Back to results </button>
+        <button onClick={history.goBack} type="button">&larr; Back to results </button>
 
         <Asset {...item} />
       </div>
