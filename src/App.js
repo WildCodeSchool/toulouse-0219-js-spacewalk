@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Container, Row, Col } from 'reactstrap';
-import Collection from './components/collections';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
 import './App.css';
 import Footer from './components/footer';
 import Header from './components/Header';
 import './components/navMenu.css';
 import NavMenu from './components/NavMenu';
-import Title from './components/title';
 import Asset from './components/asset/Page';
 import Search from './components/search/Page';
 import Home from './components/Home';
