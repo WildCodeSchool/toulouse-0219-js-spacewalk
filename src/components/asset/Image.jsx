@@ -16,6 +16,7 @@ import {
 } from 'react-share';
 
 import PropTypes from 'prop-types';
+
 import React from 'react';
 import Title from '../title';
 

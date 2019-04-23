@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import Title from './title';
-import '../styles/Apod.css';
+import './Apod.css';
 
 class Apod extends Component {
   constructor() {
