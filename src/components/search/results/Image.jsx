@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../../styles/style-search.css';
+import './style-search.css';
 // Affichage de la card image dans les résultats
 const Image = item => (
   <div className="col col-md-3 d-flex align-items-stretch">
