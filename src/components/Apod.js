@@ -25,18 +25,19 @@ class Apod extends Component {
   }
 
   render() {
-    // Décomposition des props (this.state)
+    // Décomposition du state
     const { image } = this.state;
-    // Si type vidéo, afficher le player
+
     return (
       <div className="container-fluid bg-gradient">
-        <div className="bg-clair mx-auto">
+        <div className="container-apod mx-auto">
           <div className="row">
-            <Title title="Picture of the Day" idStyle="titleSecond" />
+            <div><Title title="Picture of the Day" idStyle="titleSecond" /></div>
           </div>
           <div className="row">
             <div className="col">
-              {image.media_type === 'video' ? <ReactPlayer url={image.url} /> : <img src={image.url} alt={image.title} />}
+              {/* // Si type vidéo, afficher le player sinon afficher l'image */}
+              {image.media_type === 'video' ? <ReactPlayer url={image.url} /> : <img src={image.url} alt={image.title} className="img-apod" />}
             </div>
             <div className="col">
               <h3>{image.title}</h3>

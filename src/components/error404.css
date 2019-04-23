@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'azonix';
+  src: url('../components/font/Azonix/Azonix.otf') format("OpenType");
+}
+
+.error-text {
+  font-family: "azonix";
+  color: ghostwhite;
+  font-size: 2rem;
+}
