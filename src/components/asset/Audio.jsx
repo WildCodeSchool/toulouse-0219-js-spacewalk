@@ -88,7 +88,7 @@ const Audio = ({ description, href, title, date, id, keywords }) => (
   </div>
 );
 
-Image.propTypes = {
+Audio.propTypes = {
   description: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
