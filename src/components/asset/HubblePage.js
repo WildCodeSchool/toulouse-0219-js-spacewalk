@@ -50,11 +50,11 @@ class HubblePage extends Component {
 
     return (
       <div className="container">
-
+        <Link to="/">
+          <div className="btn btn-light mt-4">Back to results</div>
+        </Link>
         <div className="text-center row mx-auto">
-          <Link to="/search">
-            <div className="btn btn-light mt-4">Back to results</div>
-          </Link>
+
           <div className="col">
             <Title title={matchArticle.title} idStyle="titleSecond" />
             <p>{excerptDate(matchArticle.pub_date)}</p>
@@ -99,6 +99,14 @@ class HubblePage extends Component {
                 </TumblrShareButton>
               </div>
             </div>
+            <a href={matchArticle.link}>
+              <button
+                type="button"
+                className="btn btn-secondary continueReadingButton"
+              >
+                Continue reading on the Hubble website
+              </button>
+            </a>
           </div>
         </div>
       </div>
