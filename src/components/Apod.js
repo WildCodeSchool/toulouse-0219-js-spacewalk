@@ -31,8 +31,8 @@ class Apod extends Component {
     return (
       <div className="container-fluid bg-gradient">
         <div className="container-apod mx-auto">
-          <div className="row mx-auto p-4 mx-auto">
-            <Title title="Astronomy Picture of the Day" idStyle="titleSecondWhite" />
+          <div className="p-4 mx-auto">
+            <Title title="Astronomy Picture of the Day" idStyle="titleSecondWhite" className="text-center" />
 
           </div>
           <div className="row pb-5">

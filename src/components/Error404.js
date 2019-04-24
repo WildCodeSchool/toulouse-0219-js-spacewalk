@@ -1,15 +1,38 @@
 import React from 'react';
+import Title from './title'
 import './error404.css';
 
 const Error = () => {
   return (
-    <div className="bg-gradient text-center d-flex align-items-center justify-content-center">
-      <p className="error-text">
-        Houston, we have a problem...
+    <div className="bg-purple">
+      <div className="stars"></div>
+      <div className="central-body">
+        <div className="error-text">Houston, we have a problem...
         <br />
-        We &apos;ve landed on the planet N°404.
-      </p>
-    </div>
+          We have landed on the Planet 404
+        </div>
+      </div>
+      <div className="objects">
+        <img className="object_rocket" src="http://salehriaz.com/404Page/img/rocket.svg" width="40px" />
+        <div className="earth-moon">
+          <img className="object_earth" src="http://salehriaz.com/404Page/img/earth.svg" width="100px" />
+          <img className="object_moon" src="http://salehriaz.com/404Page/img/moon.svg" width="80px" />
+        </div>
+        <div className="box_astronaut">
+          <img className="object_astronaut" src="http://salehriaz.com/404Page/img/astronaut.svg" width="140px" />
+        </div>
+      </div>
+      <div className="glowing_stars">
+        <div className="star"></div>
+        <div className="star"></div>
+        <div className="star"></div>
+        <div className="star"></div>
+        <div className="star"></div>
+
+      </div>
+
+    </div >
+
   );
 };
 
