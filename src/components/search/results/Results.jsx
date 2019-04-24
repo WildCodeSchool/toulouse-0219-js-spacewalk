@@ -28,7 +28,11 @@ class Results extends React.Component {
     e.preventDefault();
     this.props.pageSearch(e.target.href);
   }
-
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.match.params.links.href !== prevProps.match.params.links.href) {
+  //     this.items;
+  //   }
+  // }
   render() {
     return (
       <div className="container-fluid mx-auto">

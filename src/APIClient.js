@@ -69,7 +69,6 @@ function search({
 
 function getAssetImageById(id) {
   const uri = `${config.BASE_URL}/asset/${id}`;
-
   const encodedURI = encodeURI(uri);
 
   return fetch(encodedURI)
@@ -79,8 +78,8 @@ function getAssetImageById(id) {
 
 function getAssetById(id) {
   return Promise.all([getAssetImageById(id), search({ id })]).then(
-    ([href, items]) => ({
-      ...items[0],
+    ([href, results]) => ({
+      ...results.items[0],
       href
     })
   );

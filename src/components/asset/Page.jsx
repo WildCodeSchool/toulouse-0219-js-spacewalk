@@ -36,7 +36,7 @@ class Page extends Component {
     APIClient.getAssetById(id).then(item => {
       this.setState({
         item,
-        loading: false
+        loading: false,
       });
     });
   }
