@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import Collections from './collections';
-import { Badge, Button } from 'reactstrap';
 import './collections.css';
 import Title from './title';
 import './articleHome.css';
@@ -14,35 +14,27 @@ import hubble from './images/hubbleCollection.png';
 import exoplanet from './images/exoplanetCollection.jpeg';
 import excerptDate from '../functions/excerptDate';
 
-const pageNbrStyle = {
-  display: "flex",
-  color: "blue",
-  userSelect: "none",
-  cursor: "pointer",
-  listStyleType: "none"
-}
-
 class CollectionAndResult extends Component {
   constructor(props) {
     super(props);
     this.state = {
       article: [],
-      tagName: "",
+      tagName: '',
       tag: [
         {
-          name: "Science",
+          name: 'Science',
           url: science,
         },
         {
-          name: "Photo",
+          name: 'Photo',
           url: photo,
         },
         {
-          name: "Hubble",
+          name: 'Hubble',
           url: hubble,
         },
         {
-          name: "exoplanet",
+          name: 'exoplanet',
           url: exoplanet,
         }
       ],
@@ -51,26 +43,28 @@ class CollectionAndResult extends Component {
     };
 
     // Binding method
+    this.handleTag = this.handleTag.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    fetch("https://hubblesite.wild31.com/api/v3/external_feed/esa_feed?page=all", {
+    fetch('https://hubblesite.wild31.com/api/v3/external_feed/esa_feed?page=all', {
       crossDomain: true
     })
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
         this.setState({
           article: data
         });
       });
-    this.handleTag = this.handleTag.bind(this);
   }
-  handleTag = tag => this.setState({
-    tagName: tag,
-    currentPage: 1
-  });
+
+  handleTag(tag) {
+    this.setState({
+      tagName: tag,
+      currentPage: 1
+    });
+  }
 
   handleClick(event) {
     this.setState({ currentPage: Number(event.target.value) });
@@ -78,14 +72,18 @@ class CollectionAndResult extends Component {
 
   render() {
     // Destructuring
-    const { article, currentPage, articlesPerPage } = this.state;
+    const {
+      article,
+      currentPage,
+      articlesPerPage,
+      tagName,
+      tag
+    } = this.state;
 
     // Woking with filtered articles in order to display a reliable number of pages
     const filteredArticles = article
       .filter(
-        singleArt =>
-          this.state.tagName === "" ||
-          singleArt.title.includes(this.state.tagName)
+        singleArt => tagName === '' || singleArt.title.includes(tagName)
       );
 
     // Logic for displaying articles
@@ -103,6 +101,7 @@ class CollectionAndResult extends Component {
     const renderPageNumbers = pageNumbers.map(number => {
       return (
         <li
+          className={`paginate-page ${number === currentPage ? 'active' : ''}`}
           key={number}
           value={number}
           onClick={this.handleClick}
@@ -113,36 +112,25 @@ class CollectionAndResult extends Component {
     });
 
 
-
     return (
       <section>
         <Title title="Collections" idStyle="title" />
         <div className="container-fluid mx-auto">
           <div id="collections">
-            {this.state.tag.map((tag, index) => (
-
+            {tag.map((singleTag, index) => (
 
               <Collections
                 key={index}
-                url={tag.url}
-                name={tag.name}
+                url={singleTag.url}
+                name={singleTag.name}
                 handleTag={this.handleTag}
                 i={index}
               />
 
-
             ))}
           </div>
-          <div>
-            <ul style={pageNbrStyle}>{renderPageNumbers}</ul>
-          </div>
+
           <div className="row mx-auto">
-            {/* {currentArticles
-              .filter(
-                singleArt =>
-                  this.state.tagName === "" ||
-                  singleArt.title.includes(this.state.tagName)
-              ) */}
             {currentArticles.map((singleArt, index) => (
 
               <div key={index} className="articleHome">
@@ -151,13 +139,13 @@ class CollectionAndResult extends Component {
                   alt={singleArt.title}
                 />
                 <div>
-                  {this.state.tag
+                  {tag
                     .filter(SingleTag => singleArt.title.includes(SingleTag.name))
                     .map(SingleTag => (
                       <p
                         style={{
                           backgroundColor: colorTag(SingleTag.name),
-                          color: "#ffffff"
+                          color: '#ffffff'
                         }}
                         type="button"
                         className="badge mr-1"
@@ -175,9 +163,10 @@ class CollectionAndResult extends Component {
                     <Button
                       color="dark"
                       className="btn-sm"
-                      outline>
+                      outline
+                    >
                       Read more ⇢
-                      </Button>
+                    </Button>
                   </a>
                 </div>
               </div>
@@ -185,7 +174,13 @@ class CollectionAndResult extends Component {
           </div>
 
         </div>
-      </section >
+        <div>
+          <ul className="paginate-container">
+            <span className="paginate-text">Page :</span>
+            {renderPageNumbers}
+          </ul>
+        </div>
+      </section>
     );
   }
 }

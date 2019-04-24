@@ -37,3 +37,43 @@
 .articleHome h2 {
   font-size: 1.2em;
 }
+
+/*
+* Pagination Styling Starts
+*/
+.paginate-container {
+  background-color: var(--dark-color);
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0.4rem 0;
+}
+
+.paginate-page {
+  color: var(--light-color);
+  user-select: none; 
+  cursor: pointer;
+  margin: 0 0.3rem;
+  padding: 0.2rem;
+  transition: var(--trans);
+}
+
+.paginate-page.active {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.paginate-text {
+  color: var(--light-color); 
+  user-select: none; 
+  margin: 0 0.3rem;
+  padding: 0.2rem;
+}
+
+.paginate-page:hover {
+  color: var(--secondary-color);
+  transition: var(--trans);
+}
+/*
+* Pagination Styling Ends
+*/
