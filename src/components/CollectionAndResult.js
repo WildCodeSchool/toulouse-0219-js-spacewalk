@@ -5,6 +5,7 @@ import './collections.css';
 import Title from './title';
 import './articleHome.css';
 import colorTag from '../functions/colorTag';
+import { Link } from "react-router-dom";
 
 
 // import des img des collections
@@ -112,14 +113,14 @@ class CollectionAndResult extends Component {
                     {/* <p>
                       {excerpt(singleArt.description, 10)}
                     </p> */}
-                    <link to={`/hubble/${singleArt.pub_date}`}>
+                    <Link to={`/hubble/${singleArt.pub_date}`}>
                       <Button
                         color="dark"
                         className="btn-sm"
                         outline>
                         Read more ⇢
                       </Button>
-                    </link>
+                    </Link>
                   </div>
                 </div>
               ))}

@@ -10,10 +10,8 @@ class HubblePage extends Component {
   render() {
     return (
       <div>
-        <title title="article title" idStyle="title" />
-
+        <Title title="article title" idStyle="title" />
       </div>
-
     );
   }
 }
