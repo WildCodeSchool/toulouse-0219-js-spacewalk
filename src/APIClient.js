@@ -29,6 +29,13 @@ const transformItem = item => {
   return newItem;
 };
 
+function pageSearch(encodedURI) {
+  return fetch(encodedURI)
+    .then(result => result.json())
+    .then(({ collection: { items, links } }) => ({
+      items: items.map(transformItem), links
+    }));
+}
 
 function search({
   audio, video, id, image, query
@@ -57,13 +64,7 @@ function search({
   const uri = `${config.BASE_URL}/search?${toQueryString(queryObject)}`;
 
   const encodedURI = encodeURI(uri);
-
-  return fetch(encodedURI)
-    .then(result => result.json())
-    .then(({ collection: { items } }) => items)
-    .then(items => items
-      // .filter(item => item.links)
-      .map(transformItem));
+  return pageSearch(encodedURI);
 }
 
 function getAssetImageById(id) {
@@ -87,5 +88,6 @@ function getAssetById(id) {
 
 export default {
   getAssetById,
-  search
+  search,
+  pageSearch
 };
