@@ -6,6 +6,7 @@ import Title from './title';
 import './articleHome.css';
 import colorTag from '../functions/colorTag';
 import { Link } from "react-router-dom";
+import excerptDate from '../functions/excerptDate';
 
 
 // import des img des collections
@@ -13,7 +14,7 @@ import science from './images/scienceCollection.jpeg';
 import photo from './images/photoCollection.jpeg';
 import hubble from './images/hubbleCollection.png';
 import exoplanet from './images/exoplanetCollection.jpeg';
-import excerptDate from '../functions/excerptDate';
+
 
 class CollectionAndResult extends Component {
   constructor(props) {
@@ -113,7 +114,7 @@ class CollectionAndResult extends Component {
                     {/* <p>
                       {excerpt(singleArt.description, 10)}
                     </p> */}
-                    <Link to={`/hubble/${singleArt.pub_date}`}>
+                    <Link to={`/hubble/${singleArt.pub_date}`} >
                       <Button
                         color="dark"
                         className="btn-sm"
