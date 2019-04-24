@@ -112,14 +112,14 @@ class CollectionAndResult extends Component {
                     {/* <p>
                       {excerpt(singleArt.description, 10)}
                     </p> */}
-                    <a href={singleArt.link}>
+                    <link to={`/hubble/${singleArt.pub_date}`}>
                       <Button
                         color="dark"
                         className="btn-sm"
                         outline>
                         Read more ⇢
                       </Button>
-                    </a>
+                    </link>
                   </div>
                 </div>
               ))}

@@ -10,6 +10,7 @@ import Asset from './components/asset/Page';
 import Search from './components/search/Page';
 import Home from './components/Home';
 import TrackerSat from './components/TrackerSat';
+import HubblePage from './components/asset/HubblePage';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path="/search" component={Search} />
           <Route path="/asset/:id" component={Asset} />
           <Route path="/tracker" component={TrackerSat} />
+          <Route path="/hubble/:id" component={HubblePage} />
           {/* footer start */}
           <Container className="containerFuid">
             <Footer />
