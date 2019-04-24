@@ -29,13 +29,14 @@
 }
 
 .bg-gradient {
-  background-image: linear-gradient(to bottom, #202a3f, #2b3e59, #345374, #3b698f, #4081ab, #5293bb, #64a6ca, #77b9da, #98cae2, #b9dbea, #d9ecf3, #f9fcfd);
+  background-image: linear-gradient(to bottom, #202a3f, #222c41, #242e43, #273145, #293347);
 }
 
 .img-apod {
-  width: 50vw;
-  height: auto;
+  height: 50vh;
+  width: 100%;
   object-fit: cover;
+  border: 1px solid #f9fcfd;
 }
 
 .container-apod {

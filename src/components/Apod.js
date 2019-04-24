@@ -29,18 +29,18 @@ class Apod extends Component {
     const { image } = this.state;
 
     return (
-      <div className="container-fluid">
-
-        <div className="row bg-gradient">
-          <div className="mx-auto p-4"><Title title="Astronomy Picture of the Day" idStyle="titleSecond" /></div>
-        </div>
+      <div className="container-fluid bg-gradient">
         <div className="container-apod mx-auto">
-          <div className="row">
-            <div className="col">
+          <div className="row mx-auto p-4 mx-auto">
+            <Title title="Astronomy Picture of the Day" idStyle="titleSecondWhite" />
+
+          </div>
+          <div className="row pb-5">
+            <div className="col-md-7 pb-3">
               {/* // Si type vidéo, afficher le player sinon afficher l'image */}
-              {image.media_type === 'video' ? <ReactPlayer url={image.url} /> : <img src={image.url} alt={image.title} className="img-apod img-thumbnail" />}
+              {image.media_type === 'video' ? <ReactPlayer url={image.url} /> : <img src={image.url} alt={image.title} className="img-apod" />}
             </div>
-            <div className="col">
+            <div className="col-md-5 text-white">
               <h3>{image.title}</h3>
               <p>{image.date}</p>
               <p>{image.explanation}</p>
