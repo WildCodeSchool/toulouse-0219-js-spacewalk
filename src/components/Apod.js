@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Card, CardImg, CardBody, CardTitle, Col,
 } from 'reactstrap';
-import '../Apod.css';
+import './Apod.css';
 
 class Apod extends Component {
   constructor() {
