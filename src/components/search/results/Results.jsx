@@ -35,13 +35,12 @@ class Results extends React.Component {
         <div className="row no-gutters">
           {items}
         </div>
-        {this.props.links.map(item =>
-          <a href={item.href} onClick={this.handleClick}>
-            {item.prompt}
-          </a>
-        )}
-
-        <div>
+        <div className="d-flex justify-content-center">
+          {this.props.links.map(item => (
+            <a href={item.href} onClick={this.handleClick} className="btn btn-success mr-3 mt-4">
+              {item.prompt}
+            </a>
+          ))}
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import APIClient from '../../APIClient';
 import Search from './Search';
 import Results from './results/Results';
 import Title from '../title';
+import './results/style-search.css';
 
 
 const override = css`
@@ -100,7 +101,7 @@ class Page extends Component {
         {/* Affichage des résultats */}
         {results.length > 0
           ? (
-            <div className="row mx-auto bg-dark p-5">
+            <div className="row mx-auto bg-search p-5">
               <div className="col d-flex align-items-stretch">
                 <Results results={results} links={links} pageSearch={this.pageSearch} />
               </div>
