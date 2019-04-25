@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import Title from '../title';
-import excerptDate from '../../functions/excerptDate';
-import { Link } from 'react-router-dom';
-
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -19,6 +15,9 @@ import {
   RedditIcon,
   TumblrIcon,
 } from 'react-share';
+import { Link } from 'react-router-dom';
+import Title from '../title';
+import excerptDate from '../../functions/excerptDate';
 
 class HubblePage extends Component {
   constructor(props) {
@@ -29,7 +28,7 @@ class HubblePage extends Component {
   }
 
   componentDidMount() {
-    fetch("https://hubblesite.wild31.com/api/v3/external_feed/esa_feed?page=all", {
+    fetch('https://hubblesite.wild31.com/api/v3/external_feed/esa_feed?page=all', {
       crossDomain: true
     })
       .then(response => response.json())
@@ -39,13 +38,13 @@ class HubblePage extends Component {
           article: data,
         });
       });
-
   }
 
   render() {
-
-    const idArticle = this.props.location.pathname.split('/')
-    const matchArticle = this.state.article.find(article => article.pub_date === idArticle[2]);
+    const { location } = this.props;
+    const { article } = this.state;
+    const idArticle = location.pathname.split('/');
+    const matchArticle = article.find(singleArticle => singleArticle.pub_date === idArticle[2]);
     if (!matchArticle) return <div />;
 
     return (
@@ -84,7 +83,11 @@ class HubblePage extends Component {
                 </WhatsappShareButton>
               </div>
               <div>
-                <PinterestShareButton url={matchArticle.image} media={matchArticle.image} description={matchArticle.title}>
+                <PinterestShareButton
+                  url={matchArticle.image}
+                  media={matchArticle.image}
+                  description={matchArticle.title}
+                >
                   <PinterestIcon size={32} round />
                 </PinterestShareButton>
               </div>
