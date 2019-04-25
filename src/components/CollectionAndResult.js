@@ -113,18 +113,16 @@ class CollectionAndResult extends Component {
     }
 
     // Display pages
-    const renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <li
-          className={`paginate-page ${number === currentPage ? 'active' : ''}`}
-          key={number}
-          value={number}
-          onClick={this.handleClick}
-        >
-          {number}
-        </li>
-      );
-    });
+    const renderPageNumbers = pageNumbers.map(number => (
+      <li
+        className={`paginate-page ${number === currentPage ? 'active' : ''}`}
+        key={number}
+        value={number}
+        onClick={this.handleClick}
+      >
+        {number}
+      </li>
+    ));
 
 
     return (
@@ -165,7 +163,9 @@ class CollectionAndResult extends Component {
                         type="button"
                         className="badge mr-1"
                         onClick={() => this.handleTag(SingleTag.name)}
-                      >{SingleTag.name}</p>
+                      >
+                        {SingleTag.name}
+                      </p>
                     ))}
                   <p className="date">
                     {excerptDate(singleArt.pub_date)}
