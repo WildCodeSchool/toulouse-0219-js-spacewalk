@@ -5,14 +5,14 @@ import './collections.css';
 import Title from './title';
 import './articleHome.css';
 import colorTag from '../functions/colorTag';
-
+import excerptDate from '../functions/excerptDate';
 
 // import des img des collections
 import science from './images/scienceCollection.jpeg';
 import photo from './images/photoCollection.jpeg';
 import hubble from './images/hubbleCollection.png';
 import exoplanet from './images/exoplanetCollection.jpeg';
-import excerptDate from '../functions/excerptDate';
+
 
 class CollectionAndResult extends Component {
   constructor(props) {
@@ -39,12 +39,14 @@ class CollectionAndResult extends Component {
         }
       ],
       currentPage: 1,
-      articlesPerPage: 6
+      articlesPerPage: 6,
+      isFiltered: true
     };
 
-    // Binding method
+    // Binding methods
     this.handleTag = this.handleTag.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleResetFilter = this.handleResetFilter.bind(this);
   }
 
   componentDidMount() {
@@ -54,7 +56,7 @@ class CollectionAndResult extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          article: data
+          article: data,
         });
       });
   }
@@ -62,12 +64,19 @@ class CollectionAndResult extends Component {
   handleTag(tag) {
     this.setState({
       tagName: tag,
-      currentPage: 1
+      currentPage: 1,
+      isFiltered: true
     });
   }
 
   handleClick(event) {
     this.setState({ currentPage: Number(event.target.value) });
+  }
+
+  handleResetFilter() {
+    this.setState(prevState => ({
+      isFiltered: !prevState.isFiltered
+    }));
   }
 
   render() {
@@ -77,14 +86,19 @@ class CollectionAndResult extends Component {
       currentPage,
       articlesPerPage,
       tagName,
-      tag
+      tag,
+      isFiltered
     } = this.state;
 
     // Woking with filtered articles in order to display a reliable number of pages
-    const filteredArticles = article
+    let filteredArticles = article
       .filter(
         singleArt => tagName === '' || singleArt.title.includes(tagName)
       );
+    // Working with all articles when reset filter
+    if (!isFiltered) {
+      filteredArticles = article;
+    }
 
     // Logic for displaying articles
     const indexOfLastArticle = currentPage * articlesPerPage;
@@ -178,6 +192,12 @@ class CollectionAndResult extends Component {
           <ul className="paginate-container">
             <span className="paginate-text">Page :</span>
             {renderPageNumbers}
+            <li
+              className="paginate-reset"
+              onClick={this.handleResetFilter}
+            >
+              Display all
+            </li>
           </ul>
         </div>
       </section>
