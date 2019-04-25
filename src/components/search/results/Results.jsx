@@ -12,42 +12,41 @@ const typeToComponent = {
 
 };
 
+
 class Results extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true }
+    this.state = { loading: true };
     this.handleClick = this.handleClick.bind(this);
   }
-
-  items = this.props.results.map(item => {
-    const ResultComponent = typeToComponent[item.type];
-    return <ResultComponent key={item.id} {...item} />;
-  });
 
   handleClick(e) {
     e.preventDefault();
     this.props.pageSearch(e.target.href);
   }
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.match.params.links.href !== prevProps.match.params.links.href) {
-  //     this.items;
-  //   }
-  // }
+
   render() {
+    const items = this.props.results.map(item => {
+      const ResultComponent = typeToComponent[item.type];
+      return <ResultComponent key={item.id} {...item} />;
+    });
     return (
       <div className="container-fluid mx-auto">
         <div className="row no-gutters">
-          {this.items}
+          {items}
         </div>
         {this.props.links.map(item =>
           <a href={item.href} onClick={this.handleClick}>
             {item.prompt}
-          </a>)}
+          </a>
+        )}
 
         <div>
         </div>
       </div>
+
     );
+
   }
 };
 
