@@ -17,6 +17,10 @@ class Search extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
+
   handleOnChange(event) {
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;

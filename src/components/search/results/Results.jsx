@@ -25,6 +25,7 @@ class Results extends React.Component {
     this.props.pageSearch(e.target.href);
   }
 
+
   render() {
     const items = this.props.results.map(item => {
       const ResultComponent = typeToComponent[item.type];

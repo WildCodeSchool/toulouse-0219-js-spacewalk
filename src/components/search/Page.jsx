@@ -38,6 +38,7 @@ class Page extends Component {
     });
   }
 
+
   search(params) {
     APIClient.search(params).then(results => {
       results.items.sort((a, b) => {
