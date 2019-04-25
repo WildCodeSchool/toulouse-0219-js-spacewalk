@@ -15,11 +15,7 @@ class Home extends Component {
     return (
       <div>
         {/* Affichage de l'image du jour */}
-        <Container>
-          <Row>
-            <Apod />
-          </Row>
-        </Container>
+        <Apod />
         {/* fin de l'affichage de l'image du jour */}
 
         <CollectionAndResult />

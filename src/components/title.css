@@ -19,6 +19,14 @@
   text-align: center;
 }
 
+.titleSecondWhite {
+  font-family: "azonix";
+  padding-top: 50px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #f9fcfd;
+}
+
 #title h1 {
   margin-bottom: 50px;
   font-size: 3em;
