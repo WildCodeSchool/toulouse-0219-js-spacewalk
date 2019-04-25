@@ -75,7 +75,8 @@ class CollectionAndResult extends Component {
 
   handleResetFilter() {
     this.setState(prevState => ({
-      isFiltered: !prevState.isFiltered
+      isFiltered: !prevState.isFiltered,
+      currentPage: 1
     }));
   }
 
