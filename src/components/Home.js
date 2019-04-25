@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {
-  Row, Container
-} from 'reactstrap';
 import Apod from './Apod';
 import CollectionAndResult from './CollectionAndResult';
 

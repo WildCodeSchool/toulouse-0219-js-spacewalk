@@ -1,60 +1,231 @@
 /* .collectionDiv {
   
 } */
-
-
-#collections{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: auto;
-  text-align: center;
-  width: 80%;
-
-/* margin haut et bas de collection */
-  margin-top: -20px;
-  margin-bottom: 50px;
+@media screen and (max-width: 650px) {
+  .allCollections {
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 40px;
+    min-width: 160px;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 1.6em;
+    margin: 5px 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
   
-  text-align: center;
+  .allCollections:hover {
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 40px;
+    min-width: 160px;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 1.6em;
+    margin: 5px 5px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: all .2s ease-in-out;
+      transform: scale(1.05);
+  }
+
+  #collections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    flex-wrap: wrap;
+  
+  /* margin haut et bas de collection */
+    margin-top: -20px;
+    margin-bottom: 50px;
+    
+    text-align: center;
+  }
 }
 
-.allCollections {
+
+@media screen and (min-width: 650px) and (max-width: 800px) {
+  .allCollections {
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 40px;
+    min-width: 150px;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 1.6em;
+    margin: 0 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
   
-  background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
-  object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 2%;
-  height: 400px;
-  width: 200px;
-  margin: auto;
-  text-align: center;
-  color: #f9fcfd;
-  font-size: 2.5em;
-  padding: 170px 0;
-  margin: 0 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  .allCollections:hover {
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 40px;
+    min-width: 150px;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 1.6em;
+    margin: 0 5px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: all .2s ease-in-out;
+      transform: scale(1.05);
+  }
+
+  #collections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    width: 80%;
+  /* margin haut et bas de collection */
+    margin-top: -20px;
+    margin-bottom: 50px;
+    
+    text-align: center;
+  }
+    
 }
 
-.allCollections:hover {
-  background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
-  object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 2%;
-  height: 400px;
-  width: 200px;
-  margin: auto;
-  text-align: center;
-  color: #f9fcfd;
-  font-size: 2.5em;
-  padding: 170px 0;
-  margin: 0 50px;
-  box-shadow: 0 15px 12px 0 rgba(0, 0, 0, 0.5);
-  transition: all .2s ease-in-out;
-    transform: scale(1.05);
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .allCollections {
+  
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 200px;
+    min-width: 160px;
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 2.2em;
+    padding: 70px 0;
+    margin: 0 20px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  .allCollections:hover {
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 200px;
+    min-width: 160px;
+    width: 25%;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 2.2em;
+    padding: 70px 0;
+    margin: 0 20px;
+    box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.5);
+    transition: all .2s ease-in-out;
+      transform: scale(1.05);
+  }
+  #collections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    width: 80%;
+  
+  /* margin haut et bas de collection */
+    margin-top: -20px;
+    margin-bottom: 50px;
+    
+    text-align: center;
+  }
+    
+  
+}
+
+@media screen and (min-width: 1000px) {
+  .allCollections {
+  
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 400px;
+    min-width: 190px;
+    width: 25%;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 2.4em;
+    padding: 170px 0;
+    margin: 0 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  .allCollections:hover {
+    background-image: url('http://qnimate.com/wp-content/uploads/2014/03/images2.jpg');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2%;
+    height: 400px;
+    min-width: 190px;
+    width: 25%;
+    margin: auto;
+    text-align: center;
+    color: #f9fcfd;
+    font-size: 2.4em;
+    padding: 170px 0;
+    margin: 0 40px;
+    box-shadow: 0 15px 12px 0 rgba(0, 0, 0, 0.5);
+    transition: all .2s ease-in-out;
+      transform: scale(1.05);
+  }
+
+  #collections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    width: 80%;
+  
+  /* margin haut et bas de collection */
+    margin-top: -20px;
+    margin-bottom: 50px;
+    
+    text-align: center;
+  }
+    
+  
 }
 
 /* #f9fcfd */
