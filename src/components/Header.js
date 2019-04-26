@@ -1,5 +1,5 @@
 import React from 'react';
-import headerImage from './images/header-1.jpg';
+import headerImage from './images/header2.png';
 import logo from './images/logo-spacewalk.svg';
 import './header.css';
 
@@ -9,7 +9,7 @@ const Header = () => (
       <img src={headerImage} alt="Dark blue starry sky" className="imageHeader" />
     </div>
     <div><img src={logo} alt="Logo of the website : a rocket launching from Earth" className="overlayHeader" /></div>
-    <div className="display-1 titreOverlay text-white">SpaceWalk</div>
+    <div className="titreOverlay text-white">SpaceWalk</div>
   </header>
 
 );

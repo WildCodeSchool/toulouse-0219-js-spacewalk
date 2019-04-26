@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { css } from '@emotion/core';
+import { PropagateLoader } from 'react-spinners';
 import APIClient from '../../APIClient';
 import Image from './Image';
 import Video from './Video';
@@ -10,7 +12,11 @@ const typeToComponent = {
   video: Video,
   audio: Audio
 };
-
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 class Page extends Component {
   constructor(props) {
     super(props);
@@ -36,16 +42,32 @@ class Page extends Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return <div>Loading . . .</div>;
+    const { loading, item } = this.state;
+    const { history } = this.props;
+
+    if (loading) {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="text-center mx-auto m-5">
+              <PropagateLoader
+                css={override}
+                sizeUnit={"px"}
+                size={25}
+                color={'#43a2d0'}
+                loading={loading}
+              />
+            </div>
+          </div>
+        </div>
+      );
     }
 
-    const { item } = this.state;
     const Asset = typeToComponent[item.type];
 
     return (
       <div>
-        <button onClick={this.props.history.goBack} type="button">&larr; Back to results </button>
+        <button onClick={history.goBack} type="button">&larr; Back to results </button>
 
         <Asset {...item} />
       </div>
