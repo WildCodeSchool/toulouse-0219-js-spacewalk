@@ -10,7 +10,6 @@
   }
 }
 
-
 @media screen and (min-width: 200px) and (max-width: 600px) {
   .articleHome {
     width: 100%;
@@ -20,7 +19,6 @@
     margin-top: 15px;
     margin-bottom: 15px;
     font-size: 0.9em;
-    
   }
 }
 
@@ -32,7 +30,7 @@
     margin: auto;
     margin-top: 15px;
     margin-bottom: 15px;
-    
+    font-size: 0.9em;
   }
 }
 
@@ -44,20 +42,18 @@
     margin: auto;
     margin-top: 15px;
     margin-bottom: 15px;
-    
+    font-size: 0.9em;
   }
 }
-
-
-
 
 .articleHome img {
   width: 30%;
   height: 100%;
   object-fit: cover;
   float: left;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
-
 
 .articleHome div {
   overflow: auto;
@@ -66,11 +62,12 @@
   padding-bottom: 5px;
 }
 
-.articleHome .date{
+.articleHome .date {
   padding-top: 0px;
   color: grey;
   margin-top: -5px;
-  margin-bottom: -5px
+  margin-bottom: -5px;
+  font-size: 0.8em;
 }
 
 .articleHome Button {
@@ -81,20 +78,27 @@
   font-size: 1.2em;
 }
 
+.articleHome-bg-light {
+  background-color: ghostwhite;
+  border-radius: 5px;
+}
+
 /*
 * Pagination Styling Starts
 */
+
 .paginate-container {
   background-color: var(--dark-color);
   display: flex;
   justify-content: center;
   list-style-type: none;
   padding: 0.4rem 0;
+  margin: 0px;
 }
 
 .paginate-page {
   color: var(--light-color);
-  user-select: none; 
+  user-select: none;
   cursor: pointer;
   margin: 0 0.3rem;
   padding: 0.2rem;
@@ -107,14 +111,14 @@
 }
 
 .paginate-text {
-  color: var(--light-color); 
-  user-select: none; 
+  color: var(--light-color);
+  user-select: none;
   margin: 0 0.3rem;
   padding: 0.2rem;
 }
 
 .paginate-reset {
-  color: var(--light-color); 
+  color: var(--light-color);
   user-select: none;
   cursor: pointer;
   margin: 0 0.3rem;
@@ -131,6 +135,7 @@
   color: var(--secondary-color);
   transition: var(--trans);
 }
+
 /*
 * Pagination Styling Ends
 */

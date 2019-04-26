@@ -4,7 +4,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink
@@ -39,7 +38,7 @@ class NavMenu extends Component {
                 <NavLink tag={NavRouter} className="text-center" to="/" exact>Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={NavRouter} className="text-center" to="/search">NASA Articles</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/search">NASA Archives</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink tag={NavRouter} className="text-center" to="/tracker">Satellites Tracker</NavLink>
