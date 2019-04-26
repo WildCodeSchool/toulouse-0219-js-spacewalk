@@ -26,6 +26,7 @@ class Page extends Component {
     };
   }
 
+
   componentDidMount() {
     const {
       match: {
@@ -33,12 +34,17 @@ class Page extends Component {
       }
     } = this.props;
 
+
     APIClient.getAssetById(id).then(item => {
       this.setState({
         item,
-        loading: false
+        loading: false,
       });
     });
+  }
+
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
 
   render() {

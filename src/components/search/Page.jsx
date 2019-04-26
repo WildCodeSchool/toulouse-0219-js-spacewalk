@@ -6,6 +6,7 @@ import APIClient from '../../APIClient';
 import Search from './Search';
 import Results from './results/Results';
 import Title from '../title';
+import './results/style-search.css';
 
 
 const override = css`
@@ -21,11 +22,13 @@ class Page extends Component {
     this.state = {
       results: [],
       // error: '',
-      loading: true
+      loading: true,
+      links: []
 
     };
 
     this.search = this.search.bind(this);
+    this.pageSearch = this.pageSearch.bind(this);
   }
 
 
@@ -35,9 +38,10 @@ class Page extends Component {
     });
   }
 
+
   search(params) {
     APIClient.search(params).then(results => {
-      results.sort((a, b) => {
+      results.items.sort((a, b) => {
         if (a.date < b.date) {
           return 1;
         }
@@ -46,12 +50,27 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results });
+      this.setState({ results: results.items, links: results.links });
+    });
+  }
+
+  pageSearch(url) {
+    APIClient.pageSearch(url).then(results => {
+      results.items.sort((a, b) => {
+        if (a.date < b.date) {
+          return 1;
+        }
+        if (a.date > b.date) {
+          return -1;
+        }
+        return 0;
+      });
+      this.setState({ results: results.items, links: results.links });
     });
   }
 
   render() {
-    const { results, loading } = this.state;
+    const { results, loading, links } = this.state;
     if (loading) {
       return (
         <div className="container">
@@ -83,9 +102,9 @@ class Page extends Component {
         {/* Affichage des résultats */}
         {results.length > 0
           ? (
-            <div className="row mx-auto bg-dark p-5">
+            <div className="row mx-auto bg-search p-5">
               <div className="col d-flex align-items-stretch">
-                <Results results={results} />
+                <Results results={results} links={links} pageSearch={this.pageSearch} />
               </div>
             </div>
           )
