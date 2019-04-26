@@ -32,8 +32,8 @@ const transformItem = item => {
 function pageSearch(encodedURI) {
   return fetch(encodedURI)
     .then(result => result.json())
-    .then(({ collection: { items, links } }) => ({
-      items: items.map(transformItem), links
+    .then(({ collection: { items, links, metadata } }) => ({
+      items: items.map(transformItem), links, metadata
     }));
 }
 

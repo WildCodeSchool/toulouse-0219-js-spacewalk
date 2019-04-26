@@ -23,7 +23,8 @@ class Page extends Component {
       results: [],
       // error: '',
       loading: true,
-      links: []
+      links: [],
+      metadata: {}
 
     };
 
@@ -50,7 +51,7 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results: results.items, links: results.links });
+      this.setState({ results: results.items, links: results.links, metadata: results.metadata });
     });
   }
 
@@ -65,12 +66,12 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results: results.items, links: results.links });
+      this.setState({ results: results.items, links: results.links, metadata: results.metadata });
     });
   }
 
   render() {
-    const { results, loading, links } = this.state;
+    const { results, loading, links, metadata } = this.state;
     if (loading) {
       return (
         <div className="container">
@@ -104,7 +105,7 @@ class Page extends Component {
           ? (
             <div className="row mx-auto bg-search p-5">
               <div className="col d-flex align-items-stretch">
-                <Results results={results} links={links} pageSearch={this.pageSearch} />
+                <Results results={results} links={links} pageSearch={this.pageSearch} metadata={metadata} />
               </div>
             </div>
           )

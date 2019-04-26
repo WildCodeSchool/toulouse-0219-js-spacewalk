@@ -33,6 +33,9 @@ class Results extends React.Component {
     });
     return (
       <div className="container-fluid mx-auto">
+        <div className="text-white font-weight-bold">
+          Total items : {this.props.metadata.total_hits}
+        </div>
         <div className="row no-gutters">
           {items}
         </div>
