@@ -5,6 +5,7 @@ import './collections.css';
 import Title from './title';
 import './articleHome.css';
 import colorTag from '../functions/colorTag';
+import { Link } from "react-router-dom";
 import excerptDate from '../functions/excerptDate';
 
 // import des img des collections
@@ -174,7 +175,7 @@ class CollectionAndResult extends Component {
                   {/* <p>
                       {excerpt(singleArt.description, 10)}
                     </p> */}
-                  <a href={singleArt.link}>
+                  <Link to={`/hubble/${singleArt.pub_date}`} >
                     <Button
                       color="dark"
                       className="btn-sm"
@@ -182,9 +183,10 @@ class CollectionAndResult extends Component {
                     >
                       Read more ⇢
                     </Button>
-                  </a>
+                  </Link>
                 </div>
               </div>
+
             ))}
           </div>
 
@@ -201,7 +203,7 @@ class CollectionAndResult extends Component {
             </li>
           </ul>
         </div>
-      </section>
+      </section >
     );
   }
 }
