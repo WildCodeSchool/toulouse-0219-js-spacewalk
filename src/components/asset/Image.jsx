@@ -16,7 +16,7 @@ import {
 } from 'react-share';
 
 import PropTypes from 'prop-types';
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import React from 'react';
 import Title from '../title';
 
@@ -24,7 +24,7 @@ import Title from '../title';
 // Affichage de la page de l'image avec les détails
 const Image = (
   {
-    description, href, title, date, keywords
+    description, href, title, date, keywords, modal, id, toggle
   }
 ) => (
     <div className="container">
@@ -42,6 +42,21 @@ const Image = (
             <p>{description}</p>
             <img className="shadow p-3 mb-3 bg-white rounded img-fluid" alt={title} src={href} />
           </div>
+          <Button color="danger" onClick={toggle}>High Res Image</Button>
+
+          <Modal isOpen={modal} toggle={toggle}>
+            <ModalHeader toggle={toggle}>{title}</ModalHeader>
+            <ModalBody>
+              <img src={`http://images-assets.nasa.gov/image/${id}/${id}~large.jpg`} alt={title} />
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={toggle}>Do Something</Button>
+              <Button color="secondary" onClick={toggle}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+
+
+
           <div className="row text-center mx-auto d-flex justify-content-center mb-5">
             <div>
               <FacebookShareButton url={href}>

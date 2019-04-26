@@ -46,9 +46,8 @@ class Results extends React.Component {
       </div>
 
     );
-
   }
-};
+}
 
 Results.propTypes = {
   results: PropTypes.arrayOf(

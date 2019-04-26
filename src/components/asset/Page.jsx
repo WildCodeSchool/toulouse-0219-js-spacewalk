@@ -22,10 +22,11 @@ class Page extends Component {
     super(props);
 
     this.state = {
-      loading: true
+      loading: true,
+      modal: false
     };
+    this.toggle = this.toggle.bind(this);
   }
-
 
   componentDidMount() {
     const {
@@ -39,6 +40,8 @@ class Page extends Component {
       this.setState({
         item,
         loading: false,
+        modal: false
+
       });
     });
   }
@@ -47,8 +50,14 @@ class Page extends Component {
     window.scrollTo(0, 0);
   }
 
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+
   render() {
-    const { loading, item } = this.state;
+    const { loading, item, modal } = this.state;
     const { history } = this.props;
 
     if (loading) {
@@ -75,7 +84,7 @@ class Page extends Component {
       <div>
         <button onClick={history.goBack} type="button">&larr; Back to results </button>
 
-        <Asset {...item} />
+        <Asset {...item} modal={modal} toggle={this.toggle} />
       </div>
     );
   }
