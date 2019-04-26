@@ -11,25 +11,10 @@ import config from '../config';
 import keys from '../keys';
 import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
+import './trackerSat.css';
 
 
 // Style to display the map
-const lfContStyle = {
-  height: '500px',
-  width: '900px',
-  margin: 'auto'
-};
-
-const containerStyle = {
-  display: 'flex',
-  justifyContent: 'space-around',
-  margin: 'auto',
-};
-
-const describeStyle = {
-  width: '500px',
-  margin: 'auto',
-};
 
 // Component
 class TrackSat extends Component {
@@ -45,8 +30,8 @@ class TrackSat extends Component {
       error: null,
       value: sat[0].name,
       satId: 25544,
-      satDescrip: null,
-      satLaunchDate: null
+      satDescrip: sat[0].description,
+      satLaunchDate: sat[0].launch
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -58,7 +43,7 @@ class TrackSat extends Component {
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
-    }, 2000);
+    }, 200000);
   }
 
   // Stopping the time interval
@@ -149,10 +134,10 @@ class TrackSat extends Component {
     return (
       <div className="container-fluid text-center">
         <h1>Space &amp; Earth science satellites tracking</h1>
-        <div style={containerStyle}>
-          <div>
+        <div className="containerStyle">
+          <div className="mapLoc">
             <Map
-              style={lfContStyle}
+              className="lfContStyle"
               center={position}
               zoom={zoom}
             >
@@ -169,53 +154,57 @@ class TrackSat extends Component {
                 </Popup>
               </Marker>
             </Map>
-
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                What do you want to track :
-                <select
-                  value={value}
-                  onChange={this.handleChange}
-                >
-                  {satList}
-                </select>
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
+            <div>
+              <p>
+                <span>
+                  Launch date :
+                  {satLaunchDate}
+                </span>
+                <span>
+                  Latitude :
+                  {position[0]}
+                  °
+                </span>
+                <span>
+                  Longitude :
+                  {position[1]}
+                  °
+                </span>
+              </p>
+              <div style={{ display: 'inline-block' }}>
+                {
+                  hits && (
+                    <div>
+                      <span>
+                        Altitude:
+                        {hits.positions[0].sataltitude}
+                        km
+                      </span>
+                    </div>
+                  )}
+              </div>
+            </div>
           </div>
-
           <div>
             {
               hits && (
                 <div>
+                  <form onSubmit={this.handleSubmit}>
+                    <label>
+                      What do you want to track :
+                      <select
+                        value={value}
+                        onChange={this.handleChange}
+                      >
+                        {satList}
+                      </select>
+                    </label>
+                    <input type="submit" value="Submit" />
+                  </form>
+
                   <h3>Satellite infos :</h3>
-                  <div>
-                    <p>
-                      Latitude :
-                      {position[0]}
-                      °
-                    </p>
-                    <p>
-                      Longitude :
-                      {position[1]}
-                      °
-                    </p>
-                    {
-                      satDescrip && satLaunchDate && (
-                        <div>
-                          <p>
-                            Altitude:
-                            {hits.positions[0].sataltitude}
-                            km
-                          </p>
-                          <p>
-                            Launch date :
-                            {satLaunchDate}
-                          </p>
-                        </div>
-                      )}
-                  </div>
-                  <div style={describeStyle}>
+
+                  <div className="describeStyle">
                     {satDescrip}
                   </div>
                 </div>

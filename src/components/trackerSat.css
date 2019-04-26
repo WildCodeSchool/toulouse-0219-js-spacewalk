@@ -1,0 +1,16 @@
+.lfContStyle{
+  height: 500px;
+  width: 800px;
+  margin: auto;
+}
+
+.containerStyle{
+  display: flex;
+  justify-content:row;
+  margin: auto;
+}
+
+.describeStyle{
+  width: 400px;
+  margin: auto;
+}
