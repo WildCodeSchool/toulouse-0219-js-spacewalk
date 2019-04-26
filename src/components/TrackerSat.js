@@ -13,9 +13,6 @@ import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
 import './trackerSat.css';
 
-
-// Style to display the map
-
 // Component
 class TrackSat extends Component {
   constructor(props) {
@@ -132,8 +129,8 @@ class TrackSat extends Component {
     const satList = jsonSatList.map((item, key) => <option key={item.id} value={item.name}>{item.name}</option>);
 
     return (
-      <div className="container-fluid text-center">
-        <h1>Space &amp; Earth science satellites tracking</h1>
+      <div className="container-fluid text-center tracker-page">
+        <h2>Space &amp; Earth science satellites tracking</h2>
         <div className="containerStyle">
           <div className="mapLoc">
             <Map
@@ -154,44 +151,41 @@ class TrackSat extends Component {
                 </Popup>
               </Marker>
             </Map>
-            <div>
+            <div className="data-display">
               <p>
-                <span>
-                  Launch date :
-                  {satLaunchDate}
-                </span>
-                <span>
-                  Latitude :
-                  {position[0]}
-                  °
-                </span>
-                <span>
-                  Longitude :
-                  {position[1]}
-                  °
-                </span>
+                Launch date :
+                {satLaunchDate}
               </p>
-              <div style={{ display: 'inline-block' }}>
-                {
-                  hits && (
-                    <div>
-                      <span>
-                        Altitude:
-                        {hits.positions[0].sataltitude}
-                        km
-                      </span>
-                    </div>
-                  )}
-              </div>
+              <p>
+                Latitude :
+                {position[0]}
+                deg
+              </p>
+              <p>
+                Longitude :
+                {position[1]}
+                deg
+              </p>
+              {
+                hits && (
+                  <div>
+                    <p>
+                      Altitude:
+                      {hits.positions[0].sataltitude}
+                      km
+                    </p>
+                    <p>Time (UTC) :</p>
+                  </div>
+                )}
             </div>
           </div>
-          <div>
+          <div className="describeStyle">
             {
               hits && (
                 <div>
                   <form onSubmit={this.handleSubmit}>
                     <label>
-                      What do you want to track :
+                      <p>Choose the satellite you want to track :</p>
                       <select
                         value={value}
                         onChange={this.handleChange}
@@ -202,9 +196,9 @@ class TrackSat extends Component {
                     <input type="submit" value="Submit" />
                   </form>
 
-                  <h3>Satellite infos :</h3>
 
-                  <div className="describeStyle">
+                  <div>
+                    <h4 className="text-center mt-2">Satellite infos</h4>
                     {satDescrip}
                   </div>
                 </div>

@@ -1,16 +1,39 @@
+.tracker-page {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.tracker-page h2 {
+  padding: 2rem 0;
+}
+
 .lfContStyle{
-  height: 500px;
-  width: 800px;
-  margin: auto;
+  height: 600px;
+  width: 60vw;
 }
 
 .containerStyle{
   display: flex;
-  justify-content:row;
+  justify-content:space-around;
   margin: auto;
+  text-align: justify;
 }
 
 .describeStyle{
-  width: 400px;
-  margin: auto;
+  width: 40vw;
+  margin: 0 1rem;
+}
+
+.mapLoc {
+  display: flex;
+  flex-direction: column;
+  background-color: darkblue;
+  color: var(--light-color);
+}
+
+.data-display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  margin: 0;
 }
