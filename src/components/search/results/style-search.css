@@ -5,3 +5,11 @@
   width: 25vh;
   height: 25vh;
 }
+
+.bg-search {
+  background-color: #202a3f;
+}
+
+.continueReadingButton {
+  margin-bottom: 30px;
+}

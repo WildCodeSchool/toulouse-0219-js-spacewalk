@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import { Input } from 'reactstrap';
 
@@ -9,17 +9,21 @@ class Search extends Component {
     this.state = {
       audio: false,
       video: false,
-      images: false,
-      query: ""
+      image: false,
+      query: ''
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
+
   handleOnChange(event) {
     const { target } = event;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
 
     this.setState({
@@ -33,6 +37,7 @@ class Search extends Component {
   }
 
   render() {
+    const { image, audio, video } = this.state;
     return (
       <div className="container">
         <div className="search">
@@ -40,7 +45,7 @@ class Search extends Component {
             <div className="nav-input mr-lg-2">
               <Input
                 id="query"
-                aria-label="Search for images and audio from NASA"
+                aria-label="Search for images, videos and audio from NASA"
                 name="query"
                 onChange={this.handleOnChange}
                 placeholder="Moon"
@@ -48,13 +53,13 @@ class Search extends Component {
               />
             </div>
             <input className="btn btn-primary" type="submit" value="Search" />
-            <div className="search__options">
+            <div>
               <label className="mr-2" htmlFor="images">
                 Images
-           <input
-                  id="images"
-                  checked={this.state.images}
-                  name="images"
+                <input
+                  id="image"
+                  checked={image}
+                  name="image"
                   onChange={this.handleOnChange}
                   type="checkbox"
                   className="ml-1"
@@ -63,20 +68,20 @@ class Search extends Component {
 
               <label className="mr-2" htmlFor="audio">
                 Audio
-              <input
+                <input
                   id="audio"
-                  checked={this.state.audio}
+                  checked={audio}
                   name="audio"
                   onChange={this.handleOnChange}
                   type="checkbox"
                   className="ml-1"
                 />
               </label>
-              <label className="search__option" htmlFor="video">
+              <label className="mr-2" htmlFor="video">
                 Video
-              <input
+                <input
                   id="video"
-                  checked={this.state.video}
+                  checked={video}
                   name="video"
                   onChange={this.handleOnChange}
                   type="checkbox"

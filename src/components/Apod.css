@@ -27,3 +27,18 @@
   left: 5%;
   text-align: left;
 }
+
+.bg-gradient {
+  background-image: linear-gradient(to bottom, #202a3f, #222c41, #242e43, #273145, #293347);
+}
+
+.img-apod {
+  height: 60vh;
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid #f9fcfd;
+}
+
+.container-apod {
+  width: 90vw;
+}
