@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 import Collections from './collections';
 import './collections.css';
 import Title from './title';
 import './articleHome.css';
 import colorTag from '../functions/colorTag';
-import { Link } from "react-router-dom";
 import excerptDate from '../functions/excerptDate';
+import './Apod.css';
+
 
 // import des img des collections
 import science from './images/scienceCollection.jpeg';
 import photo from './images/photoCollection.jpeg';
 import hubble from './images/hubbleCollection.png';
 import exoplanet from './images/exoplanetCollection.jpeg';
+import { NONAME } from 'dns';
 
 
 class CollectionAndResult extends Component {
@@ -127,9 +131,9 @@ class CollectionAndResult extends Component {
 
 
     return (
-      <section>
-        <Title title="Collections" idStyle="title" />
-        <div className="container-fluid mx-auto">
+      <section className="bg-gradient">
+        <Title title="Collections" idStyle="titlelight" />
+        <div className="container-fluid mx-auto bg-gradient">
           <div id="collections">
             {tag.map((singleTag, index) => (
 
@@ -145,13 +149,15 @@ class CollectionAndResult extends Component {
           </div>
 
           <div className="row mx-auto">
-            {currentArticles.map((singleArt, index) => (
+            {currentArticles.map((singleArt) => (
 
-              <div key={index} className="articleHome">
-                <img
-                  src={singleArt.image}
-                  alt={singleArt.title}
-                />
+              <div key={singleArt.pub_date} className="articleHome articleHome-bg-light pr-3">
+                <Link to={`/hubble/${singleArt.pub_date}`}>
+                  <img
+                    src={singleArt.image}
+                    alt={singleArt.title}
+                  />
+                </Link>
                 <div>
                   {tag
                     .filter(SingleTag => singleArt.title.includes(SingleTag.name))
@@ -159,7 +165,8 @@ class CollectionAndResult extends Component {
                       <p
                         style={{
                           backgroundColor: colorTag(SingleTag.name),
-                          color: '#ffffff'
+                          color: '#ffffff',
+                          border: '1px solid white',
                         }}
                         type="button"
                         className="badge mr-1"
@@ -171,11 +178,12 @@ class CollectionAndResult extends Component {
                   <p className="date">
                     {excerptDate(singleArt.pub_date)}
                   </p>
+
                   <h2>{singleArt.title}</h2>
                   {/* <p>
                       {excerpt(singleArt.description, 10)}
                     </p> */}
-                  <Link to={`/hubble/${singleArt.pub_date}`} >
+                  <Link to={`/hubble/${singleArt.pub_date}`}>
                     <Button
                       color="dark"
                       className="btn-sm"
