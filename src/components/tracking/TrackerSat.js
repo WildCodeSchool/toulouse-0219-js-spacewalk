@@ -125,11 +125,13 @@ class TrackSat extends Component {
     let satMarker;
     if (satId !== 25544) {
       satMarker = L.icon({
+        // eslint-disable-next-line global-require
         iconUrl: require('../images/satellite.png'),
         iconSize: [40, 40],
       });
     } else {
       satMarker = L.icon({
+        // eslint-disable-next-line global-require
         iconUrl: require('../images/iss.png'),
         iconSize: [50, 50],
       });
@@ -159,8 +161,8 @@ class TrackSat extends Component {
               zoom={zoom}
             >
               <TileLayer
-                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
               />
               <Marker
                 position={position}
