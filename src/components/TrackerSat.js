@@ -110,6 +110,7 @@ class TrackSat extends Component {
       lng,
       zoom,
       value,
+      satId,
       satDescrip,
       satLaunchDate,
     } = this.state;
@@ -121,10 +122,18 @@ class TrackSat extends Component {
     }
 
     // Setting up marker
-    const issMarker = L.icon({
-      iconUrl: require('./images/iss.png'),
-      iconSize: [50, 50],
-    });
+    let satMarker;
+    if (satId !== 25544) {
+      satMarker = L.icon({
+        iconUrl: require('./images/satellite.png'),
+        iconSize: [40, 40],
+      });
+    } else {
+      satMarker = L.icon({
+        iconUrl: require('./images/iss.png'),
+        iconSize: [50, 50],
+      });
+    }
 
     // Displaying error message if any
     if (error) {
@@ -155,7 +164,7 @@ class TrackSat extends Component {
               />
               <Marker
                 position={position}
-                icon={issMarker}
+                icon={satMarker}
               >
                 <Popup>
                   {value}
@@ -198,7 +207,6 @@ class TrackSat extends Component {
                   <div>
                     Time (UTC) :
                     <p>
-                      {/* valeur test pour la mise en page */}
                       {new Date(hits.positions[0].timestamp * 1000).toUTCString()}
                     </p>
                   </div>
