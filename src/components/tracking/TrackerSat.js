@@ -9,11 +9,11 @@ import {
 } from 'react-leaflet';
 import L from 'leaflet';
 import Noty from 'noty';
-import '../../node_modules/noty/lib/noty.css';
-import '../../node_modules/noty/lib/themes/sunset.css';
-import config from '../config';
-import keys from '../keys';
-import sat from '../satellites';
+import '../../../node_modules/noty/lib/noty.css';
+import '../../../node_modules/noty/lib/themes/sunset.css';
+import config from '../../config';
+import keys from '../../keys';
+import sat from '../../satellites';
 import 'leaflet/dist/leaflet.css';
 import './trackerSat.css';
 
@@ -125,12 +125,12 @@ class TrackSat extends Component {
     let satMarker;
     if (satId !== 25544) {
       satMarker = L.icon({
-        iconUrl: require('./images/satellite.png'),
+        iconUrl: require('../images/satellite.png'),
         iconSize: [40, 40],
       });
     } else {
       satMarker = L.icon({
-        iconUrl: require('./images/iss.png'),
+        iconUrl: require('../images/iss.png'),
         iconSize: [50, 50],
       });
     }
