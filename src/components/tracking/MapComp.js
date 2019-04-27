@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   Map,
   TileLayer,
@@ -11,7 +12,7 @@ import './trackerSat.css';
 const MapComp = ({
   position,
   zoom,
-  satMarker,
+  marker,
   satName
 }) => {
   return (
@@ -27,7 +28,7 @@ const MapComp = ({
         />
         <Marker
           position={position}
-          icon={satMarker}
+          icon={marker}
         >
           <Popup>
             {satName}
@@ -36,6 +37,13 @@ const MapComp = ({
       </Map>
     </Fragment>
   );
+};
+
+MapComp.propTypes = {
+  position: PropTypes.array.isRequired,
+  zoom: PropTypes.number.isRequired,
+  marker: PropTypes.object.isRequired,
+  satName: PropTypes.string.isRequired
 };
 
 export default MapComp;

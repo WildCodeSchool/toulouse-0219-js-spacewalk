@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import './trackerSat.css';
 
 const SatDataComp = ({
@@ -54,6 +55,15 @@ const SatDataComp = ({
       </div>
     </Fragment>
   );
+};
+
+SatDataComp.propTypes = {
+  lng: PropTypes.string.isRequired,
+  lat: PropTypes.string.isRequired,
+  alti: PropTypes.number.isRequired,
+  time: PropTypes.number.isRequired,
+  hits: PropTypes.object.isRequired,
+  launchDate: PropTypes.string.isRequired
 };
 
 export default SatDataComp;

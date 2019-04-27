@@ -26,7 +26,7 @@ class TrackSat extends Component {
       isLoading: false,
       error: null,
       satNameVal: sat[0].name,
-      satId: 25544,
+      satId: [25544],
       satDescrip: sat[0].description,
       satLaunchDate: sat[0].launch
     };
@@ -58,7 +58,7 @@ class TrackSat extends Component {
         hits: resp.data,
         isLoading: false,
         lat: resp.data.positions[0].satlatitude,
-        lng: resp.data.positions[0].satlongitude
+        lng: resp.data.positions[0].satlongitude,
       }))
       .catch(error => this.setState({ error, isLoading: false }));
   }
@@ -128,7 +128,7 @@ class TrackSat extends Component {
       iconUrl: require('../images/satellite.png'),
       iconSize: [40, 40],
     });
-    const marker = (satId !== 25544) ? satMarker : issMarker;
+    const marker = (satId[0] === 25544) ? issMarker : satMarker;
 
     // Displaying error message if any
     if (error) {
@@ -148,7 +148,7 @@ class TrackSat extends Component {
         <h2>Space &amp; Earth science satellites tracking</h2>
         <div className="containerStyle">
           <div className="mapLoc">
-            <MapComp position={position} zoom={zoom} satMarker={marker} satName={satNameVal} />
+            <MapComp position={position} zoom={zoom} marker={marker} satName={satNameVal} />
             <SatDataComp
               launchDate={satLaunchDate}
               lat={position[0]}
