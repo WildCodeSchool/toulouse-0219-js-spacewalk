@@ -43,7 +43,7 @@ class TrackSat extends Component {
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
-    }, 200000);
+    }, 20000000);
   }
 
   // Stopping the time interval
@@ -78,7 +78,6 @@ class TrackSat extends Component {
     // text: `You choose to track : ${value}`,
     new Noty({
       theme: 'sunset',
-      layout: 'topRight',
       type: 'info',
       text: `You're tracking ${value}`,
       timeout: 2000
@@ -162,29 +161,44 @@ class TrackSat extends Component {
               </Marker>
             </Map>
             <div className="data-display">
-              <p>
+              <div>
                 Launch date :
-                {satLaunchDate}
-              </p>
-              <p>
+                <p>
+                  {satLaunchDate}
+                </p>
+              </div>
+              <div>
                 Latitude :
-                {position[0]}
-                deg
-              </p>
-              <p>
+                <p>
+                  {position[0]}
+                  deg
+                </p>
+              </div>
+              <div>
                 Longitude :
-                {position[1]}
-                deg
-              </p>
+                <p>
+                  {position[1]}
+                  deg
+                </p>
+              </div>
               {
                 hits && (
                   <div>
+                    Altitude:
                     <p>
-                      Altitude:
                       {hits.positions[0].sataltitude}
                       km
                     </p>
-                    <p>Time (UTC) :</p>
+                  </div>
+                )}
+              {
+                hits && (
+                  <div>
+                    Time (UTC) :
+                    <p>
+                      {/* valeur test pour la mise en page */}
+                      {hits.positions[0].sataltitude}
+                    </p>
                   </div>
                 )}
             </div>

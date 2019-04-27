@@ -17,6 +17,7 @@
   justify-content:space-around;
   margin: auto;
   text-align: justify;
+  padding-bottom: 50px;
 }
 
 .describeStyle{
@@ -27,13 +28,13 @@
 .mapLoc {
   display: flex;
   flex-direction: column;
-  background-color: darkblue;
+  background-color: #0e549f;
   color: var(--light-color);
 }
 
 .data-display {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  margin: O;
+
 }
