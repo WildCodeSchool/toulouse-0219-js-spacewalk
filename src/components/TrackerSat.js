@@ -7,6 +7,9 @@ import {
   Popup
 } from 'react-leaflet';
 import L from 'leaflet';
+import Noty from 'noty';
+import '../../node_modules/noty/lib/noty.css';
+import '../../node_modules/noty/lib/themes/sunset.css';
 import config from '../config';
 import keys from '../keys';
 import sat from '../satellites';
@@ -72,7 +75,14 @@ class TrackSat extends Component {
   handleSubmit(event) {
     const { value, jsonSatList } = this.state;
     event.preventDefault();
-    alert(`You choose to track : ${value}`);
+    // text: `You choose to track : ${value}`,
+    new Noty({
+      theme: 'sunset',
+      layout: 'topRight',
+      type: 'info',
+      text: `You're tracking ${value}`,
+      timeout: 2000
+    }).show();
     // Extracting the satellite id from the name value store in the state
     const idMatched = jsonSatList
       .filter(item => (item.name === value))
