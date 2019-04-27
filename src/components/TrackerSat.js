@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button } from 'reactstrap';
 import {
   Map,
   TileLayer,
@@ -217,7 +218,14 @@ class TrackSat extends Component {
                         {satList}
                       </select>
                     </label>
-                    <input type="submit" value="Submit" />
+                    <Button
+                      type="submit"
+                      value="Submit"
+                      color="light"
+                    // size="lg"
+                    >
+                      Submit
+                    </Button>
                   </form>
 
 
