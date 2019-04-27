@@ -1,19 +1,58 @@
+@media screen and (max-width: 350px) {
+  .articleHome {
+    width: 100%;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 600px) {
+  .articleHome {
+    width: 100%;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .articleHome {
+    width: 80%;
+    height: 180px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .articleHome {
+    width: 45%;
+    height: 180px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+  }
+}
+
 .articleHome img {
   width: 30%;
   height: 100%;
   object-fit: cover;
   float: left;
-}
-
-.articleHome {
-  width: 45%;
-  min-height: 150px;
-  max-height: 200px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  margin: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .articleHome div {
@@ -23,11 +62,12 @@
   padding-bottom: 5px;
 }
 
-.articleHome .date{
+.articleHome .date {
   padding-top: 0px;
   color: grey;
   margin-top: -5px;
-  margin-bottom: -5px
+  margin-bottom: -5px;
+  font-size: 0.8em;
 }
 
 .articleHome Button {
@@ -37,3 +77,65 @@
 .articleHome h2 {
   font-size: 1.2em;
 }
+
+.articleHome-bg-light {
+  background-color: ghostwhite;
+  border-radius: 5px;
+}
+
+/*
+* Pagination Styling Starts
+*/
+
+.paginate-container {
+  background-color: var(--dark-color);
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0.4rem 0;
+  margin: 0px;
+}
+
+.paginate-page {
+  color: var(--light-color);
+  user-select: none;
+  cursor: pointer;
+  margin: 0 0.3rem;
+  padding: 0.2rem;
+  transition: var(--trans);
+}
+
+.paginate-page.active {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.paginate-text {
+  color: var(--light-color);
+  user-select: none;
+  margin: 0 0.3rem;
+  padding: 0.2rem;
+}
+
+.paginate-reset {
+  color: var(--light-color);
+  user-select: none;
+  cursor: pointer;
+  margin: 0 0.3rem;
+  padding: 0.2rem;
+  transition: var(--trans);
+}
+
+.paginate-reset:hover {
+  color: var(--secondary-color);
+  transition: var(--trans);
+}
+
+.paginate-page:hover {
+  color: var(--secondary-color);
+  transition: var(--trans);
+}
+
+/*
+* Pagination Styling Ends
+*/

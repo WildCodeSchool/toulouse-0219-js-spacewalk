@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { NavLink as NavRouter } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink
@@ -30,19 +30,18 @@ class NavMenu extends Component {
     const { isOpen } = this.state;
     return (
       <div className="sticky-top">
-        <Navbar expand="lg" className="navContainer">
-          <NavbarBrand href="/" className="active">Home</NavbarBrand>
+        <Navbar expand="md" className="navContainer">
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={isOpen} navbar>
+          <Collapse className="collapse-container" isOpen={isOpen} navbar>
             <Nav className="nav" navbar>
               <NavItem>
-                <NavLink className="text-center mr-4" href="/">Articles</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/" exact>Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-4" href="/articles">To read later</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/search">NASA Archives</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-4" href="/read">Satellites tracker</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/tracker">Satellites Tracker</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

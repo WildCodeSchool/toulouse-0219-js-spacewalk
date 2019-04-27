@@ -10,6 +10,14 @@
   text-align: center;
 }
 
+.titlelight {
+  font-family: "azonix";
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  color: #f9fcfd;
+}
+
 /* Titre secondaire */
 
 .titleSecond {
@@ -17,6 +25,14 @@
   padding-top: 50px;
   padding-bottom: 20px;
   text-align: center;
+}
+
+.titleSecondWhite {
+  font-family: "azonix";
+  padding-top: 50px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #f9fcfd;
 }
 
 #title h1 {

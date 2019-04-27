@@ -3,6 +3,10 @@
   src: url('./font/Azonix/Azonix.otf') format("OpenType");
 }
 
+@media screen and (max-width: 00px) {}
+
+@media screen and (max-width: 800px) {}
+
 header {
   font-family: "azonix";
 }
@@ -12,9 +16,9 @@ header {
 }
 
 .imageHeader {
-  height: 22vh;
+  height: 13vw;
   object-fit: cover;
-  width: auto;
+  width: 100%;
 }
 
 .overlayHeader {
@@ -22,8 +26,8 @@ header {
   top: 2vh;
   bottom: 0;
   left: 2vh;
-  right: 0;
-  height: 18vh;
+  right: 25vw;
+  height: 10vw;
   width: auto;
 }
 
@@ -31,6 +35,7 @@ header {
   position: absolute;
   top: 2vh;
   bottom: 0;
-  left: 25vh;
-  height: 18vh;
+  left: 13vw;
+  height: 10vh;
+  font-size: 7vw;
 }
