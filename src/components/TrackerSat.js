@@ -44,7 +44,7 @@ class TrackSat extends Component {
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
-    }, 20000000);
+    }, 10000);
   }
 
   // Stopping the time interval
@@ -54,8 +54,8 @@ class TrackSat extends Component {
 
   // Getting data from the API with axios
   getData() {
-    const id = this.state.satId;
-    const url = `${config.N2YO_POS_URL}${id}/43.604/1.444/0/1/&apiKey=${keys.N2YO_API_KEY}`;
+    const { satId } = this.state;
+    const url = `${config.N2YO_POS_URL}${satId}/43.604/1.444/0/1/&apiKey=${keys.N2YO_API_KEY}`;
 
     axios.get(url)
       .then(resp => this.setState({
@@ -67,12 +67,12 @@ class TrackSat extends Component {
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
-  // Handling change of select input
+  // Handling change of select input form
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
-  // Submitting
+  // Submitting the form input change
   handleSubmit(event) {
     const { value, jsonSatList } = this.state;
     event.preventDefault();
@@ -95,7 +95,7 @@ class TrackSat extends Component {
     const dateMatched = jsonSatList
       .filter(item => (item.name === value))
       .map(singleItem => (singleItem.launch));
-    // Updating the satellite id, description and launch date
+    // Updating State with satellite id, description and launch date
     this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched })
   }
 
@@ -136,7 +136,8 @@ class TrackSat extends Component {
     }
 
     // Making the option tag list for select component
-    const satList = jsonSatList.map((item, key) => <option key={item.id} value={item.name}>{item.name}</option>);
+    const satList = jsonSatList
+      .map(item => <option key={item.id} value={item.name}>{item.name}</option>);
 
     return (
       <div className="container-fluid text-center tracker-page">
@@ -198,7 +199,7 @@ class TrackSat extends Component {
                     Time (UTC) :
                     <p>
                       {/* valeur test pour la mise en page */}
-                      {hits.positions[0].sataltitude}
+                      {new Date(hits.positions[0].timestamp * 1000).toUTCString()}
                     </p>
                   </div>
                 )}
@@ -209,9 +210,10 @@ class TrackSat extends Component {
               hits && (
                 <div>
                   <form onSubmit={this.handleSubmit}>
-                    <label>
+                    <label htmlFor="satChoose">
                       <p>Choose the satellite you want to track :</p>
                       <select
+                        name="satChoose"
                         value={value}
                         onChange={this.handleChange}
                       >
