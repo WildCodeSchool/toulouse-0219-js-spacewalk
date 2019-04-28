@@ -1,11 +1,21 @@
-import React from "react";
+import React from 'react';
+// import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 const DateInput = props => (
-  <form onSubmit={props.changeDate}>
-    <div className="text-white">Enter a date (YYYY-MM-DD) :</div>
-    <input />
-    <input type="submit" />
-  </form>
+  <div className="text-white">
+    {/* Select a date :
+    <DatePicker
+      selected={props.date}
+      onChange={props.changeDate}
+    /> */}
+    <form onSubmit={props.changeDate}>
+      Enter a date (YYYY-MM-DD):
+      <input />
+      <input type="submit" />
+    </form>
+  </div>
 );
 
 export default DateInput;
