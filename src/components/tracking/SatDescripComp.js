@@ -52,7 +52,7 @@ const SatDescripComp = ({
 SatDescripComp.propTypes = {
   submitSatSelect: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  hits: PropTypes.object.isRequired,
+  hits: PropTypes.object,
   satList: PropTypes.array.isRequired,
   satDescrip: PropTypes.string.isRequired,
   satName: PropTypes.string.isRequired

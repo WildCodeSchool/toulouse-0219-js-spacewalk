@@ -62,7 +62,7 @@ SatDataComp.propTypes = {
   lat: PropTypes.string.isRequired,
   alti: PropTypes.number.isRequired,
   time: PropTypes.number.isRequired,
-  hits: PropTypes.object.isRequired,
+  hits: PropTypes.object,
   launchDate: PropTypes.string.isRequired
 };
 

@@ -13,7 +13,7 @@ const MapComp = ({
   position,
   zoom,
   marker,
-  satName
+  satName,
 }) => {
   return (
     <Fragment>

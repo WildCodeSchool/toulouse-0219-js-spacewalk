@@ -28,9 +28,9 @@ class TrackSat extends Component {
       satNameVal: sat[0].name,
       satId: [25544],
       satDescrip: sat[0].description,
-      satLaunchDate: sat[0].launch
+      satLaunchDate: sat[0].launch,
     };
-
+    // Binding methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -40,7 +40,7 @@ class TrackSat extends Component {
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
-    }, 10000);
+    }, 30000);
   }
 
   // Stopping the time interval
