@@ -27,8 +27,8 @@ class TrackSat extends Component {
       error: null,
       satNameVal: sat[0].name,
       satId: [25544],
-      satDescrip: sat[0].description,
-      satLaunchDate: sat[0].launch,
+      satDescrip: [sat[0].description],
+      satLaunchDate: [sat[0].launch],
     };
     // Binding methods
     this.handleChange = this.handleChange.bind(this);
@@ -95,29 +95,8 @@ class TrackSat extends Component {
     this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched });
   }
 
-  render() {
-    // Destructuring & variable assignation
-    const {
-      hits,
-      jsonSatList,
-      isLoading,
-      error,
-      lat,
-      lng,
-      zoom,
-      satNameVal,
-      satId,
-      satDescrip,
-      satLaunchDate,
-    } = this.state;
-    const position = [(lat).toFixed(2), (lng).toFixed(2)];
-
-    // Console logging of the number of transcations with the API
-    if (hits) {
-      console.log(`Count of transactions performed in last 60 min : ${hits.info.transactionscount}`);
-    }
-
-    // Setting up marker
+  handleMarkerChange() {
+    const { satId } = this.state;
     const issMarker = L.icon({
       // eslint-disable-next-line global-require
       iconUrl: require('../images/iss.png'),
@@ -129,6 +108,29 @@ class TrackSat extends Component {
       iconSize: [60, 60],
     });
     const marker = (satId[0] === 25544) ? issMarker : satMarker;
+    return marker;
+  }
+
+  render() {
+    // Destructuring & variable assignation
+    const {
+      hits,
+      jsonSatList,
+      isLoading,
+      error,
+      lat,
+      lng,
+      zoom,
+      satNameVal,
+      satDescrip,
+      satLaunchDate,
+    } = this.state;
+    const position = [(lat).toFixed(2), (lng).toFixed(2)];
+
+    // Console logging of the number of transcations with the API
+    if (hits) {
+      console.log(`Count of transactions performed in last 60 min : ${hits.info.transactionscount}`);
+    }
 
     // Displaying error message if any
     if (error) {
@@ -148,7 +150,12 @@ class TrackSat extends Component {
         <h2>Space &amp; Earth science satellites tracking</h2>
         <div className="containerStyle">
           <div className="mapLoc">
-            <MapComp position={position} zoom={zoom} marker={marker} satName={satNameVal} />
+            <MapComp
+              position={position}
+              zoom={zoom}
+              marker={this.handleMarkerChange()}
+              satName={satNameVal}
+            />
             <SatDataComp
               launchDate={satLaunchDate}
               lat={position[0]}

@@ -54,7 +54,7 @@ SatDescripComp.propTypes = {
   onChange: PropTypes.func.isRequired,
   hits: PropTypes.object,
   satList: PropTypes.array.isRequired,
-  satDescrip: PropTypes.string.isRequired,
+  satDescrip: PropTypes.array.isRequired,
   satName: PropTypes.string.isRequired
 };
 

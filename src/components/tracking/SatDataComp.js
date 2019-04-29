@@ -63,7 +63,7 @@ SatDataComp.propTypes = {
   alti: PropTypes.number.isRequired,
   time: PropTypes.number.isRequired,
   hits: PropTypes.object,
-  launchDate: PropTypes.string.isRequired
+  launchDate: PropTypes.array.isRequired
 };
 
 export default SatDataComp;
