@@ -121,12 +121,12 @@ class TrackSat extends Component {
     const issMarker = L.icon({
       // eslint-disable-next-line global-require
       iconUrl: require('../images/iss.png'),
-      iconSize: [50, 50],
+      iconSize: [80, 80],
     });
     const satMarker = L.icon({
       // eslint-disable-next-line global-require
       iconUrl: require('../images/satellite.png'),
-      iconSize: [40, 40],
+      iconSize: [60, 60],
     });
     const marker = (satId[0] === 25544) ? issMarker : satMarker;
 
