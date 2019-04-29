@@ -9,7 +9,7 @@ class ApodSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: moment(),
+      date: new Date(),
       image: ""
     };
   }
@@ -34,13 +34,15 @@ class ApodSearch extends Component {
 
 
   formatDate = moment => {
-    return moment.format('YYYY-MM-DD')
+    console.log(moment)
+    return moment.toDate()
   };
 
 
   changeDate = dateFromInput => {
+    console.log(dateFromInput)
     this.setState({ date: dateFromInput });
-    this.getPhoto(this.formatDate(dateFromInput));
+    this.getPhoto(moment(dateFromInput).format('YYYY-MM-DD'));
   };
 
   // handleClick = () => {
@@ -50,14 +52,13 @@ class ApodSearch extends Component {
   // };
 
   render() {
-    console.log(this.formatDate(this.state.date))
     const { image } = this.state;
     return (
       <div className="container-fluid bg-gradient">
         <div className="container-apod mx-auto">
           <div className="p-4 mx-auto">
             <Title title="Astronomy Picture of the Day" idStyle="titleSecondWhite" className="text-center" />
-            <DateInput changeDate={this.changeDate} date={this.state.date.format('MM-DD-YYYY')} handleClick={this.handleClick} />
+            <DateInput changeDate={this.changeDate} date={this.state.date} handleClick={this.handleClick} />
           </div>
           <div className="row pb-5">
             <div className="col-md-7 pb-3">
