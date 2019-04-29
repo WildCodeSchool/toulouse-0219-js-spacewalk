@@ -15,19 +15,30 @@ import {
   RedditIcon,
   TumblrIcon,
 } from 'react-share';
-import { Link } from 'react-router-dom';
+import { css } from '@emotion/core';
+import { PropagateLoader } from 'react-spinners';
+import { HashLink as Link } from 'react-router-hash-link';
 import Title from '../title';
 import excerptDate from '../../functions/excerptDate';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
+
 
 class HubblePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      article: []
+      article: [],
+      loading: true
     };
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     fetch('https://hubblesite.wild31.com/api/v3/external_feed/esa_feed?page=all', {
       crossDomain: true
     })
@@ -36,20 +47,40 @@ class HubblePage extends Component {
         // console.log(data);
         this.setState({
           article: data,
+          loading: false
         });
       });
   }
 
   render() {
     const { location } = this.props;
-    const { article } = this.state;
+    const { article, loading } = this.state;
     const idArticle = location.pathname.split('/');
     const matchArticle = article.find(singleArticle => singleArticle.pub_date === idArticle[2]);
+
+    if (loading) {
+      return (
+        <div className="container minPageSize">
+          <div className="row">
+            <div className="text-center mx-auto m-5">
+              <PropagateLoader
+                css={override}
+                sizeUnit="px"
+                size={25}
+                color="#43a2d0"
+                loading={this.loading}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     if (!matchArticle) return <div />;
 
     return (
-      <div className="container">
-        <Link to="/">
+      <div className="container minPageSize">
+        <Link to="/#resultsHubble">
           <div className="btn btn-light mt-4">Back to results</div>
         </Link>
         <div className="text-center row mx-auto">

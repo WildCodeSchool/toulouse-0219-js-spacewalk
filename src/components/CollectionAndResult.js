@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { css } from '@emotion/core';
+import { PropagateLoader } from 'react-spinners';
+
 import Collections from './collections';
 import './collections.css';
 import Title from './title';
@@ -16,8 +19,12 @@ import science from './images/scienceCollection.jpeg';
 import photo from './images/photoCollection.jpeg';
 import hubble from './images/hubbleCollection.png';
 import exoplanet from './images/exoplanetCollection.jpeg';
-import { NONAME } from 'dns';
 
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class CollectionAndResult extends Component {
   constructor(props) {
@@ -25,6 +32,7 @@ class CollectionAndResult extends Component {
     this.state = {
       article: [],
       tagName: '',
+      loading: true,
       tag: [
         {
           name: 'Science',
@@ -62,6 +70,7 @@ class CollectionAndResult extends Component {
       .then(data => {
         this.setState({
           article: data,
+          loading: false
         });
       });
   }
@@ -93,7 +102,8 @@ class CollectionAndResult extends Component {
       articlesPerPage,
       tagName,
       tag,
-      isFiltered
+      isFiltered,
+      loading
     } = this.state;
 
     // Woking with filtered articles in order to display a reliable number of pages
@@ -129,10 +139,28 @@ class CollectionAndResult extends Component {
       </li>
     ));
 
+    if (loading) {
+      return (
+        <div className="container minPageSizeBlue">
+          <div className="row">
+            <div className="text-center mx-auto m-5">
+              <PropagateLoader
+                css={override}
+                sizeUnit="px"
+                size={25}
+                color="#43a2d0"
+                loading={this.loading}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <section className="bg-gradient">
         <Title title="Collections" idStyle="titlelight" />
+        <fragment id="resultsHubble" />
         <div className="container-fluid mx-auto bg-gradient">
           <div id="collections">
             {tag.map((singleTag, index) => (
@@ -197,7 +225,6 @@ class CollectionAndResult extends Component {
 
             ))}
           </div>
-
         </div>
         <div>
           <ul className="paginate-container">
