@@ -44,7 +44,7 @@ class TrackSat extends Component {
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
-    }, 20000000);
+    }, 2000);
   }
 
   // Stopping the time interval
@@ -96,7 +96,7 @@ class TrackSat extends Component {
       .filter(item => (item.name === value))
       .map(singleItem => (singleItem.launch));
     // Updating the satellite id, description and launch date
-    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched })
+    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched });
   }
 
   render() {
@@ -122,6 +122,7 @@ class TrackSat extends Component {
 
     // Setting up marker
     const issMarker = L.icon({
+      // eslint-disable-next-line global-require
       iconUrl: require('./images/iss.png'),
       iconSize: [50, 50],
     });
