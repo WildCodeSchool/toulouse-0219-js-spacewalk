@@ -49,7 +49,6 @@ class ApodSearch extends Component {
 
 
   changeDate = dateFromInput => {
-    console.log(dateFromInput)
     this.setState({ date: dateFromInput });
     this.getPhoto(moment(dateFromInput).format('YYYY-MM-DD'));
     this.setState({ loading: true });
@@ -59,6 +58,8 @@ class ApodSearch extends Component {
     let randomDate = momentRandom(moment(randomDate), moment("1995-06-16", "YYYY-MM-DD"));
     this.setState({ date: randomDate });
     this.getPhoto(this.formatDate(randomDate));
+    console.log(this.formatDate(randomDate))
+
   };
 
   render() {
