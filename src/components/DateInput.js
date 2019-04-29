@@ -11,7 +11,7 @@ const DateInput = props => (
       onChange={props.changeDate}
     />
 
-    {/* <button type="button" onClick={props.handleClick}> Random photo</button> */}
+    <button type="button" onClick={props.handleClick}> Random photo</button>
   </div>
 );
 

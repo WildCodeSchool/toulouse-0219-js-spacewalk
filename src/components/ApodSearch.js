@@ -44,7 +44,6 @@ class ApodSearch extends Component {
 
 
   formatDate = moment => {
-    console.log(moment)
     return moment.toDate()
   };
 
@@ -56,11 +55,11 @@ class ApodSearch extends Component {
     this.setState({ loading: true });
   };
 
-  // handleClick = () => {
-  //   let randomDate = momentRandom(moment(), moment("1995-06-16", "YYYY-MM-DD"));
-  //   this.setState({ date: randomDate });
-  //   this.getPhoto(randomDate);
-  // };
+  handleClick = () => {
+    let randomDate = momentRandom(moment(randomDate), moment("1995-06-16", "YYYY-MM-DD"));
+    this.setState({ date: randomDate });
+    this.getPhoto(this.formatDate(randomDate));
+  };
 
   render() {
     const { image, loading } = this.state;
