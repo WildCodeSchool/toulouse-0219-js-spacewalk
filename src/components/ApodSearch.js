@@ -34,7 +34,12 @@ class ApodSearch extends Component {
 
 
   formatDate = moment => {
-    return moment.format('YYYY-MM-DD')
+    const us = moment.split("-");
+    const year = us[0];
+    const day = us[2];
+    const month = us[1];
+    return `${day}/${month}/${year}`;
+    // return moment.format('YYYY-MM-DD')
   };
 
 
