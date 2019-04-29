@@ -11,6 +11,7 @@ import Home from './components/Home';
 import HubblePage from './components/asset/HubblePage';
 import Error from './components/Error404';
 import ApodSearch from './components/ApodSearch';
+import TrackerSat from './components/TrackerSat';
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path="/search" component={Search} />
           <Route path="/apod-search" component={ApodSearch} />
           <Route path="/asset/:id" component={Asset} />
+          <Route path="/tracker" component={TrackerSat} />
           <Route path="/hubble/:id" component={HubblePage} />
           <Route component={Error} />
         </Switch>
