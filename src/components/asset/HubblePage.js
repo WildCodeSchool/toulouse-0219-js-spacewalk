@@ -17,7 +17,7 @@ import {
 } from 'react-share';
 import { css } from '@emotion/core';
 import { PropagateLoader } from 'react-spinners';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import Title from '../title';
 import excerptDate from '../../functions/excerptDate';
 
@@ -82,7 +82,7 @@ class HubblePage extends Component {
 
     return (
       <div className="container minPageSize">
-        <Link to="/">
+        <Link to="/#resultsHubble">
           <div className="btn btn-light mt-4">Back to results</div>
         </Link>
         <div className="text-center row mx-auto">
