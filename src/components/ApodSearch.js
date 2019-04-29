@@ -4,11 +4,20 @@ import DateInput from './DateInput';
 import Title from './title';
 import momentRandom from "moment-random";
 import moment from "moment";
+import { css } from '@emotion/core';
+import { PropagateLoader } from 'react-spinners';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class ApodSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       date: new Date(),
       image: ""
     };
@@ -21,7 +30,8 @@ class ApodSearch extends Component {
       .then(response => response.json())
       .then(json => {
         this.setState({
-          image: json
+          image: json,
+          loading: false
         });
       });
   }
@@ -29,7 +39,7 @@ class ApodSearch extends Component {
   getPhoto = date => {
     fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=638oh8hjQBkop6DfIzCRlVqF4q0vyFJ2yvGX6KqZ`)
       .then(response => response.json())
-      .then(data => this.setState({ image: data }));
+      .then(data => this.setState({ image: data, loading: false }));
   };
 
 
@@ -43,6 +53,7 @@ class ApodSearch extends Component {
     console.log(dateFromInput)
     this.setState({ date: dateFromInput });
     this.getPhoto(moment(dateFromInput).format('YYYY-MM-DD'));
+    this.setState({ loading: true });
   };
 
   // handleClick = () => {
@@ -52,7 +63,24 @@ class ApodSearch extends Component {
   // };
 
   render() {
-    const { image } = this.state;
+    const { image, loading } = this.state;
+    if (loading) {
+      return (
+        <div className="container minPageSizeBlue">
+          <div className="row">
+            <div className="text-center mx-auto m-5">
+              <PropagateLoader
+                css={override}
+                sizeUnit="px"
+                size={25}
+                color="#43a2d0"
+                loading={this.loading}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="container-fluid bg-gradient">
         <div className="container-apod mx-auto">
