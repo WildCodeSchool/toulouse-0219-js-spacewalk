@@ -53,8 +53,6 @@ class HubblePage extends Component {
   }
 
   render() {
-
-
     const { location } = this.props;
     const { article, loading } = this.state;
     const idArticle = location.pathname.split('/');
