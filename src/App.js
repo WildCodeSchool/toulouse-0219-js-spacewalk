@@ -8,7 +8,7 @@ import NavMenu from './components/NavMenu';
 import Asset from './components/asset/Page';
 import Search from './components/search/Page';
 import Home from './components/Home';
-import TrackerSat from './components/tracking/TrackerSat';
+import TrackerSat from './components/TrackerSat';
 import HubblePage from './components/asset/HubblePage';
 import Error from './components/Error404';
 

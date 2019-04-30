@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import L from 'leaflet';
 import Noty from 'noty';
-import '../../../node_modules/noty/lib/noty.css';
-import '../../../node_modules/noty/lib/themes/sunset.css';
-import config from '../../config';
-import keys from '../../keys';
-import MapComp from './MapComp';
-import SatDataComp from './SatDataComp';
-import SatDescripComp from './SatDescripComp';
-import sat from '../../satellites';
+import '../../node_modules/noty/lib/noty.css';
+import '../../node_modules/noty/lib/themes/sunset.css';
+import config from '../config';
+import keys from '../keys';
+import MapComp from './tracking/MapComp';
+import SatDataComp from './tracking/SatDataComp';
+import SatDescripComp from './tracking/SatDescripComp';
+import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
-import './trackerSat.css';
+import './tracking/trackerSat.css';
 
 // Component
 class TrackSat extends Component {
@@ -68,12 +68,12 @@ class TrackSat extends Component {
     const { satId } = this.state;
     const issMarker = L.icon({
       // eslint-disable-next-line global-require
-      iconUrl: require('../images/iss.png'),
+      iconUrl: require('./images/iss.png'),
       iconSize: [80, 80],
     });
     const satMarker = L.icon({
       // eslint-disable-next-line global-require
-      iconUrl: require('../images/satellite.png'),
+      iconUrl: require('./images/satellite.png'),
       iconSize: [60, 60],
     });
     const marker = (satId[0] === 25544) ? issMarker : satMarker;
