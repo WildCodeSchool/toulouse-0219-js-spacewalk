@@ -26,6 +26,7 @@ const override = css`
 // Initializing library TLE.js
 const TLEJS = require('tle.js');
 
+// Instanciate a new TLEJS
 const tlejs = new TLEJS();
 
 // TrackSat component
@@ -80,7 +81,7 @@ class TrackSat extends Component {
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
-  // Getting data from the API with axios
+  // Getting TLE data from the API with axios
   getTLE() {
     const { satId } = this.state;
     const id = satId;
@@ -232,7 +233,6 @@ class TrackSat extends Component {
               lat={position[0]}
               lng={position[1]}
               hits={hits}
-              time={hits ? hits.positions[0].timestamp : 0}
             />
           </div>
           <SatDescripComp

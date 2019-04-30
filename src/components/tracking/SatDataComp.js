@@ -6,9 +6,7 @@ const SatDataComp = ({
   launchDate,
   hits,
   lat,
-  lng,
-  alti,
-  time
+  lng
 }) => {
   return (
     <Fragment>
@@ -38,7 +36,7 @@ const SatDataComp = ({
             <div>
               Time (UTC) :
               <p>
-                {new Date(time * 1000).toUTCString()}
+                {new Date().toUTCString()}
               </p>
             </div>
           )}
