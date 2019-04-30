@@ -39,7 +39,8 @@ class Curiosity extends Component {
         <div className="container bg-gradient">
 
           <Title title="Curiosity's Diary" idStyle="titleSecondWhite" className="bg-gradient" />
-          <p className="text-white text-center">Pictures sent by Curiosity on {this.state.image[0] && this.state.image[0].earth_date}</p>
+          <p className="text-white text-center"> Curiosity is on Mars since {this.state.image[0] && this.state.image[0].rover.landing_date}. <br /> Pictures taken on {this.state.image[0] && this.state.image[0].earth_date}.</p>
+
           <div
             style={{
               display: "block",
