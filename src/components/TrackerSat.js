@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button } from 'reactstrap';
 import {
   Map,
   TileLayer,
@@ -7,29 +8,14 @@ import {
   Popup
 } from 'react-leaflet';
 import L from 'leaflet';
+import Noty from 'noty';
+import '../../node_modules/noty/lib/noty.css';
+import '../../node_modules/noty/lib/themes/sunset.css';
 import config from '../config';
 import keys from '../keys';
 import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
-
-
-// Style to display the map
-const lfContStyle = {
-  height: '500px',
-  width: '900px',
-  margin: 'auto'
-};
-
-const containerStyle = {
-  display: 'flex',
-  justifyContent: 'space-around',
-  margin: 'auto',
-};
-
-const describeStyle = {
-  width: '500px',
-  margin: 'auto',
-};
+import './trackerSat.css';
 
 // Component
 class TrackSat extends Component {
@@ -45,8 +31,8 @@ class TrackSat extends Component {
       error: null,
       value: sat[0].name,
       satId: 25544,
-      satDescrip: null,
-      satLaunchDate: null
+      satDescrip: sat[0].description,
+      satLaunchDate: sat[0].launch
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -90,7 +76,13 @@ class TrackSat extends Component {
   handleSubmit(event) {
     const { value, jsonSatList } = this.state;
     event.preventDefault();
-    alert(`You choose to track : ${value}`);
+    // text: `You choose to track : ${value}`,
+    new Noty({
+      theme: 'sunset',
+      type: 'info',
+      text: `You're tracking ${value}`,
+      timeout: 2000
+    }).show();
     // Extracting the satellite id from the name value store in the state
     const idMatched = jsonSatList
       .filter(item => (item.name === value))
@@ -104,7 +96,7 @@ class TrackSat extends Component {
       .filter(item => (item.name === value))
       .map(singleItem => (singleItem.launch));
     // Updating the satellite id, description and launch date
-    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched })
+    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched });
   }
 
   render() {
@@ -130,6 +122,7 @@ class TrackSat extends Component {
 
     // Setting up marker
     const issMarker = L.icon({
+      // eslint-disable-next-line global-require
       iconUrl: require('./images/iss.png'),
       iconSize: [50, 50],
     });
@@ -147,12 +140,12 @@ class TrackSat extends Component {
     const satList = jsonSatList.map((item, key) => <option key={item.id} value={item.name}>{item.name}</option>);
 
     return (
-      <div className="container-fluid text-center">
-        <h1>Space &amp; Earth science satellites tracking</h1>
-        <div style={containerStyle}>
-          <div>
+      <div className="container-fluid text-center tracker-page">
+        <h2>Space &amp; Earth science satellites tracking</h2>
+        <div className="containerStyle">
+          <div className="mapLoc">
             <Map
-              style={lfContStyle}
+              className="lfContStyle"
               center={position}
               zoom={zoom}
             >
@@ -169,53 +162,76 @@ class TrackSat extends Component {
                 </Popup>
               </Marker>
             </Map>
-
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                What do you want to track :
-                <select
-                  value={value}
-                  onChange={this.handleChange}
-                >
-                  {satList}
-                </select>
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
+            <div className="data-display">
+              <div>
+                Launch date :
+                <p>
+                  {satLaunchDate}
+                </p>
+              </div>
+              <div>
+                Latitude :
+                <p>
+                  {position[0]}
+                  deg
+                </p>
+              </div>
+              <div>
+                Longitude :
+                <p>
+                  {position[1]}
+                  deg
+                </p>
+              </div>
+              {
+                hits && (
+                  <div>
+                    Altitude:
+                    <p>
+                      {hits.positions[0].sataltitude}
+                      km
+                    </p>
+                  </div>
+                )}
+              {
+                hits && (
+                  <div>
+                    Time (UTC) :
+                    <p>
+                      {/* valeur test pour la mise en page */}
+                      {hits.positions[0].sataltitude}
+                    </p>
+                  </div>
+                )}
+            </div>
           </div>
-
-          <div>
+          <div className="describeStyle">
             {
               hits && (
                 <div>
-                  <h3>Satellite infos :</h3>
+                  <form onSubmit={this.handleSubmit}>
+                    <label>
+                      <p>Choose the satellite you want to track :</p>
+                      <select
+                        value={value}
+                        onChange={this.handleChange}
+                      >
+                        {satList}
+                      </select>
+                    </label>
+                    <Button
+                      type="submit"
+                      value="Submit"
+                      color="light"
+                    // size="lg"
+                    >
+                      Submit
+                    </Button>
+                  </form>
+
+
                   <div>
-                    <p>
-                      Latitude :
-                      {position[0]}
-                      °
-                    </p>
-                    <p>
-                      Longitude :
-                      {position[1]}
-                      °
-                    </p>
-                    {
-                      satDescrip && satLaunchDate && (
-                        <div>
-                          <p>
-                            Altitude:
-                            {hits.positions[0].sataltitude}
-                            km
-                          </p>
-                          <p>
-                            Launch date :
-                            {satLaunchDate}
-                          </p>
-                        </div>
-                      )}
-                  </div>
-                  <div style={describeStyle}>
+                    <h4 className="text-center mt-2">Satellite infos</h4>
                     {satDescrip}
                   </div>
                 </div>

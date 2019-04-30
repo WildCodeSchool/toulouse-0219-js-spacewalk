@@ -16,8 +16,6 @@ import science from './images/scienceCollection.jpeg';
 import photo from './images/photoCollection.jpeg';
 import hubble from './images/hubbleCollection.png';
 import exoplanet from './images/exoplanetCollection.jpeg';
-import { NONAME } from 'dns';
-
 
 class CollectionAndResult extends Component {
   constructor(props) {
