@@ -14,12 +14,13 @@ const MapComp = ({
   zoom,
   marker,
   satName,
+  mapCenter
 }) => {
   return (
     <Fragment>
       <Map
         className="lfContStyle"
-        center={position}
+        center={mapCenter}
         zoom={zoom}
       >
         <TileLayer

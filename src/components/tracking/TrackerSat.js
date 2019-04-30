@@ -29,6 +29,7 @@ class TrackSat extends Component {
       satId: [25544],
       satDescrip: [sat[0].description],
       satLaunchDate: [sat[0].launch],
+      mapCenter: [43.604, 1.444]
     };
     // Binding methods
     this.handleChange = this.handleChange.bind(this);
@@ -63,6 +64,28 @@ class TrackSat extends Component {
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
+  getMarkerChange() {
+    const { satId } = this.state;
+    const issMarker = L.icon({
+      // eslint-disable-next-line global-require
+      iconUrl: require('../images/iss.png'),
+      iconSize: [80, 80],
+    });
+    const satMarker = L.icon({
+      // eslint-disable-next-line global-require
+      iconUrl: require('../images/satellite.png'),
+      iconSize: [60, 60],
+    });
+    const marker = (satId[0] === 25544) ? issMarker : satMarker;
+    return marker;
+  }
+
+  updateMapCenter() {
+    const { lat, lng } = this.state;
+    this.getData();
+    this.setState({ mapCenter: [lat, lng] });
+  }
+
   // Handling change of select input form
   handleChange(event) {
     this.setState({ satNameVal: event.target.value });
@@ -92,23 +115,7 @@ class TrackSat extends Component {
       .filter(item => (item.name === satNameVal))
       .map(singleItem => (singleItem.launch));
     // Updating State with satellite id, description and launch date
-    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched });
-  }
-
-  handleMarkerChange() {
-    const { satId } = this.state;
-    const issMarker = L.icon({
-      // eslint-disable-next-line global-require
-      iconUrl: require('../images/iss.png'),
-      iconSize: [80, 80],
-    });
-    const satMarker = L.icon({
-      // eslint-disable-next-line global-require
-      iconUrl: require('../images/satellite.png'),
-      iconSize: [60, 60],
-    });
-    const marker = (satId[0] === 25544) ? issMarker : satMarker;
-    return marker;
+    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched }, this.updateMapCenter);
   }
 
   render() {
@@ -124,6 +131,7 @@ class TrackSat extends Component {
       satNameVal,
       satDescrip,
       satLaunchDate,
+      mapCenter
     } = this.state;
     const position = [(lat).toFixed(2), (lng).toFixed(2)];
 
@@ -152,8 +160,9 @@ class TrackSat extends Component {
           <div className="mapLoc">
             <MapComp
               position={position}
+              mapCenter={mapCenter}
               zoom={zoom}
-              marker={this.handleMarkerChange()}
+              marker={this.getMarkerChange()}
               satName={satNameVal}
             />
             <SatDataComp
