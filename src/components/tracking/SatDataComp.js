@@ -36,16 +36,6 @@ const SatDataComp = ({
         {
           hits && (
             <div>
-              Altitude:
-              <p>
-                {alti}
-                km
-              </p>
-            </div>
-          )}
-        {
-          hits && (
-            <div>
               Time (UTC) :
               <p>
                 {new Date(time * 1000).toUTCString()}

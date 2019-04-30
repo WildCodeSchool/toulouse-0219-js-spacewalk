@@ -11,6 +11,7 @@ import keys from '../keys';
 import MapComp from './tracking/MapComp';
 import SatDataComp from './tracking/SatDataComp';
 import SatDescripComp from './tracking/SatDescripComp';
+import geoData from './tracking/geoData';
 import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
 import './tracking/trackerSat.css';
@@ -21,7 +22,13 @@ const override = css`
     margin: 0 auto;
     border-color: red;
 `;
-// Component
+
+// Initializing library TLE.js
+const TLEJS = require('tle.js');
+
+const tlejs = new TLEJS();
+
+// TrackSat component
 class TrackSat extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +44,9 @@ class TrackSat extends Component {
       satId: [25544],
       satDescrip: [sat[0].description],
       satLaunchDate: [sat[0].launch],
-      mapCenter: [43.604, 1.444]
+      mapCenter: [43.604, 1.444],
+      tle: '1 25544U 98067A   19120.40833581  .00001450  00000-0  30616-4 0  9995\r\n2 25544  51.6410 238.6747 0000873 256.1238 216.5201 15.52607716167833',
+      coords: { latitude: '', longitude: '' }
     };
     // Binding methods
     this.handleChange = this.handleChange.bind(this);
@@ -71,6 +80,20 @@ class TrackSat extends Component {
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
+  // Getting data from the API with axios
+  getTLE() {
+    const { satId } = this.state;
+    const id = satId;
+    const url = `${config.N2YO_TLE_URL}${id}&apiKey=${config.N2YO_API_KEY}`;
+    axios.get(url)
+      .then(resp => this.setState({
+        hits: resp.data,
+        tle: resp.data.tle,
+        isLoading: false,
+      }))
+      .catch(error => this.setState({ error, isLoading: false }));
+  }
+
   getMarkerChange() {
     const { satId } = this.state;
     const issMarker = L.icon({
@@ -85,6 +108,17 @@ class TrackSat extends Component {
     });
     const marker = (satId[0] === 25544) ? issMarker : satMarker;
     return marker;
+  }
+
+  // Building a geoJSON like object (identical object structure)
+  buildGeoJson() {
+    const { tle } = this.state;
+    const threeOrbitsArr = tlejs.getGroundTrackLngLat(tle);
+    const currentOrbitArr = threeOrbitsArr[1];
+    const geometry = { ...geoData.features[0].geometry, type: 'LineString', coordinates: currentOrbitArr };
+    const typePropsGeometry = [{ ...geoData.features[0], geometry: geometry }];
+    const features = { ...geoData, features: typePropsGeometry };
+    return features;
   }
 
   updateMapCenter() {
@@ -122,7 +156,14 @@ class TrackSat extends Component {
       .filter(item => (item.name === satNameVal))
       .map(singleItem => (singleItem.launch));
     // Updating State with satellite id, description and launch date
-    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched }, this.updateMapCenter);
+    this.setState(
+      {
+        satId: idMatched,
+        satDescrip: descriptionMatched,
+        satLaunchDate: dateMatched
+      },
+      this.updateMapCenter
+    );
   }
 
   render() {
@@ -191,7 +232,6 @@ class TrackSat extends Component {
               lat={position[0]}
               lng={position[1]}
               hits={hits}
-              alti={hits ? hits.positions[0].sataltitude : 0}
               time={hits ? hits.positions[0].timestamp : 0}
             />
           </div>

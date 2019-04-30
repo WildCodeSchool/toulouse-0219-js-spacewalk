@@ -4,7 +4,9 @@ import {
   Map,
   TileLayer,
   Marker,
-  Popup
+  Popup,
+  GeoJSON,
+  LayersControl
 } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './trackerSat.css';
@@ -23,10 +25,20 @@ const MapComp = ({
         center={mapCenter}
         zoom={zoom}
       >
-        <TileLayer
-          attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-        />
+        <LayersControl position="topright">
+          <LayersControl.BaseLayer name="Map" checked="true">
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Satellite">
+            <TileLayer
+              attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+            />
+          </LayersControl.BaseLayer>
+        </LayersControl>
         <Marker
           position={position}
           icon={marker}
