@@ -18,6 +18,7 @@ import keys from '../keys';
 import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
 import './trackerSat.css';
+import Title from './title';
 
 const override = css`
     display: block;
@@ -161,7 +162,7 @@ class TrackSat extends Component {
 
     return (
       <div className="container-fluid text-center tracker-page">
-        <h2>Space &amp; Earth science satellites tracking</h2>
+        <Title title="Space &amp; Earth science satellites tracking" idStyle="titlelight" />
         <div className="containerStyle">
           <div className="mapLoc">
             <Map
