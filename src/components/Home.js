@@ -14,9 +14,7 @@ class Home extends Component {
         {/* Affichage de l'image du jour */}
         <Apod />
         {/* fin de l'affichage de l'image du jour */}
-
         <CollectionAndResult />
-
         {/* <Collection />
         <HubbleArticles /> */}
 
