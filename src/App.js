@@ -12,6 +12,7 @@ import HubblePage from './components/asset/HubblePage';
 import Error from './components/Error404';
 import ApodSearch from './components/ApodSearch';
 import TrackerSat from './components/TrackerSat';
+import CuriosityGallery from './components/CuriosityGallery';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class App extends Component {
           <Route path="/asset/:id" component={Asset} />
           <Route path="/tracker" component={TrackerSat} />
           <Route path="/hubble/:id" component={HubblePage} />
+          <Route path="/curiosity-gallery" component={CuriosityGallery} />
           <Route component={Error} />
         </Switch>
         <Footer />
