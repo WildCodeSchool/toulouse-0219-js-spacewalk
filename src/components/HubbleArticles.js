@@ -1,14 +1,23 @@
 import React, { Component } from "react";
 import { Badge, Button } from 'reactstrap';
 import excerpt from '../functions/excerpt';
+import { css } from '@emotion/core';
+import { PropagateLoader } from 'react-spinners';
 import './articleHome.css';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class Hubble extends Component {
   constructor() {
     super();
     this.state = {
       article: [],
-      tagName: ""
+      tagName: "",
+      loading: true
     };
   }
 
@@ -20,7 +29,8 @@ class Hubble extends Component {
       .then(data => {
         // console.log(data);
         this.setState({
-          article: data
+          article: data,
+          loading: false
         });
       });
     this.handleTag = this.handleTag.bind(this);
@@ -31,6 +41,26 @@ class Hubble extends Component {
   // let rand = stylesButton[Math.floor(Math.random() * stylesButton.length)];
 
   render() {
+
+    if (this.state.loading) {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="text-center mx-auto m-5">
+              <PropagateLoader
+                css={override}
+                sizeUnit={"px"}
+                size={25}
+                color={'#43a2d0'}
+                loading={this.loading}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+
     return (
       <section>
         <div className="container-fluid mx-auto">

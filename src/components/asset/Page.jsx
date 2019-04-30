@@ -53,7 +53,7 @@ class Page extends Component {
 
     if (loading) {
       return (
-        <div className="container">
+        <div className="container minPageSize">
           <div className="row">
             <div className="text-center mx-auto m-5">
               <PropagateLoader
