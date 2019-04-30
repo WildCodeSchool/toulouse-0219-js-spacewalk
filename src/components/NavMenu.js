@@ -30,7 +30,7 @@ class NavMenu extends Component {
     const { isOpen } = this.state;
     return (
       <div className="sticky-top">
-        <Navbar expand="md" className="navContainer">
+        <Navbar expand="xl" className="navContainer">
           <NavbarToggler onClick={this.toggle} />
           <Collapse className="collapse-container" isOpen={isOpen} navbar>
             <Nav className="nav" navbar>
