@@ -8,9 +8,9 @@ import NavMenu from './components/NavMenu';
 import Asset from './components/asset/Page';
 import Search from './components/search/Page';
 import Home from './components/Home';
-import TrackerSat from './components/TrackerSat';
 import HubblePage from './components/asset/HubblePage';
 import Error from './components/Error404';
+import ApodSearch from './components/ApodSearch';
 
 class App extends Component {
   constructor(props) {
@@ -29,8 +29,8 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/search" component={Search} />
+          <Route path="/apod-search" component={ApodSearch} />
           <Route path="/asset/:id" component={Asset} />
-          <Route path="/tracker" component={TrackerSat} />
           <Route path="/hubble/:id" component={HubblePage} />
           <Route component={Error} />
         </Switch>
