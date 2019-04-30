@@ -34,7 +34,6 @@ class App extends Component {
           <Route path="/asset/:id" component={Asset} />
           <Route path="/tracker" component={TrackerSat} />
           <Route path="/hubble/:id" component={HubblePage} />
-          <Route path="/tracker" component={TrackerSat} />
           <Route component={Error} />
         </Switch>
         <Footer />
