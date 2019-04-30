@@ -21,6 +21,7 @@ class ApodSearch extends Component {
       date: new Date(),
       image: ""
     };
+
   }
 
   componentDidMount() {
@@ -54,13 +55,17 @@ class ApodSearch extends Component {
     this.setState({ loading: true });
   };
 
-  handleClick = () => {
-    let randomDate = momentRandom(moment(randomDate), moment("1995-06-16", "YYYY-MM-DD"));
-    this.setState({ date: randomDate });
-    this.getPhoto(this.formatDate(randomDate));
-    console.log(this.formatDate(randomDate))
+  randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  }
 
+
+  handleClick = () => {
+    let random = this.randomDate(new Date("06-16-1995"), new Date());
+    this.setState({ date: random });
+    this.getPhoto(moment(random).format('YYYY-MM-DD'))
   };
+
 
   render() {
     const { image, loading } = this.state;

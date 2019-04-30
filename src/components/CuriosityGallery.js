@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Gallery from 'react-grid-gallery';
 import Title from './title';
+import './Apod.css';
 
 class Curiosity extends Component {
   constructor(props) {
@@ -23,13 +23,38 @@ class Curiosity extends Component {
       });
   }
 
+
   render() {
+    const imagesGallery = this.state.image.map((singleImage) => (
+      {
+        caption: singleImage.camera.full_name,
+        src: singleImage.img_src,
+        thumbnail: singleImage.img_src,
+
+      }
+    ));
+
     return (
-      <section>
+      <div className="container-fluid bg-gradient pb-5">
+        <div className="container bg-gradient">
 
-        <Gallery images={this.state.image} />
-
-      </section>
+          <Title title="Curiosity's Diary" idStyle="titleSecondWhite" className="bg-gradient" />
+          <p className="text-white text-center">Pictures sent by Curiosity on {this.state.image[0] && this.state.image[0].earth_date}</p>
+          <div
+            style={{
+              display: "block",
+              minHeight: "1px",
+              width: "100%",
+              overflow: "auto",
+              margin: "auto",
+            }}
+          >
+            <div className="mx-auto">
+              <Gallery images={imagesGallery} enableImageSelection={false} className="mx-auto" />
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

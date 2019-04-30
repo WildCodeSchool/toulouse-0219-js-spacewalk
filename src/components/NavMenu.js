@@ -47,7 +47,7 @@ class NavMenu extends Component {
                 <NavLink tag={NavRouter} className="text-center" to="/apod-search">Choose your Apod</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={NavRouter} className="text-center" to="/curiosity-gallery">Curiosity s Diary</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/curiosity-gallery">Curiosity&apos;s Diary</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
