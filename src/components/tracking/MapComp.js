@@ -53,7 +53,7 @@ const MapComp = ({
 };
 
 MapComp.propTypes = {
-  position: PropTypes.array.isRequired,
+  position: PropTypes.object.isRequired,
   zoom: PropTypes.number.isRequired,
   marker: PropTypes.object.isRequired,
   satName: PropTypes.string.isRequired

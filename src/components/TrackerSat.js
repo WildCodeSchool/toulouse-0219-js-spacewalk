@@ -36,8 +36,6 @@ class TrackSat extends Component {
     this.state = {
       hits: null,
       jsonSatList: sat,
-      lat: 43.604,
-      lng: 1.444,
       zoom: 3,
       isLoading: true,
       error: null,
@@ -47,7 +45,7 @@ class TrackSat extends Component {
       satLaunchDate: [sat[0].launch],
       mapCenter: [43.604, 1.444],
       tle: '1 25544U 98067A   19120.40833581  .00001450  00000-0  30616-4 0  9995\r\n2 25544  51.6410 238.6747 0000873 256.1238 216.5201 15.52607716167833',
-      coords: { latitude: '', longitude: '' }
+      coords: { lat: '', lng: '' }
     };
     // Binding methods
     this.handleChange = this.handleChange.bind(this);
@@ -55,10 +53,9 @@ class TrackSat extends Component {
   }
 
   componentDidMount() {
-    this.getData();
-    this.interval = setInterval(() => {
-      this.getData();
-    }, 30000);
+    this.getTLE();
+    this.getCurrentCoords();
+    this.buildGeoJson();
   }
 
   // Stopping the time interval
@@ -66,26 +63,11 @@ class TrackSat extends Component {
     clearInterval(this.interval);
   }
 
-  // Getting data from the API with axios
-  getData() {
-    const { satId } = this.state;
-    const url = `${config.N2YO_POS_URL}${satId}/43.604/1.444/0/1/&apiKey=${keys.N2YO_API_KEY}`;
-
-    axios.get(url)
-      .then(resp => this.setState({
-        hits: resp.data,
-        isLoading: false,
-        lat: resp.data.positions[0].satlatitude,
-        lng: resp.data.positions[0].satlongitude,
-      }))
-      .catch(error => this.setState({ error, isLoading: false }));
-  }
-
   // Getting TLE data from the API with axios
   getTLE() {
     const { satId } = this.state;
     const id = satId;
-    const url = `${config.N2YO_TLE_URL}${id}&apiKey=${config.N2YO_API_KEY}`;
+    const url = `${config.N2YO_TLE_URL}${id}&apiKey=${keys.N2YO_API_KEY}`;
     axios.get(url)
       .then(resp => this.setState({
         hits: resp.data,
@@ -93,6 +75,19 @@ class TrackSat extends Component {
         isLoading: false,
       }))
       .catch(error => this.setState({ error, isLoading: false }));
+  }
+
+  getCurrentCoords() {
+    const { tle } = this.state;
+    const tleStr = tle;
+    let timestampMS;
+    this.interval = setInterval(
+      () => {
+        timestampMS = Date.now();
+        const latLonObj = tlejs.getLatLon(tleStr, timestampMS);
+        this.setState({ coords: latLonObj });
+      }, 1000
+    );
   }
 
   getMarkerChange() {
@@ -122,11 +117,13 @@ class TrackSat extends Component {
     return features;
   }
 
-  updateMapCenter() {
-    const { lat, lng } = this.state;
-    this.getData();
-    this.setState({ mapCenter: [lat, lng] });
-  }
+  // updateMapCenter() {
+  //   const { coords } = this.state;
+  //   this.getTLE();
+  //   this.getCurrentCoords();
+  //   this.buildGeoJson();
+  //   this.setState({ mapCenter: [coords.latitude, coords.longitude] });
+  // }
 
   // Handling change of select input form
   handleChange(event) {
@@ -163,7 +160,7 @@ class TrackSat extends Component {
         satDescrip: descriptionMatched,
         satLaunchDate: dateMatched
       },
-      this.updateMapCenter
+      // this.updateMapCenter
     );
   }
 
@@ -174,15 +171,13 @@ class TrackSat extends Component {
       jsonSatList,
       isLoading,
       error,
-      lat,
-      lng,
       zoom,
       satNameVal,
       satDescrip,
       satLaunchDate,
-      mapCenter
+      mapCenter,
+      coords
     } = this.state;
-    const position = [(lat).toFixed(2), (lng).toFixed(2)];
 
     // Console logging of the number of transcations with the API
     if (hits) {
@@ -222,7 +217,7 @@ class TrackSat extends Component {
         <div className="containerStyle">
           <div className="mapLoc">
             <MapComp
-              position={position}
+              position={coords}
               mapCenter={mapCenter}
               zoom={zoom}
               marker={this.getMarkerChange()}
@@ -230,8 +225,7 @@ class TrackSat extends Component {
             />
             <SatDataComp
               launchDate={satLaunchDate}
-              lat={position[0]}
-              lng={position[1]}
+              position={coords}
               hits={hits}
             />
           </div>
