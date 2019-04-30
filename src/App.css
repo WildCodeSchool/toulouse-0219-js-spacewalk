@@ -15,3 +15,14 @@
 .containerFuid {
   min-width: 100%
 }
+
+.minPageSize {
+  min-height: 500px;
+}
+
+.minPageSizeBlue {
+  min-height: 500px;
+  background-color: #293347;
+  min-width: 100%;
+}
+

@@ -4,6 +4,8 @@ import L from 'leaflet';
 import Noty from 'noty';
 import '../../node_modules/noty/lib/noty.css';
 import '../../node_modules/noty/lib/themes/sunset.css';
+import { css } from '@emotion/core';
+import { PropagateLoader } from 'react-spinners';
 import config from '../config';
 import keys from '../keys';
 import MapComp from './tracking/MapComp';
@@ -13,6 +15,11 @@ import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
 import './tracking/trackerSat.css';
 
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 // Component
 class TrackSat extends Component {
   constructor(props) {
@@ -23,7 +30,7 @@ class TrackSat extends Component {
       lat: 43.604,
       lng: 1.444,
       zoom: 3,
-      isLoading: false,
+      isLoading: true,
       error: null,
       satNameVal: sat[0].name,
       satId: [25544],
@@ -37,7 +44,6 @@ class TrackSat extends Component {
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
     this.getData();
     this.interval = setInterval(() => {
       this.getData();
@@ -146,7 +152,21 @@ class TrackSat extends Component {
     }
     // Displaying loading
     if (isLoading) {
-      return <p>Loading...</p>;
+      return (
+        <div className="container minPageSizeBlue">
+          <div className="row">
+            <div className="text-center mx-auto m-5">
+              <PropagateLoader
+                css={override}
+                sizeUnit="px"
+                size={25}
+                color="#43a2d0"
+                loading={this.loading}
+              />
+            </div>
+          </div>
+        </div>
+      );
     }
 
     // Making the option tag list for form select input

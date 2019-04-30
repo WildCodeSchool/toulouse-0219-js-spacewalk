@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
+import { css } from '@emotion/core';
+import { PropagateLoader } from 'react-spinners';
 import Title from './title';
 import './Apod.css';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class Apod extends Component {
   constructor() {
     super();
     this.state = {
-      image: {}
+      image: {},
+      loading: true
     };
   }
   // Appel de l'API de la Nasa Image of the day
@@ -19,14 +28,33 @@ class Apod extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          image: data
+          image: data,
+          loading: false
         });
       });
   }
 
   render() {
     // Décomposition du state
-    const { image } = this.state;
+    const { image, loading } = this.state;
+
+    if (loading) {
+      return (
+        <div className="container minPageSizeBlue">
+          <div className="row">
+            <div className="text-center mx-auto m-5">
+              <PropagateLoader
+                css={override}
+                sizeUnit="px"
+                size={25}
+                color="#43a2d0"
+                loading={this.loading}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="container-fluid bg-gradient">
