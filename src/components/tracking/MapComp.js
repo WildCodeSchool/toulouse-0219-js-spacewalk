@@ -11,12 +11,17 @@ import {
 import 'leaflet/dist/leaflet.css';
 import './trackerSat.css';
 
+// Function use to style th trajectory
+const getStyle = (feature, layer) => ({ color: '#43a2d0', weight: 2 });
+
+// Map Component
 const MapComp = ({
   position,
   zoom,
   marker,
   satName,
-  mapCenter
+  mapCenter,
+  geoJsonData
 }) => {
   return (
     <Fragment>
@@ -39,6 +44,7 @@ const MapComp = ({
             />
           </LayersControl.BaseLayer>
         </LayersControl>
+        <GeoJSON data={geoJsonData} style={getStyle} />
         <Marker
           position={position}
           icon={marker}

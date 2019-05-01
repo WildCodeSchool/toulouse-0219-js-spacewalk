@@ -77,6 +77,7 @@ class TrackSat extends Component {
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
+  // Getting satellite latitude & longitude from TLE.js
   getCurrentCoords() {
     const { tle } = this.state;
     const tleStr = tle;
@@ -90,6 +91,7 @@ class TrackSat extends Component {
     );
   }
 
+  // Switching satellite icon on select input validation
   getMarkerChange() {
     const { satId } = this.state;
     const issMarker = L.icon({
@@ -221,6 +223,7 @@ class TrackSat extends Component {
               mapCenter={mapCenter}
               zoom={zoom}
               marker={this.getMarkerChange()}
+              geoJsonData={this.buildGeoJson()}
               satName={satNameVal}
             />
             <SatDataComp

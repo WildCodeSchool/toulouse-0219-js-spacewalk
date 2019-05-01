@@ -19,14 +19,14 @@ const SatDataComp = ({
         <div>
           Latitude :
           <p>
-            {(Number(position.lat)).toFixed(1)}
+            {(Number(position.lat)).toFixed(2)}
             deg
           </p>
         </div>
         <div>
           Longitude :
           <p>
-            {(Number(position.lng)).toFixed(1)}
+            {(Number(position.lng)).toFixed(2)}
             deg
           </p>
         </div>
