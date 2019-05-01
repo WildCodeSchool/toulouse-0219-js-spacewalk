@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import DateInput from './DateInput';
 import Title from './title';
-import momentRandom from "moment-random";
 import moment from "moment";
 import { css } from '@emotion/core';
 import { PropagateLoader } from 'react-spinners';

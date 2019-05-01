@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { css } from '@emotion/core';
-import { PropagateLoader } from 'react-spinners';
 
 import APIClient from '../../APIClient';
 import Search from './Search';
@@ -8,21 +6,12 @@ import Results from './results/Results';
 import Title from '../title';
 import './results/style-search.css';
 
-
-const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-`;
-
 class Page extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       results: [],
-      // error: '',
-      loading: true,
       links: [],
       metadata: {}
 
@@ -32,11 +21,8 @@ class Page extends Component {
     this.pageSearch = this.pageSearch.bind(this);
   }
 
-
-  componentWillMount() {
-    this.setState({
-      loading: false
-    });
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
 
 
@@ -71,24 +57,10 @@ class Page extends Component {
   }
 
   render() {
-    const { results, loading, links, metadata } = this.state;
-    if (loading) {
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="text-center mx-auto m-5">
-              <PropagateLoader
-                css={override}
-                sizeUnit={"px"}
-                size={15}
-                color={'#293347'}
-                loading={loading}
-              />
-            </div>
-          </div>
-        </div>
-      );
-    }
+    const {
+      results, loading, links, metadata
+    } = this.state;
+
     return (
       <div className="container-fluid mx-auto m-5">
         <div className="row mx-auto text-center p-5">
