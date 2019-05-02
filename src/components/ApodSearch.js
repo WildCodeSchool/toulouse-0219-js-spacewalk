@@ -42,7 +42,6 @@ class ApodSearch extends Component {
       .then(data => this.setState({ image: data, loading: false }));
   };
 
-
   formatDate = moment => {
     return moment.toDate()
   };
