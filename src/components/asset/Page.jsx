@@ -58,9 +58,9 @@ class Page extends Component {
             <div className="text-center mx-auto m-5">
               <PropagateLoader
                 css={override}
-                sizeUnit={"px"}
+                sizeUnit="px"
                 size={25}
-                color={'#43a2d0'}
+                color="#43a2d0"
                 loading={loading}
               />
             </div>
