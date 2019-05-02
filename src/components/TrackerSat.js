@@ -11,6 +11,7 @@ import keys from '../keys';
 import MapComp from './tracking/MapComp';
 import SatDataComp from './tracking/SatDataComp';
 import SatDescripComp from './tracking/SatDescripComp';
+import geoData from './tracking/geoData';
 import sat from '../satellites';
 import 'leaflet/dist/leaflet.css';
 import './tracking/trackerSat.css';
@@ -21,15 +22,20 @@ const override = css`
     margin: 0 auto;
     border-color: red;
 `;
-// Component
+
+// Initializing library TLE.js
+const TLEJS = require('tle.js');
+
+// Instanciate a new TLEJS
+const tlejs = new TLEJS();
+
+// TrackSat component
 class TrackSat extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hits: null,
       jsonSatList: sat,
-      lat: 43.604,
-      lng: 1.444,
       zoom: 3,
       isLoading: true,
       error: null,
@@ -37,19 +43,23 @@ class TrackSat extends Component {
       satId: [25544],
       satDescrip: [sat[0].description],
       satLaunchDate: [sat[0].launch],
-      mapCenter: [43.604, 1.444]
+      mapCenter: [43.604, 1.444],
+      tle: '1 25544U 98067A   19120.40833581  .00001450  00000-0  30616-4 0  9995\r\n2 25544  51.6410 238.6747 0000873 256.1238 216.5201 15.52607716167833',
+      coords: { lat: '', lng: '' },
     };
     // Binding methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getSatCoords = this.getSatCoords.bind(this);
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.getData();
-    this.interval = setInterval(() => {
-      this.getData();
-    }, 30000);
+    this.getTLE();
+    // this.getCurrentCoords();
+    // this.getCurrentOrbitCoords();
+    this.updatingSatCoords();
+    this.buildGeoJson();
   }
 
   // Stopping the time interval
@@ -57,21 +67,30 @@ class TrackSat extends Component {
     clearInterval(this.interval);
   }
 
-  // Getting data from the API with axios
-  getData() {
+  // Getting TLE data from the API with axios
+  getTLE() {
     const { satId } = this.state;
-    const url = `${config.N2YO_POS_URL}${satId}/43.604/1.444/0/1/&apiKey=${keys.N2YO_API_KEY}`;
-
+    const url = `${config.N2YO_TLE_URL}${satId}&apiKey=${keys.N2YO_API_KEY}`;
     axios.get(url)
       .then(resp => this.setState({
         hits: resp.data,
+        tle: resp.data.tle,
         isLoading: false,
-        lat: resp.data.positions[0].satlatitude,
-        lng: resp.data.positions[0].satlongitude,
-      }))
+      }, this.getCurrentCoords))
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
+  // Getting satellite latitude & longitude from TLE.js
+  getSatCoords() {
+    const { tle } = this.state;
+    const tleStr = tle;
+    const timestampMS = Date.now();
+    const latLonObj = tlejs.getLatLon(tleStr, timestampMS);
+    this.setState({ coords: latLonObj });
+    return latLonObj;
+  }
+
+  // Switching satellite icon on select input validation
   getMarkerChange() {
     const { satId } = this.state;
     const issMarker = L.icon({
@@ -88,10 +107,47 @@ class TrackSat extends Component {
     return marker;
   }
 
-  updateMapCenter() {
-    const { lat, lng } = this.state;
-    this.getData();
-    this.setState({ mapCenter: [lat, lng] });
+  // Getting orbit coordinates
+  getCurrentOrbitCoords() {
+    const { tle } = this.state;
+    const threeOrbitsArr = tlejs.getGroundTrackLngLat(tle);
+    const currentOrbitArr = threeOrbitsArr[1];
+    // this.setState({ currentOrbitCoords: currentOrbitArr });
+    return currentOrbitArr;
+  }
+
+  // Calling two methods
+  getMethods() {
+    const latLonObj = this.getSatCoords();
+    this.updateMapCenter(latLonObj);
+  }
+
+  // Updating sat coords
+  updatingSatCoords() {
+    this.interval = setInterval(this.getSatCoords, 1000);
+  }
+
+  // Building a geoJSON like object (identical object structure)
+  buildGeoJson() {
+    // const { tle } = this.state;
+    // const threeOrbitsArr = tlejs.getGroundTrackLngLat(tle);
+    // const currentOrbitArr = threeOrbitsArr[1];
+    // const { currentOrbitCoords } = this.state;
+    const geometry = { ...geoData.features[0].geometry, type: 'LineString', coordinates: this.getCurrentOrbitCoords() };
+    const typePropsGeometry = [{ ...geoData.features[0], geometry: geometry }];
+    const features = { ...geoData, features: typePropsGeometry };
+    return features;
+  }
+
+  updateMapCenter(coords) {
+    // const { coords } = this.state;
+    // this.setState({ currentOrbitCoords: null });
+    // clearInterval(this.interval);
+    this.getTLE();
+    // this.getCurrentCoords();
+    // this.getCurrentOrbitCoords();
+    // this.buildGeoJson();
+    setTimeout(() => this.setState({ mapCenter: [coords.lat, coords.lng] }), 800);
   }
 
   // Handling change of select input form
@@ -122,8 +178,16 @@ class TrackSat extends Component {
     const dateMatched = jsonSatList
       .filter(item => (item.name === satNameVal))
       .map(singleItem => (singleItem.launch));
+
     // Updating State with satellite id, description and launch date
-    this.setState({ satId: idMatched, satDescrip: descriptionMatched, satLaunchDate: dateMatched }, this.updateMapCenter);
+    this.setState(
+      {
+        satId: idMatched,
+        satDescrip: descriptionMatched,
+        satLaunchDate: dateMatched
+      },
+      this.getMethods
+    );
   }
 
   render() {
@@ -133,15 +197,15 @@ class TrackSat extends Component {
       jsonSatList,
       isLoading,
       error,
-      lat,
-      lng,
       zoom,
       satNameVal,
+      satId,
       satDescrip,
       satLaunchDate,
-      mapCenter
+      mapCenter,
+      coords
     } = this.state;
-    const position = [(lat).toFixed(2), (lng).toFixed(2)];
+    const uniqueKey = Date.now();
 
     // Console logging of the number of transcations with the API
     if (hits) {
@@ -181,19 +245,18 @@ class TrackSat extends Component {
         <div className="containerStyle">
           <div className="mapLoc">
             <MapComp
-              position={position}
-              mapCenter={mapCenter}
+              position={coords}
+              mapCenter={coords}
               zoom={zoom}
               marker={this.getMarkerChange()}
+              geoJsonData={this.buildGeoJson()}
+              keyGeoJson={uniqueKey}
               satName={satNameVal}
             />
             <SatDataComp
               launchDate={satLaunchDate}
-              lat={position[0]}
-              lng={position[1]}
+              position={coords}
               hits={hits}
-              alti={hits ? hits.positions[0].sataltitude : 0}
-              time={hits ? hits.positions[0].timestamp : 0}
             />
           </div>
           <SatDescripComp
