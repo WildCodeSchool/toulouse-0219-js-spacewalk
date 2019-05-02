@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Gallery from 'react-grid-gallery';
-import Title from './title';
+
 import './Apod.css';
 import { css } from '@emotion/core';
 import { PropagateLoader } from 'react-spinners';
+import Title from './title';
 
 const override = css`
     display: block;
@@ -59,6 +60,8 @@ class Curiosity extends Component {
         caption: singleImage.camera.full_name,
         src: singleImage.img_src,
         thumbnail: singleImage.img_src,
+        thumbnailWidth: 220,
+        thumbnailHeight: 180,
 
       }
     ));
@@ -72,15 +75,18 @@ class Curiosity extends Component {
 
           <div
             style={{
-              display: "block",
-              minHeight: "1px",
+              display: 'block',
+              minHeight: '1px',
               width: "100%",
-              overflow: "auto",
-              margin: "auto",
+              overflow: 'auto',
+              margin: 'auto',
+              objectFit: "cover"
+
+
             }}
           >
             <div className="mx-auto">
-              <Gallery images={imagesGallery} enableImageSelection={false} className="mx-auto" />
+              <Gallery images={imagesGallery} enableImageSelection={false} className="mx-auto" showLightboxThumbnails />
             </div>
           </div>
         </div>
