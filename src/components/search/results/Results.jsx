@@ -40,27 +40,28 @@ class Results extends React.Component {
     });
   }
 
-  loadCommentsFromServer() {
+  loadPageCount() {
     this.setState({
       pageCount: Math.ceil(this.props.metadata.total_hits / 100),
     });
   }
 
   componentDidMount() {
-    this.loadCommentsFromServer();
+    this.loadPageCount();
   }
   componentDidUpdate(prevProps) {
     if (this.props.metadata.total_hits !== prevProps.metadata.total_hits) {
-      this.loadCommentsFromServer();
+      this.loadPageCount();
     }
   }
 
   handlePageClick = data => {
     let selected = data.selected;
     let offset = Math.ceil(selected * 100);
-
+    // let url = `http://images-api.nasa.gov/search?page=${this.state.pageCount}&q=${this.props.query}`
+    // console.log(url)
     this.setState({ offset: offset }, () => {
-      this.loadCommentsFromServer();
+      this.loadPageCount();
     });
   };
 
@@ -119,13 +120,12 @@ class Results extends React.Component {
         <div className="d-flex justify-content-center">
           <div>
             {links && links.map(item => (
-              <a href={item.href} onClick={this.handleClick} className="btn btn-success mr-3">
+              <a href={item.href} key={item.href} onClick={this.handleClick} className="btn btn-success mr-3">
                 {item.prompt}
               </a>
             ))}
           </div>
           <div>
-            {/* <CommentList data={this.state.data} /> */}
             <ReactPaginate
               previousLabel={'Previous'}
               nextLabel={'Next'}

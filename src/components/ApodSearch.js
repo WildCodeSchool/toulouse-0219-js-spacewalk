@@ -60,7 +60,7 @@ class ApodSearch extends Component {
 
 
   handleClick = () => {
-    let random = this.randomDate(new Date("06-16-1995"), new Date());
+    let random = this.randomDate(new Date("1995-06-16"), new Date());
     this.setState({ date: random });
     this.getPhoto(moment(random).format('YYYY-MM-DD'))
   };

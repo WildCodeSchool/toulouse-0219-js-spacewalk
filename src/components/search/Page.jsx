@@ -13,7 +13,8 @@ class Page extends Component {
     this.state = {
       results: [],
       links: [],
-      metadata: {}
+      metadata: {},
+      query: ''
 
     };
 
@@ -37,7 +38,7 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results: results.items, links: results.links, metadata: results.metadata });
+      this.setState({ results: results.items, query: results.query, links: results.links, metadata: results.metadata });
     });
   }
 
@@ -52,13 +53,13 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results: results.items, links: results.links, metadata: results.metadata });
+      this.setState({ results: results.items, query: results.query, links: results.links, metadata: results.metadata });
     });
   }
 
   render() {
     const {
-      results, loading, links, metadata
+      results, links, metadata, query
     } = this.state;
 
     return (
@@ -77,7 +78,7 @@ class Page extends Component {
           ? (
             <div className="row mx-auto bg-search p-5">
               <div className="col d-flex align-items-stretch">
-                <Results results={results} links={links} pageSearch={this.pageSearch} metadata={metadata} />
+                <Results results={results} query={query} links={links} pageSearch={this.pageSearch} metadata={metadata} />
               </div>
             </div>
           )
