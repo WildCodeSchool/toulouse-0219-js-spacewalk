@@ -16,6 +16,7 @@ import {
 } from 'react-share';
 
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import React from 'react';
 import Title from '../title';
@@ -27,7 +28,10 @@ const Image = (
     description, href, title, date, keywords
   }
 ) => (
-    <div className="container">
+    <div className='container'>
+      <Link to="/search">
+        <div className="btn btn-light mt-4">Back to results</div>
+      </Link>
       <div className="text-center row mx-auto">
         <div className="col">
           <Title title={title} idStyle="titleSecond" />
