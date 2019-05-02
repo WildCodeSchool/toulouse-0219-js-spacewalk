@@ -30,7 +30,7 @@ class NavMenu extends Component {
     const { isOpen } = this.state;
     return (
       <div className="sticky-top">
-        <Navbar expand="md" className="navContainer">
+        <Navbar expand="xl" className="navContainer">
           <NavbarToggler onClick={this.toggle} />
           <Collapse className="collapse-container" isOpen={isOpen} navbar>
             <Nav className="nav" navbar>
@@ -45,6 +45,9 @@ class NavMenu extends Component {
               </NavItem>
               <NavItem>
                 <NavLink tag={NavRouter} className="text-center" to="/apod-search">Choose your Apod</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={NavRouter} className="text-center" to="/curiosity-gallery">Curiosity&apos;s Diary</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

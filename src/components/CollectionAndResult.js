@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ import './articleHome.css';
 import colorTag from '../functions/colorTag';
 import excerptDate from '../functions/excerptDate';
 import './Apod.css';
+
 
 
 // import des img des collections
@@ -160,7 +161,7 @@ class CollectionAndResult extends Component {
     return (
       <section className="bg-gradient">
         <Title title="Collections" idStyle="titlelight" />
-        <fragment id="resultsHubble" />
+        <Fragment id="resultsHubble" />
         <div className="container-fluid mx-auto bg-gradient">
           <div id="collections">
             {tag.map((singleTag, index) => (
