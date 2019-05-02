@@ -53,6 +53,7 @@ class HubblePage extends Component {
   }
 
   render() {
+    // eslint-disable-next-line react/prop-types
     const { location } = this.props;
     const { article, loading } = this.state;
     const idArticle = location.pathname.split('/');
@@ -133,7 +134,7 @@ class HubblePage extends Component {
                 </TumblrShareButton>
               </div>
             </div>
-            <a href={matchArticle.link}>
+            <a href={matchArticle.link} target="_blank" rel="noopener noreferrer">
               <button
                 type="button"
                 className="btn btn-secondary continueReadingButton"

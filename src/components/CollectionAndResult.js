@@ -1,4 +1,6 @@
-import React, { Component, Fragment } from 'react';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -158,13 +160,12 @@ class CollectionAndResult extends Component {
     return (
       <section className="bg-gradient">
         <Title title="Collections" idStyle="titlelight" />
-        <Fragment id="resultsHubble" />
-        <div className="container-fluid mx-auto bg-gradient">
+        <div className="container-fluid mx-auto bg-gradient" id="resultsHubble">
           <div id="collections">
             {tag.map((singleTag, index) => (
 
               <Collections
-                key={index}
+                key={singleTag}
                 url={singleTag.url}
                 name={singleTag.name}
                 handleTag={this.handleTag}
@@ -177,7 +178,10 @@ class CollectionAndResult extends Component {
           <div className="row mx-auto">
             {currentArticles.map((singleArt) => (
 
-              <div key={singleArt.pub_date} className="articleHome articleHome-bg-light pr-3">
+              <div
+                key={singleArt.pub_date}
+                className="articleHome articleHome-bg-light pr-3"
+              >
                 <Link to={`/hubble/${singleArt.pub_date}`}>
                   <img
                     src={singleArt.image}
@@ -236,7 +240,7 @@ class CollectionAndResult extends Component {
             </li>
           </ul>
         </div>
-      </section >
+      </section>
     );
   }
 }

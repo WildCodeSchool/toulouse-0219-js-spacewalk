@@ -2,10 +2,11 @@ import React from 'react';
 import './collections.css';
 import PropTypes from 'prop-types';
 
+// eslint-disable-next-line object-curly-newline
 const Collections = ({ url, name, handleTag, i }) => (
   <div
     role="button"
-    tabIndex={i}
+    tabIndex={i + 1}
     className="allCollections"
     style={{
       backgroundImage: `url(${url})`,
