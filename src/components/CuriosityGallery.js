@@ -21,6 +21,7 @@ class Curiosity extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     fetch(
       'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?&api_key=638oh8hjQBkop6DfIzCRlVqF4q0vyFJ2yvGX6KqZ'
     )

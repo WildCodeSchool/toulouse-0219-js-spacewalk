@@ -26,8 +26,8 @@ class Page extends Component {
     };
   }
 
-
   componentDidMount() {
+    window.scrollTo(0, 0);
     const {
       match: {
         params: { id }
@@ -41,10 +41,6 @@ class Page extends Component {
         loading: false,
       });
     });
-  }
-
-  componentDidUpdate() {
-    window.scrollTo(0, 0);
   }
 
   render() {
