@@ -60,7 +60,8 @@ class Curiosity extends Component {
         caption: singleImage.camera.full_name,
         src: singleImage.img_src,
         thumbnail: singleImage.img_src,
-
+        thumbnailWidth: 220,
+        thumbnailHeight: 180,
       }
     ));
 
