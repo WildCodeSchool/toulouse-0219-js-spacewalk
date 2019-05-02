@@ -26,8 +26,8 @@ class Page extends Component {
     };
   }
 
-
   componentDidMount() {
+    window.scrollTo(0, 0);
     const {
       match: {
         params: { id }
@@ -43,10 +43,6 @@ class Page extends Component {
     });
   }
 
-  componentDidUpdate() {
-    window.scrollTo(0, 0);
-  }
-
   render() {
     const { loading, item } = this.state;
     const { history } = this.props;
@@ -58,9 +54,9 @@ class Page extends Component {
             <div className="text-center mx-auto m-5">
               <PropagateLoader
                 css={override}
-                sizeUnit={"px"}
+                sizeUnit="px"
                 size={25}
-                color={'#43a2d0'}
+                color="#43a2d0"
                 loading={loading}
               />
             </div>

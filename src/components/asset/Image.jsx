@@ -88,7 +88,8 @@ Image.propTypes = {
   description: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired
+  date: PropTypes.string.isRequired,
+  keywords: PropTypes.string.isRequired
 };
 
 export default Image;
