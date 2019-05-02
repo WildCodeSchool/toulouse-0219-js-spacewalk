@@ -12,9 +12,6 @@ import './articleHome.css';
 import colorTag from '../functions/colorTag';
 import excerptDate from '../functions/excerptDate';
 import './Apod.css';
-
-
-
 // import des img des collections
 import science from './images/scienceCollection.jpeg';
 import photo from './images/photoCollection.jpeg';
