@@ -12,12 +12,6 @@
     "description": "TEN-KOH is a satellite from the Kyushu Institute of Technology in Japan. TEN-KOH will collect data on the environment of low Earth orbit, and chart the degradation of advanced spacecraft materials during its mission. The satellite will measure radiation, magnetic flux density and electron density for a mission lasting at least six months "
   },
   {
-    "id": 43613,
-    "name": "ICESAT-2",
-    "launch": "September 15, 2018",
-    "description": "ICESAT-2 is a satellite part of NASA's Earth Observing System with the goal to continue measuring and monitoring the impacts of the changing environment. The ICESAT-2 observatory contains a single instrument, an improved laser altimeter called ATLAS (Advanced Topographic Laser Altimeter System). ATLAS is designed to measure ice-sheet topography, sea ice freeboard as well as cloud and atmospheric properties and global vegetation. The requirements call for a 5-year operational mission with a goal of 7 years."
-  },
-  {
     "id": 43600,
     "name": "AEOLUS",
     "launch": "August 22, 2018",
@@ -42,12 +36,6 @@
     "description": "SENTINEL-3B is a spacecraft dedicated to the study of Earth’s oceans and vegetation. SENTINEL-3B is part of the Copernicus programme, a partnership between the European Space Agency (ESA), EUMETSAT and the European Commission to perform Earth science and environmental research from orbit. The launch of SENTINEL-3B completes the first-generation satellite constellation for Copernicus."
   },
   {
-    "id": 43477,
-    "name": "GRACE-FO 2",
-    "launch": "May 22, 2018",
-    "description": "GRACE-FO 2 and GRACE-FO 1 are two identical Earth science satellites with primary research objective focused on gravity measurements and Earth's water cycle. Built by Airbus Defense and Space, the identical GRACE-Follow On satellites carry microwave ranging instruments to measure the separation between the craft as they fly around 137 miles (220 kilometers) apart in orbit. The ranging sensors require exacting precision, with the capability of measuring distance changes between the formation-flying satellites as small as a few microns—about the width of a blood cell. Changes in the range between the two GRACE-Follow On satellite will be caused by tiny variations in the pull of gravity from Earth below, telling scientists about the mass of water, rock and ice around the world."
-  },
-  {
     "id": 43194,
     "name": "ZHANGHENG-1",
     "launch": "February 2, 2018",
@@ -70,12 +58,6 @@
     "name": "JASON 3",
     "launch": "January 17, 2016",
     "description": "JASON 3 satellite is designed to precisely measure ocean waves, maritime winds, ocean currents and sea level rise for a consortium of scientific institutions in the United States and Europe. Jason 3 follows three previous satellites dedicated to measuring the roughness of the ocean surface, beginning with the launch of a spacecraft named TOPEX/Poseidon in 1992."
-  },
-  {
-    "id": 43476,
-    "name": "GRACE-FO 1",
-    "launch": "May 22, 2018",
-    "description": "GRACE-FO 1 and GRACE-FO 2 are two identical Earth science satellites with primary research objective focused on gravity measurements and Earth's water cycle. Built by Airbus Defense and Space, the identical GRACE-Follow On satellites carry microwave ranging instruments to measure the separation between the craft as they fly around 137 miles (220 kilometers) apart in orbit. The ranging sensors require exacting precision, with the capability of measuring distance changes between the formation-flying satellites as small as a few microns—about the width of a blood cell. Changes in the range between the two GRACE-Follow On satellite will be caused by tiny variations in the pull of gravity from Earth below, telling scientists about the mass of water, rock and ice around the world."
   },
   {
     "id": 25994,

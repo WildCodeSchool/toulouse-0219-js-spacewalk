@@ -46,11 +46,11 @@ class TrackSat extends Component {
       mapCenter: [43.604, 1.444],
       tle: '1 25544U 98067A   19120.40833581  .00001450  00000-0  30616-4 0  9995\r\n2 25544  51.6410 238.6747 0000873 256.1238 216.5201 15.52607716167833',
       coords: { lat: '', lng: '' },
-      currentOrbitCoords: []
     };
     // Binding methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getSatCoords = this.getSatCoords.bind(this);
   }
 
   componentDidMount() {
@@ -60,19 +60,6 @@ class TrackSat extends Component {
     this.updatingSatCoords();
     this.buildGeoJson();
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { satId, coords, currentOrbitCoords } = this.state;
-  //   if (prevState.satId !== satId) {
-  //     this.setState({ currentOrbitCoords: null });
-  //     clearInterval(this.interval);
-  //     this.getTLE();
-  //     this.getCurrentCoords();
-  //     this.getCurrentOrbitCoords();
-  //     this.buildGeoJson();
-  //     this.setState({ mapCenter: [coords.lat, coords.lng] });
-  //   }
-  // }
 
   // Stopping the time interval
   componentWillUnmount() {
@@ -99,6 +86,7 @@ class TrackSat extends Component {
     const timestampMS = Date.now();
     const latLonObj = tlejs.getLatLon(tleStr, timestampMS);
     this.setState({ coords: latLonObj });
+    return latLonObj;
   }
 
   // Switching satellite icon on select input validation
@@ -129,8 +117,8 @@ class TrackSat extends Component {
 
   // Calling two methods
   getMethods() {
-    this.getSatCoords();
-    this.updateMapCenter();
+    const latLonObj = this.getSatCoords();
+    this.updateMapCenter(latLonObj);
   }
 
   // Updating sat coords
@@ -150,15 +138,15 @@ class TrackSat extends Component {
     return features;
   }
 
-  updateMapCenter() {
-    const { coords } = this.state;
+  updateMapCenter(coords) {
+    // const { coords } = this.state;
     // this.setState({ currentOrbitCoords: null });
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
     this.getTLE();
     // this.getCurrentCoords();
     // this.getCurrentOrbitCoords();
     // this.buildGeoJson();
-    setTimeout(() => this.setState({ mapCenter: [coords.lat, coords.lng] }), 500);
+    setTimeout(() => this.setState({ mapCenter: [coords.lat, coords.lng] }), 800);
   }
 
   // Handling change of select input form
@@ -216,7 +204,7 @@ class TrackSat extends Component {
       mapCenter,
       coords
     } = this.state;
-    const uniqueKey = satId[0];
+    const uniqueKey = Date.now();
 
     // Console logging of the number of transcations with the API
     if (hits) {
@@ -257,7 +245,7 @@ class TrackSat extends Component {
           <div className="mapLoc">
             <MapComp
               position={coords}
-              mapCenter={mapCenter}
+              mapCenter={coords}
               zoom={zoom}
               marker={this.getMarkerChange()}
               geoJsonData={this.buildGeoJson()}
