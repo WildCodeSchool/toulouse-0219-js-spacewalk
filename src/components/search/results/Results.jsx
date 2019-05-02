@@ -31,7 +31,6 @@ class Results extends React.Component {
       offset: 0,
       pageCount: 0
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
@@ -56,24 +55,20 @@ class Results extends React.Component {
   }
 
   handlePageClick = data => {
-    let selected = data.selected;
+    let selected = data.selected + 1;
     let offset = Math.ceil(selected * 100);
-    // let url = `http://images-api.nasa.gov/search?page=${this.state.pageCount}&q=${this.props.query}`
-    // console.log(url)
+    let url = this.props.links[0].href.replace(/page=\d+/, `page=${selected}`)
     this.setState({ offset: offset }, () => {
       this.loadPageCount();
     });
+    this.props.pageSearch(url);
   };
 
 
-  handleClick(e) {
-    e.preventDefault();
-    this.props.pageSearch(e.target.href);
-  }
 
 
   render() {
-    const { metadata, results, links } = this.props;
+    const { metadata, results } = this.props;
 
     const items = results.map(item => {
       const ResultComponent = typeToComponent[item.type];
@@ -118,13 +113,7 @@ class Results extends React.Component {
           {items}
         </div>
         <div className="d-flex justify-content-center">
-          <div>
-            {links && links.map(item => (
-              <a href={item.href} key={item.href} onClick={this.handleClick} className="btn btn-success mr-3">
-                {item.prompt}
-              </a>
-            ))}
-          </div>
+
           <div>
             <ReactPaginate
               previousLabel={'Previous'}
