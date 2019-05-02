@@ -53,6 +53,7 @@ class HubblePage extends Component {
   }
 
   render() {
+    // eslint-disable-next-line react/prop-types
     const { location } = this.props;
     const { article, loading } = this.state;
     const idArticle = location.pathname.split('/');
