@@ -158,8 +158,7 @@ class CollectionAndResult extends Component {
     return (
       <section className="bg-gradient">
         <Title title="Collections" idStyle="titlelight" />
-        <Fragment id="resultsHubble" />
-        <div className="container-fluid mx-auto bg-gradient">
+        <div className="container-fluid mx-auto bg-gradient" id="resultsHubble">
           <div id="collections">
             {tag.map((singleTag, index) => (
 
@@ -236,7 +235,7 @@ class CollectionAndResult extends Component {
             </li>
           </ul>
         </div>
-      </section >
+      </section>
     );
   }
 }

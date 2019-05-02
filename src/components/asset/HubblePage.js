@@ -133,7 +133,7 @@ class HubblePage extends Component {
                 </TumblrShareButton>
               </div>
             </div>
-            <a href={matchArticle.link}>
+            <a href={matchArticle.link} target="_blank" rel="noopener noreferrer">
               <button
                 type="button"
                 className="btn btn-secondary continueReadingButton"
