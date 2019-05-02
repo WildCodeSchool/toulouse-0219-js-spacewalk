@@ -54,7 +54,6 @@ class ApodSearch extends Component {
   };
 
   randomDate(start, end) {
-    console.log(start.getTime(), end.getTime())
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 
   }
@@ -62,7 +61,6 @@ class ApodSearch extends Component {
 
   handleClick = () => {
     let random = this.randomDate(new Date("1995-06-16"), new Date());
-    console.log(random);
     this.setState({ date: random });
     this.getPhoto(moment(random).format('YYYY-MM-DD'))
   };
