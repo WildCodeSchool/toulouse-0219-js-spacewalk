@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { css } from '@emotion/core';
-import { PropagateLoader } from 'react-spinners';
 
 import APIClient from '../../APIClient';
 import Search from './Search';
@@ -8,22 +6,15 @@ import Results from './results/Results';
 import Title from '../title';
 import './results/style-search.css';
 
-
-const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-`;
-
 class Page extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       results: [],
-      // error: '',
-      loading: true,
-      links: []
+      links: [],
+      metadata: {},
+      query: ''
 
     };
 
@@ -31,11 +22,8 @@ class Page extends Component {
     this.pageSearch = this.pageSearch.bind(this);
   }
 
-
-  componentWillMount() {
-    this.setState({
-      loading: false
-    });
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
 
 
@@ -50,7 +38,7 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results: results.items, links: results.links });
+      this.setState({ results: results.items, query: results.query, links: results.links, metadata: results.metadata });
     });
   }
 
@@ -65,29 +53,15 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results: results.items, links: results.links });
+      this.setState({ results: results.items, query: results.query, links: results.links, metadata: results.metadata });
     });
   }
 
   render() {
-    const { results, loading, links } = this.state;
-    if (loading) {
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="text-center mx-auto m-5">
-              <PropagateLoader
-                css={override}
-                sizeUnit={"px"}
-                size={15}
-                color={'#293347'}
-                loading={loading}
-              />
-            </div>
-          </div>
-        </div>
-      );
-    }
+    const {
+      results, links, metadata, query
+    } = this.state;
+
     return (
       <div className="container-fluid mx-auto m-5">
         <div className="row mx-auto text-center p-5">
@@ -104,7 +78,7 @@ class Page extends Component {
           ? (
             <div className="row mx-auto bg-search p-5">
               <div className="col d-flex align-items-stretch">
-                <Results results={results} links={links} pageSearch={this.pageSearch} />
+                <Results results={results} query={query} links={links} pageSearch={this.pageSearch} metadata={metadata} />
               </div>
             </div>
           )

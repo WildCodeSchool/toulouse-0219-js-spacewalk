@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-
 import { Input } from 'reactstrap';
 
 class Search extends Component {
@@ -10,15 +9,12 @@ class Search extends Component {
       audio: false,
       video: false,
       image: false,
-      query: ''
+      query: '',
+
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
-  }
-
-  componentDidUpdate() {
-    window.scrollTo(0, 0);
   }
 
   handleOnChange(event) {
