@@ -5,10 +5,7 @@ import './trackerSat.css';
 const SatDataComp = ({
   launchDate,
   hits,
-  lat,
-  lng,
-  alti,
-  time
+  position
 }) => {
   return (
     <Fragment>
@@ -22,33 +19,23 @@ const SatDataComp = ({
         <div>
           Latitude :
           <p>
-            {lat}
+            {(Number(position.lat)).toFixed(2)}
             deg
           </p>
         </div>
         <div>
           Longitude :
           <p>
-            {lng}
+            {(Number(position.lng)).toFixed(2)}
             deg
           </p>
         </div>
         {
           hits && (
             <div>
-              Altitude:
-              <p>
-                {alti}
-                km
-              </p>
-            </div>
-          )}
-        {
-          hits && (
-            <div>
               Time (UTC) :
               <p>
-                {new Date(time * 1000).toUTCString()}
+                {new Date().toUTCString()}
               </p>
             </div>
           )}
@@ -58,10 +45,7 @@ const SatDataComp = ({
 };
 
 SatDataComp.propTypes = {
-  lng: PropTypes.string.isRequired,
-  lat: PropTypes.string.isRequired,
-  alti: PropTypes.number.isRequired,
-  time: PropTypes.number.isRequired,
+  position: PropTypes.object.isRequired,
   hits: PropTypes.object,
   launchDate: PropTypes.array.isRequired
 };
