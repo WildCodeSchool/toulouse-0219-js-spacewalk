@@ -42,7 +42,6 @@ class ApodSearch extends Component {
       .then(data => this.setState({ image: data, loading: false }));
   };
 
-
   formatDate = moment => {
     return moment.toDate()
   };
@@ -56,6 +55,7 @@ class ApodSearch extends Component {
 
   randomDate(start, end) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+
   }
 
 
