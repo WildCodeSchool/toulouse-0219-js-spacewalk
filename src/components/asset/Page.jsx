@@ -45,7 +45,6 @@ class Page extends Component {
 
   render() {
     const { loading, item } = this.state;
-    const { history } = this.props;
 
     if (loading) {
       return (
@@ -69,8 +68,6 @@ class Page extends Component {
 
     return (
       <div>
-        <button onClick={history.goBack} type="button">&larr; Back to results </button>
-
         <Asset {...item} />
       </div>
     );

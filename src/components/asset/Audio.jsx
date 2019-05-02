@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import ReactAudioPlayer from 'react-audio-player';
 import React from 'react';
 import Title from '../title';
@@ -8,8 +10,10 @@ import Title from '../title';
 const Audio = ({
   description, href, title, date, id, keywords
 }) => (
-    <div className="container">
-
+    <div className='container'>
+      <Link to="/search">
+        <div className="btn btn-light mt-4">Back to results</div>
+      </Link>
       <div className="text-center row mx-auto">
         <div className="col">
 
