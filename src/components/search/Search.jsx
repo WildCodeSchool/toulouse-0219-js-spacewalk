@@ -17,9 +17,9 @@ class Search extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
+  // componentDidMount() {
+  //   window.scrollTo(0, 0);
+  // }
 
   handleOnChange(event) {
     const { target } = event;

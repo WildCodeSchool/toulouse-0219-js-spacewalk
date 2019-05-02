@@ -24,10 +24,11 @@ class Page extends Component {
     this.state = {
       loading: true
     };
+    this.myRef = React.createRef();
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0);
+
     const {
       match: {
         params: { id }
@@ -41,6 +42,10 @@ class Page extends Component {
         loading: false,
       });
     });
+  }
+
+  componentDidUpdate() {
+    window.scrollTo(0, this.myRef.current.offsetTop);
   }
 
   render() {
@@ -68,6 +73,7 @@ class Page extends Component {
 
     return (
       <div>
+        <div ref={this.myRef}></div>
         <Asset {...item} />
       </div>
     );

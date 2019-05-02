@@ -22,9 +22,9 @@ class Page extends Component {
     this.pageSearch = this.pageSearch.bind(this);
   }
 
-  componentDidUpdate() {
-    window.scrollTo(0, 0);
-  }
+  // componentDidUpdate() {
+  //   window.scrollTo(0, 0);
+  // }
 
 
   search(params) {
