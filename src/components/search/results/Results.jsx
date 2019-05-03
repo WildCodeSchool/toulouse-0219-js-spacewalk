@@ -3,7 +3,6 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { css } from '@emotion/core';
 import { PropagateLoader } from 'react-spinners';
-
 import Audio from './Audio';
 import Image from './Image';
 import Video from './Video';
@@ -29,7 +28,7 @@ class Results extends React.Component {
       loading: true,
       data: this.props.results,
       offset: 0,
-      pageCount: 0
+      pageCount: 0,
     };
   }
 
@@ -93,8 +92,10 @@ class Results extends React.Component {
     }
     return (
       <div className="container-fluid mx-auto">
+
         <div className="text-white font-weight-bold"> Total items : {metadata.total_hits}</div>
         <div className="d-flex justify-content-center">
+
           <ReactPaginate
             previousLabel={'Previous'}
             nextLabel={'Next'}
