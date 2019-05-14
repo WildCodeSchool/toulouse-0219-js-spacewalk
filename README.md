@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+##Space Walk
+Space Walk is a student project, made during a Wild Code School Bootcamp, where some APIs about Space realeases and imagery have been consumed. 
+
+### Space Walk API listing
+
+[API MARS ROVER PHOTOS](https://api.nasa.gov/api.html#MarsPhotos),
+[NASA Image and Video Library](https://api.nasa.gov/api.html#Images),
+[API NASA ASTRONOMY PICTURE OF THE DAY](https://api.nasa.gov/api.html#apod),
+[API HUBBLE](http://hubblesite.org/api/documentation).
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -43,26 +55,4 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
