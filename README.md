@@ -8,10 +8,11 @@ Space Walk is a student project, made during a Wild Code School Bootcamp by Léa
 
 [API NASA Astronomy Picture of The Day](https://api.nasa.gov/api.html#apod),<br>
 [NASA Image and Video Library](https://api.nasa.gov/api.html#Images),<br>
-[API Hubble](http://hubblesite.org/api/documentation).<br>
+[API Hubble](http://hubblesite.org/api/documentation),<br>
 [API Mars Rover Photos](https://api.nasa.gov/api.html#MarsPhotos),<br>
 [API Satellite tracker](https://www.n2yo.com/api/)<br>
 
+Visit the website : [https://spacewalk.wild31.com/](https://spacewalk.wild31.com/)
 
 ## Available Scripts
 
