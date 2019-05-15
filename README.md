@@ -1,7 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-##The project
+
+## The project
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
 Space Walk is a student project, made during a Wild Code School Bootcamp by Léa, Denis and Sandy, where some APIs about Space realeases and imagery have been consumed. 
 
 ### Space Walk API listing
