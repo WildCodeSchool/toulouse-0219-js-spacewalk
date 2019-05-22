@@ -1,7 +1,0 @@
-/* Restriction de la taille de l'image dans l'affichage des résultats */
-
-.display-search {
-  object-fit: cover;
-  width: 25vh;
-  height: 25vh;
-}

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
+import { NavLink as NavRouter } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  Input,
-  Button
+  NavLink
 } from 'reactstrap';
 
 class NavMenu extends Component {
@@ -31,27 +29,26 @@ class NavMenu extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <div>
-        <Navbar expand="lg" className="navContainer sticky-top">
-          <NavbarBrand href="/">SpaceApp</NavbarBrand>
+      <div className="sticky-top">
+        <Navbar expand="xl" className="navContainer">
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={isOpen} navbar>
+          <Collapse className="collapse-container" isOpen={isOpen} navbar>
             <Nav className="nav" navbar>
               <NavItem>
-                <NavLink className="text-center mr-4 active" href="/">Home</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/" exact>Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-4" href="/articles">Articles</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/search">NASA Archives</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-4" href="/read">To read later</NavLink>
+                <NavLink tag={NavRouter} className="text-center" to="/tracker">Satellites Tracker</NavLink>
               </NavItem>
-              <div className="nav-input mr-lg-2">
-                <Input type="search" placeholder="Search" />
-              </div>
-              <div className="nav-btn">
-                <Button block type="Submit">Search</Button>
-              </div>
+              <NavItem>
+                <NavLink tag={NavRouter} className="text-center" to="/apod-search">Choose your Apod</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={NavRouter} className="text-center" to="/curiosity-gallery">Curiosity&apos;s Diary</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Row, Container
-} from 'reactstrap';
 import Apod from './Apod';
-import MinArticle from './minArticle';
 import CollectionAndResult from './CollectionAndResult';
 
 class Home extends Component {
@@ -12,19 +8,17 @@ class Home extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>
         {/* Affichage de l'image du jour */}
-        <Container>
-          <Row>
-            <Apod />
-          </Row>
-        </Container>
+        <Apod />
         {/* fin de l'affichage de l'image du jour */}
-
         <CollectionAndResult />
-
         {/* <Collection />
         <HubbleArticles /> */}
 

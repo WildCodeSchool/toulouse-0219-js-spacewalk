@@ -4,6 +4,7 @@ import APIClient from '../../APIClient';
 import Search from './Search';
 import Results from './results/Results';
 import Title from '../title';
+import './results/style-search.css';
 
 class Page extends Component {
   constructor(props) {
@@ -11,15 +12,24 @@ class Page extends Component {
 
     this.state = {
       results: [],
-      error: ''
+      links: [],
+      metadata: {},
+      query: ''
+
     };
 
     this.search = this.search.bind(this);
+    this.pageSearch = this.pageSearch.bind(this);
   }
+
+  // componentDidUpdate() {
+  //   window.scrollTo(0, 0);
+  // }
+
 
   search(params) {
     APIClient.search(params).then(results => {
-      results.sort((a, b) => {
+      results.items.sort((a, b) => {
         if (a.date < b.date) {
           return 1;
         }
@@ -28,11 +38,30 @@ class Page extends Component {
         }
         return 0;
       });
-      this.setState({ results });
+      this.setState({ results: results.items, query: results.query, links: results.links, metadata: results.metadata });
+    });
+  }
+
+  pageSearch(url) {
+    APIClient.pageSearch(url).then(results => {
+      results.items.sort((a, b) => {
+        if (a.date < b.date) {
+          return 1;
+        }
+        if (a.date > b.date) {
+          return -1;
+        }
+        return 0;
+      });
+      this.setState({ results: results.items, query: results.query, links: results.links, metadata: results.metadata });
     });
   }
 
   render() {
+    const {
+      results, links, metadata, query
+    } = this.state;
+
     return (
       <div className="container-fluid mx-auto m-5">
         <div className="row mx-auto text-center p-5">
@@ -45,11 +74,11 @@ class Page extends Component {
 
 
         {/* Affichage des résultats */}
-        {this.state.results.length > 0
+        {results.length > 0
           ? (
-            <div className="row mx-auto bg-dark p-5">
+            <div className="row mx-auto bg-search p-5">
               <div className="col d-flex align-items-stretch">
-                <Results results={this.state.results} />
+                <Results results={results} query={query} links={links} pageSearch={this.pageSearch} metadata={metadata} />
               </div>
             </div>
           )

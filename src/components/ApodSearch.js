@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
+import DateInput from './DateInput';
+import Title from './title';
+import moment from "moment";
 import { css } from '@emotion/core';
 import { PropagateLoader } from 'react-spinners';
-import Title from './title';
-import './Apod.css';
 
 const override = css`
     display: block;
@@ -11,33 +12,63 @@ const override = css`
     border-color: red;
 `;
 
-class Apod extends Component {
-  constructor() {
-    super();
+class ApodSearch extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      image: {},
-      loading: true
+      loading: true,
+      date: new Date(),
+      image: ""
     };
+
   }
-  // Appel de l'API de la Nasa Image of the day
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     fetch(
       'https://api.nasa.gov/planetary/apod?api_key=638oh8hjQBkop6DfIzCRlVqF4q0vyFJ2yvGX6KqZ'
     )
       .then(response => response.json())
-      .then(data => {
+      .then(json => {
         this.setState({
-          image: data,
+          image: json,
           loading: false
         });
       });
   }
 
-  render() {
-    // Décomposition du state
-    const { image, loading } = this.state;
+  getPhoto = date => {
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=638oh8hjQBkop6DfIzCRlVqF4q0vyFJ2yvGX6KqZ`)
+      .then(response => response.json())
+      .then(data => this.setState({ image: data, loading: false }));
+  };
 
+  formatDate = moment => {
+    return moment.toDate()
+  };
+
+
+  changeDate = dateFromInput => {
+    this.setState({ date: dateFromInput });
+    this.getPhoto(moment(dateFromInput).format('YYYY-MM-DD'));
+    this.setState({ loading: true });
+  };
+
+  randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+
+  }
+
+
+  handleClick = () => {
+    let random = this.randomDate(new Date("1995-06-16"), new Date());
+    this.setState({ date: random });
+    this.getPhoto(moment(random).format('YYYY-MM-DD'))
+  };
+
+
+  render() {
+    const { image, loading } = this.state;
     if (loading) {
       return (
         <div className="container minPageSizeBlue">
@@ -55,18 +86,18 @@ class Apod extends Component {
         </div>
       );
     }
-
     return (
       <div className="container-fluid bg-gradient">
         <div className="container-apod mx-auto">
           <div className="p-4 mx-auto">
             <Title title="Astronomy Picture of the Day" idStyle="titleSecondWhite" className="text-center" />
-
+            <DateInput changeDate={this.changeDate} date={this.state.date} handleClick={this.handleClick} />
           </div>
           <div className="row pb-5">
             <div className="col-md-7 pb-3">
+
               {/* // Si type vidéo, afficher le player sinon afficher l'image */}
-              {image.media_type === 'video' ? <ReactPlayer url={image.url} className="embed-responsive-item" /> : <img src={image.url} alt={image.title} className="img-apod" />}
+              {image.media_type === 'video' ? <ReactPlayer url={image.url} /> : <img src={image.url} alt={image.title} className="img-apod" />}
             </div>
             <div className="col-md-5 text-white">
               <h3>{image.title}</h3>
@@ -76,8 +107,9 @@ class Apod extends Component {
           </div>
         </div>
       </div>
+
     );
   }
 }
 
-export default Apod;
+export default ApodSearch;

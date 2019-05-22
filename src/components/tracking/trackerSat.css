@@ -1,0 +1,40 @@
+.tracker-page {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.tracker-page h2 {
+  padding: 2rem 0;
+}
+
+.lfContStyle{
+  height: 600px;
+  width: 60vw;
+}
+
+.containerStyle{
+  display: flex;
+  justify-content:space-around;
+  margin: auto;
+  text-align: justify;
+  padding-bottom: 50px;
+}
+
+.describeStyle{
+  width: 40vw;
+  margin: 0 1rem;
+}
+
+.mapLoc {
+  display: flex;
+  flex-direction: column;
+  background-color: #0e549f;
+  color: var(--light-color);
+}
+
+.data-display {
+  display: flex;
+  justify-content: space-around;
+  margin: O;
+
+}

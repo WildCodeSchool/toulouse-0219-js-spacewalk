@@ -1,28 +1,41 @@
 import config from './config';
+import defaultAvatar from './components/images/nasa-audio-cast.jpg';
 
-const toQueryString = object =>
-  Object.keys(object)
-    .map(key => `${key}=${object[key]}`)
-    .join("&");
+const toQueryString = object => Object.keys(object)
+  .map(key => `${key}=${object[key]}`)
+  .join('&');
 
 const transformItem = item => {
   const data = item.data[0];
-  const links = item.links[0];
   const newItem = {
     id: data.nasa_id,
     description: data.description,
     title: data.title,
     type: data.media_type,
-    imgVideo: links.href,
     keywords: [data.keywords],
-    date: data.date_created
+    date: data.date_created,
   };
 
   if (newItem.type === 'image') {
     newItem.thumb = item.links[0].href;
   }
+  if (newItem.type === 'video') {
+    newItem.imgVideo = item.links[0].href;
+  }
+  if (newItem.type === 'audio') {
+    newItem.thumb = defaultAvatar;
+  }
+
   return newItem;
 };
+
+function pageSearch(encodedURI) {
+  return fetch(encodedURI)
+    .then(result => result.json())
+    .then(({ collection: { items, links, metadata } }) => ({
+      items: items.map(transformItem), links, metadata
+    }));
+}
 
 function search({
   audio, video, id, image, query
@@ -51,16 +64,11 @@ function search({
   const uri = `${config.BASE_URL}/search?${toQueryString(queryObject)}`;
 
   const encodedURI = encodeURI(uri);
-
-  return fetch(encodedURI)
-    .then(result => result.json())
-    .then(({ collection: { items } }) => items)
-    .then(items => items.map(transformItem));
+  return pageSearch(encodedURI);
 }
 
 function getAssetImageById(id) {
   const uri = `${config.BASE_URL}/asset/${id}`;
-
   const encodedURI = encodeURI(uri);
 
   return fetch(encodedURI)
@@ -70,8 +78,8 @@ function getAssetImageById(id) {
 
 function getAssetById(id) {
   return Promise.all([getAssetImageById(id), search({ id })]).then(
-    ([href, items]) => ({
-      ...items[0],
+    ([href, results]) => ({
+      ...results.items[0],
       href
     })
   );
@@ -79,5 +87,6 @@ function getAssetById(id) {
 
 export default {
   getAssetById,
-  search
+  search,
+  pageSearch
 };

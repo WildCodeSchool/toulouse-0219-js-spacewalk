@@ -1,5 +1,8 @@
-#footer {
-  background-image: url(./images/header-1.jpg);
+footer {
+  background-image: url(./images/footer.jpg);
+}
+
+#footerLogo  {
   color: #f9fcfd;
   width: 100%;
   padding-top: 30px;
@@ -10,4 +13,17 @@
 .logoFooter {
   width: 100px;
   margin: 30px
+}
+
+.twitter {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.singleTwitter {
+  width: 300px;
+  margin: 10px 10px;
+
 }
